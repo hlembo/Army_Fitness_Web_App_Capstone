@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+{% block title %}ACFT Calculator{% endblock %}
+{% block content %}
+<h1>ACFT Scorecard</h1>
+  <form>
+    <h2>Gender</h2>
+    <label for="gender">Select Gender:</label>
+    <select id="gender" onchange="setSliderValues()">
+      <option value=""></option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <br><br>
+    <h2>Age Group</h2>
+    <label for="age-group">Select Age Group:</label>
+    <select id="age-group" onchange="setSliderValues()">
+      <option value=""></option>
+      <option value="17-21">17-21</option>
+      <option value="22-26">22-26</option>
+      <option value="27-31">27-31</option>
+      <option value="32-36">32-36</option>
+      <option value="37-41">37-41</option>
+      <option value="42-46">42-46</option>
+      <option value="47-51">47-51</option>
+      <option value="52-56">52-56</option>
+      <option value="57-61">57-61</option>
+      <option value="62-66">62-66</option>
+      <option value="67-71">67-71</option>
+      <option value="72-76">72-76</option>
+    </select>
+    <br><br>
+    <form>
+        <div class = "form-group">
+            <div class="eventacft">
+                <label for="deadlift">Deadlift:</label><br>
+                <input type="range" id="deadlift" name="deadlift" min="140" max="340" value="0" oninput="updateScore()"><br>
+                <div id="deadlift-score">0</div>
+              </div>
+              <br>
+              <div class="eventacft">
+                <label for="standing-power-throw">Standing Power Throw:</label><br>
+                <input type="range" id="standing-power-throw" name="standing-power-throw" min="" max=""value="0" oninput="updateScore()"><br>
+                <div id="standing-power-throw-score">0</div>
+              </div>
+              <br>
+              <div class="eventacft">
+                <label for="hand-release-push-up">Hand-Release Push-Up:</label><br>
+                <input type="range" id="hand-release-push-up" name="hand-release-push-up" min="" max="" value="0" oninput="updateScore()"><br>
+                <div id="hand-release-push-up-score">0</div>
+              </div>
+              <br>
+              <div class="eventacft">
+                <label for="sprint-drag-carry">Sprint-Drag-Carry:</label><br>
+                <input type="range" id="sprint-drag-carry" name="sprint-drag-carry" min="" max="" value="0" oninput="updateScore()"><br>
+                <div id="sprint-drag-carry-score">0</div>
+              </div>
+              <br>
+              <div class="eventacft">
+                <label for="plank">Plank:</label><br>
+                <input type="range" id="plank" name="plank" min="" max="" value="0" oninput="updateScore()"><br>
+                <div id="plank-score">0</div>
+              </div>
+              <br>
+              <div class="eventacft">
+                <label for="two-mile-run">Two-Mile Run:</label><br>
+                <input type="range" id="two-mile-run" name="two-mile-run" min="" max="" value="0" oninput="updateScore()"><br>
+                <div id="two-mile-run-score">0</div>
+              </div>
+              <br>
+              <div id="total-score">0</div>
+    </form>
+
+
+
+
+
+
+
+    <!-- hello <h2>Deadlift</h2>
+    <label for="deadlift">Score:</label>
+    <input type="range" min="0" max="500" value="0" class="slider" id="deadlift" name = "deadlift" oninput="updateScore()">
+    <div id="score">0</div>
+    <br><br>
+    <h2>Standing Power Throw</h2>
+    <label for="standing-power-throw">Score:</label>
+    <input type="range" min="0" max="100" value="0" class="slider" id="standing-power-throw">
+    <br><br>
+    <h2>Hand-Release Push-Up</h2>
+    <label for="hand-release-push-up">Score:</label>
+    <input type="range" min="0" max="100" value="0" class="slider" id="hand-release-push-up">
+    <br><br>
+    <h2>Sprint-Drag-Carry</h2>
+    <label for="sprint-drag-carry">Score:</label>
+    <input type="range" min="0" max="100" value="0" class="slider" id="sprint-drag">
+    -->
+    <script>
+        // Get the gender and age group dropdown menus and the sliders
+        var genderMenu = document.getElementById("gender");
+        var ageGroupMenu = document.getElementById("age-group");
+        var deadliftSlider = document.getElementById("deadlift");
+        var standingPowerThrowSlider = document.getElementById("standing-power-throw");
+        var handReleasePushUpSlider = document.getElementById("hand-release-push-up");
+        var sprintDragCarrySlider = document.getElementById("sprint-drag-carry");
+        var plankSlider = document.getElementById("plank");
+        var twoMileRunSlider = document.getElementById("two-mile-run");
+    /*
+        genderMenu.addEventListener("change", function() {
+          if (this.value == "male") {
+            if (ageGroupMenu.value == "17-21") {
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+            } else if (ageGroupMenu.value == "22-26") {
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+              console.log("Hello, World!");
+            } else if (ageGroupMenu.value == "27-31") {
+              // Set minimum and maximum values for sliders according to the ACFT scoring criteria for men in the 27-31 age group
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+              console.log("Hello, World!");
+            } else if (ageGroupMenu.value == "32-36") {
+              // Set minimum and maximum values for sliders according to the ACFT scoring criteria for men in the 32-36 age group
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+              console.log("Hello, World!");
+            }else{
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+              console.log("Hello, World!");
+            }
+          }else if (this.value == "female"){
+            }if (ageGroupMenu.value == "17-21") {
+                deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+                // Set minimum and maximum values for sliders according to the ACFT scoring criteria for women in the 17-21 age group
+            } else if (ageGroupMenu.value == "22-26") {
+                deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+                // Set minimum and maximum values for sliders according to the ACFT scoring criteria for women in the 22-26 age group
+            } else if (ageGroupMenu.value == "27-31") {
+                deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+                // Set minimum and maximum values for sliders according to the ACFT scoring criteria for women in the 27-31 age group
+            } else if (ageGroupMenu.value == "32-36"){
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "210";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "8.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+
+            }else{
+              deadliftSlider.min = "140";
+              deadliftSlider.max = "340";
+              standingPowerThrowSlider.min = "6.0";
+              standingPowerThrowSlider.max = "12.6";
+              handReleasePushUpSlider.min = "10";
+              handReleasePushUpSlider.max = "57";
+              sprintDragCarrySlider.min = "0";
+              sprintDragCarrySlider.max = "148";
+              plankSlider.min = "0";
+              plankSlider.max = "100";
+              twoMileRunSlider.min = "0";
+              twoMileRunSlider.max = "100";
+
+            }
+             
+    });
+        */
+
+        function setSliderValues() {
+            // Get the selected gender and age group options
+            var gender = genderMenu.value;
+            var ageGroup = ageGroupMenu.value;
+
+            if(gender == "female"){
+                if (ageGroup == "17-21") {
+                    deadliftSlider.min = "1";
+                    deadliftSlider.max = "2";
+                    standingPowerThrowSlider.min = "0";
+                    standingPowerThrowSlider.max = "1";
+                    handReleasePushUpSlider.min = "0";
+                    handReleasePushUpSlider.max = "1";
+                    sprintDragCarrySlider.min = "0";
+                    sprintDragCarrySlider.max = "1";
+                    plankSlider.min = "0";
+                    plankSlider.max = "3";
+                    twoMileRunSlider.min = "0";
+                    twoMileRunSlider.max = "1";
+                }
+            }
+
+            if (gender == "male") {
+                if (ageGroup == "17-21") {
+                    deadliftSlider.min = "140";
+                    deadliftSlider.max = "340";
+                    standingPowerThrowSlider.min = "0";
+                    standingPowerThrowSlider.max = "100";
+                    handReleasePushUpSlider.min = "0";
+                    handReleasePushUpSlider.max = "100";
+                    sprintDragCarrySlider.min = "0";
+                    sprintDragCarrySlider.max = "100";
+                    plankSlider.min = "0";
+                    plankSlider.max = "360";
+                    twoMileRunSlider.min = "0";
+                    twoMileRunSlider.max = "100";
+                }else if(ageGroup == "22-26"){
+                    deadliftSlider.min = "0";
+                    deadliftSlider.max = "210";
+                    standingPowerThrowSlider.min = "0";
+                    standingPowerThrowSlider.max = "1";
+                    handReleasePushUpSlider.min = "0";
+                    handReleasePushUpSlider.max = "2";
+                    sprintDragCarrySlider.min = "0";
+                    sprintDragCarrySlider.max = "3";
+                    plankSlider.min = "0";
+                    plankSlider.max = "4";
+                    twoMileRunSlider.min = "0";
+                    twoMileRunSlider.max = "5";
+                }
+              
+        } 
+    }  
+    </script>
+    <script>
+        function updateScore() {
+          // Get the sliders and score divs
+          var deadliftSlider = document.getElementById("deadlift");
+          var standingPowerThrowSlider = document.getElementById("standing-power-throw");
+          var handReleasePushUpSlider = document.getElementById("hand-release-push-up");
+          var sprintDragCarrySlider = document.getElementById("sprint-drag-carry");
+          var plankSlider = document.getElementById("plank");
+          var twoMileRunSlider = document.getElementById("two-mile-run");
+          var deadliftScoreDiv = document.getElementById("deadlift-score");
+          var standingPowerThrowScoreDiv = document.getElementById("standing-power-throw-score");
+          var handReleasePushUpScoreDiv = document.getElementById("hand-release-push-up-score");
+          var sprintDragCarryScoreDiv = document.getElementById("sprint-drag-carry-score");
+          var plankScoreDiv = document.getElementById("plank-score");
+          var twoMileRunScoreDiv = document.getElementById("two-mile-run-score");
+          var totalScoreDiv = document.getElementById("total-score");
+      
+          // Update the score divs with the values of the sliders
+          deadliftScoreDiv.innerHTML = deadliftSlider.value;
+          standingPowerThrowScoreDiv.innerHTML = standingPowerThrowSlider.value;
+          handReleasePushUpScoreDiv.innerHTML = handReleasePushUpSlider.value;
+          sprintDragCarryScoreDiv.innerHTML = formatTime(sprintDragCarrySlider.value);
+          plankScoreDiv.innerHTML = plankSlider.value;
+          twoMileRunScoreDiv.innerHTML = twoMileRunSlider.value;
+      
+          // Calculate the total score
+          var totalScore = parseInt(deadliftSlider.value) + parseInt(standingPowerThrowSlider.value) + parseInt(handReleasePushUpSlider.value) + parseInt(sprintDragCarrySlider.value) + parseInt(plankSlider.value) + parseInt(twoMileRunSlider.value);
+      
+          // Update the total score div
+          totalScoreDiv.innerHTML = totalScore;
+        }
+        function formatTime(seconds) {
+            // Calculate the minutes and seconds from the total number of seconds
+            var minutes = Math.floor(seconds / 60);
+            seconds = seconds % 60;
+
+            // Format
+            return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        }
+      </script>
+      
+    
+{% endblock %}
