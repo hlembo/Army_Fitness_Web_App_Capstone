@@ -35,38 +35,42 @@
                 <label for="deadlift">Deadlift:</label><br>
                 <input type="range" id="deadlift" name="deadlift" min="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="deadlift-score" onchange = "setAcftScore()">0</div>
-                <div id="deadlift-scoree">0</div>
+                <div id="deadlift-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="standing-power-throw">Standing Power Throw:</label><br>
                 <input type="range" id="standing-power-throw" name="standing-power-throw" step = "0.1" min="0" min="0"value="0" oninput="updateScore()"><br>
                 <div id="standing-power-throw-score">0</div>
+                <div id="standing-power-throw-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="hand-release-push-up">Hand-Release Push-Up:</label><br>
                 <input type="range" id="hand-release-push-up" name="hand-release-push-up" min="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="hand-release-push-up-score">0</div>
-                
+                <div id="hand-release-push-up-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="sprint-drag-carry">Sprint-Drag-Carry:</label><br>
                 <input type="range" id="sprint-drag-carry" name="sprint-drag-carry" min="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="sprint-drag-carry-score">0</div>
+                <div id="sprint-drag-carry-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="plank">Plank:</label><br>
                 <input type="range" id="plank" name="plank" min="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="plank-score">0</div>
+                <div id="plank-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="two-mile-run">Two-Mile Run:</label><br>
                 <input type="range" id="two-mile-run" name="two-mile-run" min="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="two-mile-run-score">0</div>
+                <div id="two-mile-run-score2">0</div>
               </div>
               <br>
               <div id="total-score">0</div>
@@ -282,39 +286,954 @@
           var totalScoreDiv = document.getElementById("total-score");
           var genderMenu = document.getElementById("gender");
           var ageGroupMenu = document.getElementById("age-group");
-          var deadliftscoree = document.getElementById("deadlift-scoree");
+          var deadliftscore2 = document.getElementById("deadlift-score2");
+          var spt = document.getElementById("standing-power-throw-score2");
+          var hrp = document.getElementById("hand-release-push-up-score2");
+          
           var gender = genderMenu.value;
           var ageGroup = ageGroupMenu.value;  
-          /* This works to update points however you can create your own script again and then inside there pass these items in
-          once that is done you need to make sure that wherever updateScore() is currently place you also add fucntion -> x to that specific 
-          oninput = acftscore() this will then get called and you need to add in all the vars above in order for this to 
-          fucntion correclty.
+          
             if(gender == "female"){
                 if (ageGroup == "17-21") {
-                  if(deadliftSlider.value == 120 || deadliftSlider.value < 130 ){
-                    deadliftscoree.innerHTML = 60;
-                  }else if (deadliftSlider.value == 130 || deadliftSlider.value < 140 ){
-                    deadliftscoree.innerHTML = 64;
-                  }else if(deadliftSlider.value == 140 || deadliftSlider.value < 150 ){
-                    deadliftscoree.innerHTML = 71;
-                  }else if(deadliftSlider.value == 150 || deadliftSlider.value < 160){
-                    deadliftscoree.innerHTML = 78;
-                  }else if(deadliftSlider.value == 160 || deadliftSlider.value < 170){
-                    deadliftscoree.innerHTML = 87;
-                  }else if(deadliftSlider.value == 170 || deadliftSlider.value < 180){
-                    deadliftscoree.innerHTML = 91;
-                  }else if(deadliftSlider.value == 180 || deadliftSlider.value < 190){
-                    deadliftscoree.innerHTML = 94;
-                  }else if(deadliftSlider.value == 190 || deadliftSlider.value < 200){
-                    deadliftscoree.innerHTML = 97;
-                  }else if(deadliftSlider.value == 200 || deadliftSlider.value < 210){
-                    deadliftscoree.innerHTML = 98;
-                  }else{
-                    deadliftscoree.innerHTML = 100;
-                  }
+                  const deadliftScores = {
+                    120: 60,
+                    130: 64,
+                    140: 71,
+                    150: 78,
+                    160: 87,
+                    170: 91,
+                    180: 94,
+                    190: 97,
+                    200: 98,
+                    210: 100,
+                  };
+
+                    // To look up the score for a given value:
+                  const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                  deadliftscore2.innerHTML = deadliftscore;
+                  //Standing Power Throw checking
+                  const standingPowerThrowScores = {
+                            3.9: 60,
+                            4.0: 60,
+                            4.1: 60,
+                            4.2: 60,
+                            4.3: 60,
+                            4.4: 61,
+                            4.5: 61,
+                            4.6: 62,
+                            4.7: 63,
+                            4.8: 65,
+                            4.9: 66,
+                            5.0: 68,
+                            5.1: 68,
+                            5.2: 69,
+                            5.3: 71,
+                            5.4: 74,
+                            5.5: 75,
+                            5.6: 76,
+                            5.7: 78,
+                            5.8: 80,
+                            5.9: 81,
+                            6.0: 83,
+                            6.1: 85,
+                            6.2: 86,
+                            6.3: 87,
+                            6.4: 88,
+                            6.5: 90,
+                            6.6: 91,
+                            6.7: 91,
+                            6.8: 92,
+                            6.9: 93,
+                            7.0: 94,
+                            7.1: 94,
+                            7.2: 95,
+                            7.3: 96,
+                            7.4: 96,
+                            7.5: 97,
+                            7.6: 97,
+                            7.7: 98,
+                            7.8: 98,
+                            7.9: 98,
+                            8.0: 98,
+                            8.1: 98,
+                            8.2: 99,
+                            8.3: 99,
+                            8.4: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                              10:60,
+                              11:61,
+                              12:62,
+                              13:64,
+                              14:65,
+                              15:66,
+                              16:68,
+                              17:69,
+                              18:70,
+                              19:71,
+                              20:72,
+                              21:74,
+                              22:75,
+                              23:76,
+                              24:77,
+                              25:78,
+                              26:79,
+                              27:80,
+                              28:82,
+                              29:83,
+                              30:84,
+                              31:85,
+                              32:86,
+                              33:87,
+                              34:88,
+                              35:89,
+                              36:90,
+                              37:91,
+                              38:92,
+                              39:94,
+                              42:95,
+                              43:96,
+                              45:97,
+                              47:98,
+                              50:99,
+                              53:100,      
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+            }else if (ageGroup == "22-26"){
+              const deadliftScores = {
+                  120: 60,
+                  130: 64,
+                  140: 71,
+                  150: 78,
+                  160: 87,
+                  170: 89,
+                  180: 91,
+                  190: 94,
+                  200: 96,
+                  210: 98,
+                  220: 99,
+                  230: 100,
+                };
+  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+
+                const standingPowerThrowScores = {
+                            4.0: 60,
+                            4.1: 60,
+                            4.2: 60,
+                            4.3: 60,
+                            4.4: 61,
+                            4.5: 61,
+                            4.6: 62,
+                            4.7: 63,
+                            4.8: 64,
+                            4.9: 65,
+                            5.0: 66,
+                            5.1: 67,
+                            5.2: 69,
+                            5.3: 71,
+                            5.4: 72,
+                            5.5: 74,
+                            5.6: 75,
+                            5.7: 76,
+                            5.8: 79,
+                            5.9: 80,
+                            6.0: 81,
+                            6.1: 83,
+                            6.2: 84,
+                            6.3: 85,
+                            6.4: 86,
+                            6.5: 87,
+                            6.6: 88,
+                            6.7: 89,
+                            6.8: 90,
+                            6.9: 91,
+                            7.0: 92,
+                            7.1: 93,
+                            7.2: 94,
+                            7.3: 94,
+                            7.4: 95,
+                            7.5: 96,
+                            7.6: 97,
+                            7.7: 97,
+                            7.8: 98,
+                            7.9: 98,
+                            8.0: 98,
+                            8.1: 98,
+                            8.2: 99,
+                            8.3: 99,
+                            8.4: 99,
+                            8.4: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                      10:60,
+                      11:62,
+                      12:65,
+                      13:68,
+                      14:69,
+                      15:70,
+                      16:71,
+                      17:72,
+                      18:74,
+                      19:76,
+                      21:77,
+                      22:78,
+                      23:79,
+                      24:82,
+                      25:83,
+                      26:84,
+                      27:85,
+                      28:86,
+                      30:87,
+                      31:88,
+                      32:89,
+                      33:90,
+                      34:91,
+                      35:92,
+                      36:93,
+                      37:94,
+                      39:95,
+                      42:96,
+                      43:97,
+                      46:98,
+                      49:99,
+                      50:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+
+
+                  
+
+            }else if (ageGroup == "27-31"){
+              const deadliftScores = {
+                    120: 60,
+                    130: 64,
+                    140: 71,
+                    150: 79,
+                    160: 86,
+                    170: 89,
+                    180: 91,
+                    190: 94,
+                    200: 95,
+                    210: 98,
+                    220: 99,
+                    230: 100
+                  };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+
+                const standingPowerThrowScores = {
+                            4.2: 60,
+                            4.3: 60,
+                            4.4: 60,
+                            4.5: 61,
+                            4.6: 61,
+                            4.7: 62,
+                            4.8: 63,
+                            4.9: 64,
+                            5.0: 65,
+                            5.1: 67,
+                            5.2: 68,
+                            5.3: 70,
+                            5.4: 71,
+                            5.5: 72,
+                            5.6: 74,
+                            5.7: 76,
+                            5.8: 77,
+                            5.9: 79,
+                            6.0: 79,
+                            6.1: 80,
+                            6.2: 81,
+                            6.3: 83,
+                            6.4: 84,
+                            6.5: 86,
+                            6.6: 87,
+                            6.7: 88,
+                            6.8: 89,
+                            6.9: 90,
+                            7.0: 91,
+                            7.1: 92,
+                            7.2: 93,
+                            7.3: 94,
+                            7.4: 94,
+                            7.5: 95,
+                            7.6: 95,
+                            7.7: 96,
+                            7.8: 96,
+                            7.9: 96,
+                            8.0: 97,
+                            8.1: 97,
+                            8.2: 98,
+                            8.3: 98,
+                            8.4: 98,
+                            8.4: 98,
+                            8.5: 99,
+                            8.6: 99,
+                            8.7: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+                  const handReleasePushupScores = {
+                              10:60,
+                              11:63,
+                              12:65,
+                              13:68,
+                              14:70,
+                              15:72,
+                              16:74,
+                              17:76,
+                              18:77,
+                              19:78,
+                              20:79,
+                              21:80,
+                              22:82,
+                              23:83,
+                              24:84,
+                              25:86,
+                              26:87,
+                              27:88,
+                              28:89,
+                              30:90,
+                              32:91,
+                              33:92,
+                              34:93,
+                              35:94,
+                              36:95,
+                              38:96,
+                              39:97,
+                              42:98,
+                              45:99,
+                              48:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+
+            }else if (ageGroup == "32-36"){
+              const deadliftLookupTable = {
+                  120: 60,
+                  130: 64,
+                  140: 71,
+                  150: 79,
+                  160: 88,
+                  170: 91,
+                  180: 93,
+                  190: 95,
+                  200: 96,
+                  210: 98,
+                  220: 99,
+                  230: 100
+                }
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                            4.1: 60,
+                            4.2: 60,
+                            4.3: 60,
+                            4.4: 61,
+                            4.5: 61,
+                            4.6: 61,
+                            4.7: 62,
+                            4.8: 63,
+                            4.9: 64,
+                            5.0: 65,
+                            5.1: 67,
+                            5.2: 68,
+                            5.3: 70,
+                            5.4: 71,
+                            5.5: 73,
+                            5.6: 74,
+                            5.7: 76,
+                            5.8: 78,
+                            5.9: 80,
+                            6.0: 81,
+                            6.1: 82,
+                            6.2: 83,
+                            6.3: 85,
+                            6.4: 87,
+                            6.5: 88,
+                            6.6: 88,
+                            6.7: 89,
+                            6.8: 90,
+                            6.9: 91,
+                            7.0: 92,
+                            7.1: 93,
+                            7.2: 93,
+                            7.3: 94,
+                            7.4: 95,
+                            7.5: 95,
+                            7.6: 96,
+                            7.7: 96,
+                            7.8: 97,
+                            7.9: 97,
+                            8.0: 98,
+                            8.1: 98,
+                            8.2: 98,
+                            8.3: 98,
+                            8.4: 99,
+                            8.4: 99,
+                            8.5: 99,
+                            8.6: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                            10:60,
+                            11:64,
+                            12:66,
+                            13:70,
+                            14:72,
+                            15:73,
+                            16:74,
+                            17:75,
+                            18:78,
+                            19:80,
+                            22:81,
+                            23:83,
+                            24:85,
+                            25:87,
+                            26:88,
+                            28:89,
+                            30:90,
+                            31:91,
+                            32:92,
+                            34:93,
+                            35:94,
+                            36:95,
+                            37:96,
+                            40:97,
+                            43:98,
+                            46:99,
+                            47:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+
+            }else if (ageGroup == "37-41"){
+              const deadliftLookupTable = {
+                  120: 60,
+                  130: 65,
+                  140: 71,
+                  150: 79,
+                  160: 90,
+                  170: 93,
+                  180: 95,
+                  190: 97,
+                  200: 99,
+                  210: 100
+                };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+              
+                const standingPowerThrowScores = {
+                            4.1: 60,
+                            4.2: 60,
+                            4.3: 60,
+                            4.4: 61,
+                            4.5: 62,
+                            4.6: 63,
+                            4.7: 64,
+                            4.8: 65,
+                            4.9: 67,
+                            5.0: 68,
+                            5.1: 69,
+                            5.2: 72,
+                            5.3: 73,
+                            5.4: 75,
+                            5.5: 76,
+                            5.6: 78,
+                            5.7: 80,
+                            5.8: 82,
+                            5.9: 83,
+                            6.0: 84,
+                            6.1: 86,
+                            6.2: 87,
+                            6.3: 88,
+                            6.4: 90,
+                            6.5: 91,
+                            6.6: 88,
+                            6.7: 93,
+                            6.8: 94,
+                            6.9: 94,
+                            7.0: 95,
+                            7.1: 95,
+                            7.2: 96,
+                            7.3: 97,
+                            7.4: 97,
+                            7.5: 98,
+                            7.6: 98,
+                            7.7: 98,
+                            7.8: 98,
+                            7.9: 98,
+                            8.0: 99,
+                            8.1: 99,
+                            8.2: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                              10:60,
+                              11:67,
+                              12:72,
+                              13:76,
+                              14:78,
+                              15:79,
+                              16:80,
+                              17:82,
+                              18:83,
+                              19:84, 
+                              20:86, 
+                              21:88,
+                              22:90,
+                              23:91,
+                              26:92,
+                              27:93,
+                              28:94,
+                              31:95,
+                              33:96,
+                              34:97,
+                              36:98,
+                              39:99,
+                              41:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+
+            }else if (ageGroup == "42-46"){
+              const deadliftScores = {
+                  120: 60,
+                  130: 65,
+                  140: 72,
+                  150: 79,
+                  160: 90,
+                  170: 95,
+                  180: 96,
+                  190: 98,
+                  200: 99,
+                  210: 100
+                }
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+                //To be continued
+                const standingPowerThrowScores = {
+                            3.9: 60,
+                            4.0: 60,
+                            4.1: 60,
+                            4.2: 61,
+                            4.3: 61,
+                            4.4: 61,
+                            4.5: 62,
+                            4.6: 63,
+                            4.7: 65,
+                            4.8: 65,
+                            4.9: 66,
+                            5.0: 67,
+                            5.1: 68,
+                            5.2: 73,
+                            5.3: 74,
+                            5.4: 76,
+                            5.5: 77,
+                            5.6: 79,
+                            5.7: 80,
+                            5.8: 83,
+                            5.9: 84,
+                            6.0: 86,
+                            6.1: 87,
+                            6.2: 88,
+                            6.3: 89,
+                            6.4: 90,
+                            6.5: 91,
+                            6.6: 92,
+                            6.7: 93,
+                            6.8: 94,
+                            6.9: 95,
+                            7.0: 96,
+                            7.1: 96,
+                            7.2: 97,
+                            7.3: 97,
+                            7.4: 98,
+                            7.5: 98,
+                            7.6: 98,
+                            7.7: 98,
+                            7.8: 98,
+                            7.9: 99,
+                            8.0: 99,
+                            8.1: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                          10:60,
+                          11:67,
+                          12:73, 
+                          13:79,
+                          14:81, 
+                          15:83,
+                          16:85,
+                          17:86,
+                          18:87,
+                          19:88,
+                          20:90,
+                          21:91,
+                          22:92,
+                          23:93,
+                          24:94,
+                          26:95,
+                          28:96,
+                          30:97,
+                          31:98,
+                          34:99,
+                          36:100
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+            }else if (ageGroup == "47-51"){
+              const deadliftScores = {
+                  120: 60,
+                  130: 67,
+                  140: 73,
+                  150: 79,
+                  160: 90,
+                  170: 95,
+                  180: 96,
+                  190: 98,
+                  200: 99,
+                  210: 100
+                };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                            3.7: 60,
+                            3.8: 60,
+                            3.9: 60,
+                            4.0: 60,
+                            4.1: 61,
+                            4.2: 62,
+                            4.3: 62,
+                            4.4: 63,
+                            4.5: 64,
+                            4.6: 67,
+                            4.7: 68,
+                            4.8: 69,
+                            4.9: 71,
+                            5.0: 73,
+                            5.1: 75,
+                            5.2: 78,
+                            5.3: 80,
+                            5.4: 81,
+                            5.5: 83,
+                            5.6: 85,
+                            5.7: 86,
+                            5.8: 87,
+                            5.9: 89,
+                            6.0: 90,
+                            6.1: 91,
+                            6.2: 94,
+                            6.3: 94,
+                            6.4: 95,
+                            6.5: 96,
+                            6.6: 96,
+                            6.7: 96,
+                            6.8: 97,
+                            6.9: 97,
+                            7.0: 97,
+                            7.1: 98,
+                            7.2: 98,
+                            7.3: 98,
+                            7.4: 98,
+                            7.5: 98,
+                            7.6: 99,
+                            7.7: 99,
+                            7.8: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+
+                  const handReleasePushupScores = {
+                      10:60,
+                      11:67,
+                      12:74,
+                      13:81,
+                      14:83,
+                      15:84,
+                      16:85,
+                      17:86,
+                      18:88,
+                      19:89,
+                      20:90,
+                      21:91,
+                      22:92,
+                      23:93,
+                      24:94,
+                      25:95,
+                      27:96,
+                      30:97,
+                      31:98,
+                      34:99,
+                      35:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+            }else if (ageGroup == "52-56"){
+              const deadliftLookupTable = {
+                  120: 60,
+                  130: 70,
+                  140: 80,
+                  150: 90,
+                  160: 97,
+                  170: 98,
+                  180: 99,
+                  190: 100
+                };
+
+              const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+              deadliftscore2.innerHTML = deadliftscore;
+              const standingPowerThrowScores = {
+                            3.5: 60,
+                            3.6: 60,
+                            3.7: 60,
+                            3.8: 60,
+                            3.9: 61,
+                            4.0: 61,
+                            4.1: 62,
+                            4.2: 62,
+                            4.3: 65,
+                            4.4: 67,
+                            4.5: 68,
+                            4.6: 70,
+                            4.7: 72,
+                            4.8: 73,
+                            4.9: 75,
+                            5.0: 77,
+                            5.1: 79,
+                            5.2: 82,
+                            5.3: 83,
+                            5.4: 85,
+                            5.5: 87,
+                            5.6: 89,
+                            5.7: 91,
+                            5.8: 92,
+                            5.9: 93,
+                            6.0: 94,
+                            6.1: 95,
+                            6.2: 96,
+                            6.3: 96,
+                            6.4: 96,
+                            6.5: 97,
+                            6.6: 98,
+                            6.7: 98,
+                            6.8: 98,
+                            6.9: 98,
+                            7.0: 98,
+                            7.1: 99,
+                            7.2: 99,
+                            7.3: 99,
+                            7.4: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+                  const handReleasePushupScores = {
+                              10:60,
+                              11:67,
+                              12:74,
+                              13:82,
+                              14:85,
+                              15:87,
+                              16:88,
+                              17:90,
+                              18:91,
+                              19:92,
+                              20:93,
+                              22:94,
+                              23:95,
+                              24:96,
+                              25:97,
+                              26:98,
+                              28:99,
+                              30:100,
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+                              
+            }else if (ageGroup == "57-61"){
+              const deadliftScores = {
+                  120: 60,
+                  130: 71,
+                  140: 80,
+                  150: 90,
+                  160: 99,
+                  170: 99,
+                };
+              const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+              deadliftscore2.innerHTML = deadliftscore;
+              const standingPowerThrowScores = {
+                            3.4: 60,
+                            3.5: 60,
+                            3.6: 61,
+                            3.7: 61,
+                            3.8: 62,
+                            3.9: 63,
+                            4.0: 64,
+                            4.1: 65,
+                            4.2: 66,
+                            4.3: 67,
+                            4.4: 68,
+                            4.5: 69,
+                            4.6: 71,
+                            4.7: 71,
+                            4.8: 72,
+                            4.9: 75,
+                            5.0: 77,
+                            5.1: 80,
+                            5.2: 84,
+                            5.3: 87,
+                            5.4: 89,
+                            5.5: 90,
+                            5.6: 91,
+                            5.7: 92,
+                            5.8: 93,
+                            5.9: 94,
+                            6.0: 95,
+                            6.1: 96,
+                            6.2: 97,
+                            6.3: 98,
+                            6.4: 99,
+                            6.5: 99,
+                            6.6: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+                  const handReleasePushupScores = {
+                            10:60,
+                            11:67,
+                            12:77,
+                            13:84,
+                            14:89,
+                            15:90,
+                            16:91,
+                            17:92,
+                            18:94,
+                            19:95,
+                            20:96,
+                            21:97,
+                            22:98,
+                            23:99,
+                            24:100
+                    };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
+                             
+            }else{
+              const deadliftScores = {
+                  120: 60,
+                  130: 72,
+                  140: 80,
+                  150: 90,
+                  160: 99,
+                  170: 99,
+                };
+              const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+              deadliftscore2.innerHTML = deadliftscore;
+              const standingPowerThrowScores = {
+                            3.4: 60,
+                            3.5: 60,
+                            3.6: 61,
+                            3.7: 61,
+                            3.8: 62,
+                            3.9: 63,
+                            4.0: 64,
+                            4.1: 65,
+                            4.2: 66,
+                            4.3: 67,
+                            4.4: 68,
+                            4.5: 69,
+                            4.6: 71,
+                            4.7: 71,
+                            4.8: 72,
+                            4.9: 75,
+                            5.0: 77,
+                            5.1: 80,
+                            5.2: 84,
+                            5.3: 87,
+                            5.4: 89,
+                            5.5: 90,
+                            5.6: 91,
+                            5.7: 92,
+                            5.8: 93,
+                            5.9: 94,
+                            6.0: 95,
+                            6.1: 96,
+                            6.2: 97,
+                            6.3: 98,
+                            6.4: 99,
+                            6.5: 99,
+                            6.6: 100,
+                            // ... more ranges and scores
+                    };
+
+                  // To look up the score for a given value:
+                  const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                  spt.innerHTML = standingscore;
+                  const handReleasePushupScores = {
+                    10:60,
+                    11:69,
+                    12:79,
+                    13:86,
+                    14:89,
+                    15:90,
+                    16:91,
+                    17:92,
+                    18:94,
+                    19:95,
+                    20:96,
+                    21:97,
+                    22:98,
+                    23:99,
+                    24:100
+                                        };
+                  const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                  hrp.innerHTML = handreleasescore;
             }
           }
-          */
+          
           // Update the score divs with the values of the sliders
           deadliftScoreDiv.innerHTML = deadliftSlider.value;
           standingPowerThrowScoreDiv.innerHTML = parseFloat(standingPowerThrowSlider.value).toFixed(1);
