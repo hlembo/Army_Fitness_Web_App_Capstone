@@ -154,34 +154,141 @@ function setSliderValues() {
     }
 
     if (gender == "male") {
-      //TODO: IMPLEMENT ALL THE REST OF THE SCORING MECHANISM FOR MALES
         if (ageGroup == "17-21") {
             deadliftSlider.min = "140";
-            deadliftSlider.min = "340";
-            standingPowerThrowSlider.min = "0";
-            standingPowerThrowSlider.min = "100";
-            handReleasePushUpSlider.min = "0";
-            handReleasePushUpSlider.min = "100";
-            sprintDragCarrySlider.max = "0";
-            sprintDragCarrySlider.min = "100";
-            plankSlider.min = "0";
-            plankSlider.min = "360";
-            twoMileRunSlider.min = "-0";
-            twoMileRunSlider.min = "-100";
+            deadliftSlider.max = "340";
+            standingPowerThrowSlider.min = "6";
+            standingPowerThrowSlider.max = "12.6";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "57";
+            sprintDragCarrySlider.max = "-89";
+            sprintDragCarrySlider.min = "-148";
+            plankSlider.min = "90";
+            plankSlider.max = "220";
+            twoMileRunSlider.max = "-802";
+            twoMileRunSlider.min = "-1320";
         }else if(ageGroup == "22-26"){
-            deadliftSlider.min = "0";
-            deadliftSlider.min = "210";
-            standingPowerThrowSlider.min = "0";
-            standingPowerThrowSlider.min = "1";
-            handReleasePushUpSlider.min = "0";
-            handReleasePushUpSlider.min = "2";
-            sprintDragCarrySlider.max = "0";
-            sprintDragCarrySlider.min = "3";
-            plankSlider.min = "0";
-            plankSlider.min = "4";
-            twoMileRunSlider.min = "-0";
-            twoMileRunSlider.min = "-5";
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "340";
+            standingPowerThrowSlider.min = "6.3";
+            standingPowerThrowSlider.max = "13";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "61";
+            sprintDragCarrySlider.max = "-90";
+            sprintDragCarrySlider.min = "-151";
+            plankSlider.min = "85";
+            plankSlider.max = "215";
+            twoMileRunSlider.max = "-807";
+            twoMileRunSlider.min = "-1320";
+            
+        }else if(ageGroup == "27-31"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max ="340";
+            standingPowerThrowSlider.min = "6.5";
+            standingPowerThrowSlider.max = "13.1";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "62";
+            sprintDragCarrySlider.max = "-90";
+            sprintDragCarrySlider.min = "-152";
+            plankSlider.min = "80";
+            plankSlider.max = "210";
+            twoMileRunSlider.max = "-811";
+            twoMileRunSlider.min = "-1320";
+           
+        }else if(ageGroup == "32-36"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "340";
+            standingPowerThrowSlider.min = "6.5";
+            standingPowerThrowSlider.max = "12.9";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "60";
+            sprintDragCarrySlider.max = "-93";
+            sprintDragCarrySlider.min = "-156";
+            plankSlider.min = "75";
+            plankSlider.max = "205";
+            twoMileRunSlider.max = "-822";
+            twoMileRunSlider.min = "-1320";
+        }else if(ageGroup == "37-41"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "340";
+            standingPowerThrowSlider.min = "6.4";
+            standingPowerThrowSlider.max = "12.8";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "59";
+            sprintDragCarrySlider.max = "-96";
+            sprintDragCarrySlider.min = "-161";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-838";
+            twoMileRunSlider.min = "-1331";
+        }else if(ageGroup == "42-46"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "340";
+            standingPowerThrowSlider.min = "6.2";
+            standingPowerThrowSlider.max = "12.3";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "56";
+            sprintDragCarrySlider.max = "-100";
+            sprintDragCarrySlider.min = "-165";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-845";
+            twoMileRunSlider.min = "-1352";
+        }else if(ageGroup == "47-51"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "330";
+            standingPowerThrowSlider.min = "6";
+            standingPowerThrowSlider.max = "11.6";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "55";
+            sprintDragCarrySlider.max = "-105";
+            sprintDragCarrySlider.min = "-173";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-870";
+            twoMileRunSlider.min = "-1352";
+        }else if(ageGroup == "52-56"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "290";
+            standingPowerThrowSlider.min = "5.7";
+            standingPowerThrowSlider.max = "10.6";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "51";
+            sprintDragCarrySlider.max = "-112";
+            sprintDragCarrySlider.min = "-180";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-909";
+            twoMileRunSlider.min = "-1400";
+        }else if(ageGroup == "57-61"){
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "250";
+            standingPowerThrowSlider.min = "5.3";
+            standingPowerThrowSlider.max = "9.9";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "46";
+            sprintDragCarrySlider.max = "-118";
+            sprintDragCarrySlider.min = "-192";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-928";
+            twoMileRunSlider.min = "-1416";
+        }else{
+            deadliftSlider.min = "140";
+            deadliftSlider.max = "230";
+            standingPowerThrowSlider.min = "4.9";
+            standingPowerThrowSlider.max = "9";
+            handReleasePushUpSlider.min = "10"
+            handReleasePushUpSlider.max = "43";
+            sprintDragCarrySlider.max = "-129";
+            sprintDragCarrySlider.min = "-196";
+            plankSlider.min = "70";
+            plankSlider.max = "200";
+            twoMileRunSlider.max = "-928";
+            twoMileRunSlider.min = "-1416";
+       
         }
+        
       
     } 
 }  
