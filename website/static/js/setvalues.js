@@ -154,6 +154,7 @@ function setSliderValues() {
     }
 
     if (gender == "male") {
+      //TODO: IMPLEMENT ALL THE REST OF THE SCORING MECHANISM FOR MALES
         if (ageGroup == "17-21") {
             deadliftSlider.min = "140";
             deadliftSlider.max = "340";
@@ -288,7 +289,6 @@ function setSliderValues() {
             twoMileRunSlider.min = "-1416";
        
         }
-        
       
     } 
 }  

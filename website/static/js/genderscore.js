@@ -2399,8 +2399,698 @@ function updateScore() {
     }else{
         if (gender == "male") {
             if (ageGroup == "17-21") {
-                //TODO IMPLEMENT CODE THAT HAS ALL MALE STATS
+                const deadliftScores = {
+                    140: 60,
+                    150: 61,
+                    160: 64,
+                    170: 67,
+                    180: 68,
+                    190: 69,
+                    200: 72,
+                    210: 74,
+                    220: 77,
+                    230: 79,
+                    240: 82,
+                    250: 83,
+                    260: 84,
+                    270: 87,
+                    280: 90,
+                    290: 91,
+                    300: 93,
+                    310: 95,
+                    330: 97,
+                    340: 100
+                  };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+                
 
+
+            }else if(ageGroup == "22-26") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 61,
+                    160: 65,
+                    170: 67,
+                    180: 69,
+                    190: 70,
+                    200: 71,
+                    210: 73,
+                    220: 75,
+                    230: 77,
+                    240: 79,
+                    250: 81,
+                    260: 84,
+                    270: 86,
+                    280: 88,
+                    290: 89,
+                    310: 90,
+                    320: 92,
+                    330: 99,
+                    340: 100
+                  };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "27-31") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 63,
+                    160: 65,
+                    170: 68,
+                    180: 69,
+                    190: 70,
+                    200: 71,
+                    210: 73,
+                    220: 75,
+                    230: 77,
+                    240: 79,
+                    250: 81,
+                    260: 84,
+                    270: 85,
+                    280: 87,
+                    290: 88,
+                    300: 89,
+                    310: 90,
+                    320: 91,
+                    330: 99,
+                    340: 100
+                  };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "32-36") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 66,
+                    160: 68,
+                    170: 69,
+                    180: 70,
+                    190: 71,
+                    200: 73,
+                    210: 75,
+                    220: 77,
+                    230: 79,
+                    240: 81,
+                    250: 83,
+                    260: 85,
+                    270: 87,
+                    280: 88,
+                    290: 89,
+                    300: 90,
+                    310: 91,
+                    320: 93,
+                    330: 99,
+                    340: 100
+                  };
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "37-41") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 66,
+                    160: 68,
+                    170: 69,
+                    180: 70,
+                    190: 71,
+                    200: 73,
+                    210: 75,
+                    220: 77,
+                    230: 79,
+                    240: 81,
+                    250: 83,
+                    260: 85,
+                    270: 87,
+                    280: 88,
+                    290: 89,
+                    300: 90,
+                    310: 91,
+                    320: 93,
+                    330: 99,
+                    340: 100
+                  };
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "42-46") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 69,
+                    160: 73,
+                    170: 75,
+                    180: 76,
+                    190: 77,
+                    200: 79,
+                    210: 81,
+                    220: 84,
+                    230: 85,
+                    240: 87,
+                    250: 89,
+                    260: 91,
+                    270: 92,
+                    280: 93,
+                    290: 94,
+                    300: 95,
+                    310: 96,
+                    320: 97,
+                    330: 99,
+                    340: 100
+                  };
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "47-51") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 70,
+                    160: 78,
+                    170: 80,
+                    180: 81,
+                    190: 83,
+                    200: 85,
+                    210: 87,
+                    220: 89,
+                    230: 90,
+                    240: 91,
+                    250: 92,
+                    260: 93,
+                    270: 94,
+                    280: 95,
+                    290: 96,
+                    300: 97,
+                    310: 98,
+                    320: 99,
+                    330: 100
+                  };
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if(ageGroup == "52-56") {
+                const deadliftScores = {
+                    140: 60,
+                    150: 70,
+                    160: 79,
+                    170: 84,
+                    180: 85,
+                    190: 86,
+                    200: 88,
+                    210: 90,
+                    220: 93,
+                    230: 94,
+                    240: 95,
+                    250: 96,
+                    260: 97,
+                    270: 98,
+                    280: 99,
+                    290: 100
+                  };
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else if (ageGroup == "57-61"){
+                const deadliftScores = {
+                    140: 60,
+                    150: 71,
+                    160: 79,
+                    170: 89,
+                    180: 91,
+                    190: 93,
+                    200: 94,
+                    210: 96,
+                    220: 97,
+                    230: 98,
+                    240: 99,
+                    250: 100
+                  };
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+            }else{
+
+                    const deadliftScores = {
+                        140: 60,
+                        141: 61,
+                        142: 62,
+                        143: 63,
+                        144: 64,
+                        145: 65,
+                        146: 66,
+                        147: 67,
+                        148: 68,
+                        149: 69,
+                        150: 72,
+                        160: 82,
+                        170: 92,
+                        180: 93,
+                        190: 94,
+                        200: 95,
+                        210: 98,
+                        220: 99,
+                        230: 100,
+                  };
+                  
+                  
+                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+                while (deadliftscore === undefined) {
+                    value++;
+                    deadliftscore = deadliftScores[value];
+                  }
+                deadliftscore2.innerHTML = deadliftscore;
+                const standingPowerThrowScores = {
+                    
+                   
+                };
+    
+                
+                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                spt.innerHTML = standingscore;
+                const handReleasePushupScores = {
+                
+                };
+                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                hrp.innerHTML = handreleasescore;
+    
+                const sdcscores = {
+                
+                }
+                for (const key in sdcscores) {
+                    sdcscores[key] *= -1;
+                }
+    
+                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                sdc.innerHTML = Math.abs(sdcscore);
+    
+                const plkscores = {
+                  
+                }
+    
+                const plkscore = plkscores[Number(plankSlider.value)]
+                plt.innerHTML = plkscore;
+    
+                const twomilescores = {
+                               
+                }
+                for (const key in twomilescores) {
+                    twomilescores[key] *= -1;
+                }
+    
+                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+                twomilescore.innerHTML = Math.abs(twomile);
+    
             }
         }
     }
