@@ -50,6 +50,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             //Standing Power Throw checking
             const standingPowerThrowScores = {
@@ -104,6 +108,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -313,6 +321,10 @@ function updateScore() {
             };
 
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -367,6 +379,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const sdcscores = {
@@ -570,6 +586,10 @@ function updateScore() {
                 230: 100
             };
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -625,6 +645,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -809,7 +833,6 @@ function updateScore() {
 
 
         }else if (ageGroup == "32-36") {
-           console.log("Hello i made it to this selection!!!!!!")
            const deadliftScores = {
                 120: 60,
                 130: 64,
@@ -825,6 +848,10 @@ function updateScore() {
                 230: 100
             }
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 4.1: 60,
@@ -879,6 +906,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -961,6 +992,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
+            while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1075,6 +1110,10 @@ function updateScore() {
                 210: 100
             };
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -1125,6 +1164,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1317,6 +1360,10 @@ function updateScore() {
                 210: 100
             }
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             //To be continued
             const standingPowerThrowScores = {
@@ -1368,6 +1415,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1554,6 +1605,10 @@ function updateScore() {
                 190:100,
             };
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.7: 60,
@@ -1603,6 +1658,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1744,6 +1803,10 @@ function updateScore() {
             };
 
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.5: 60,
@@ -1791,6 +1854,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -1971,6 +2038,10 @@ function updateScore() {
                 170: 100,
             };
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.4: 60,
@@ -2011,6 +2082,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -2188,6 +2263,10 @@ function updateScore() {
                 170: 100,
             };
             const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+            while (deadliftscore === undefined) {
+                value++;
+                deadliftscore = deadliftScores[value];
+              }
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.4: 60,
@@ -2228,6 +2307,10 @@ function updateScore() {
 
             // To look up the score for a given value:
             const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            while (standingscore === undefined) {
+                value++;
+                standingscore = standingPowerThrowScores[value];
+              }
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -2397,6 +2480,16 @@ function updateScore() {
             twomilescore.innerHTML = Math.abs(twomile);
         }
     }else{
+        /*
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        START OF MALES
+        */
         if (gender == "male") {
             if (ageGroup == "17-21") {
                 const deadliftScores = {
@@ -2428,12 +2521,55 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
-                   
+                    6: 60,
+                    6.6: 61,
+                    6.9: 62,
+                    7.2: 63,
+                    7.4: 64,
+                    7.5: 65,
+                    7.7: 66,
+                    7.9: 67,
+                    8: 68,
+                    8.1: 69,
+                    8.2: 70,
+                    8.3: 71,
+                    8.4: 72,
+                    8.5: 73,
+                    8.6: 74,
+                    8.8: 75,
+                    8.9: 76,
+                    9: 77,
+                    9.1: 78,
+                    9.2: 79,
+                    9.3: 80,
+                    9.4: 81,
+                    9.5: 82,
+                    9.6: 83,
+                    9.7: 84,
+                    9.8: 85,
+                    9.9: 86,
+                    10: 87,
+                    10.3: 88,
+                    10.4: 89,
+                    10.5: 90,
+                    10.6: 91,
+                    10.7: 92,
+                    10.9: 93,
+                    11: 94,
+                    11.3: 95,
+                    11.5: 96,
+                    11.7: 97,
+                    12: 98,
+                    12.4: 99,
+                    12.6: 100 
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2500,12 +2636,56 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    6.3: 60,
+                    6.9: 61,
+                    7.3: 62,
+                    7.5: 63,
+                    7.7: 64,
+                    7.8: 65,
+                    8.1: 66,
+                    8.2: 67,
+                    8.3: 68,
+                    8.5: 69,
+                    8.6: 70,
+                    8.8: 71,
+                    8.9: 72,
+                    9: 73,
+                    9.1: 74,
+                    9.2: 75,
+                    9.3: 76,
+                    9.4: 77,
+                    9.5: 78,
+                    9.6: 79,
+                    9.7: 80,
+                    9.8: 81,
+                    9.9: 82,
+                    10: 83,
+                    10.1: 84,
+                    10.2: 85,
+                    10.3: 86,
+                    10.4: 87,
+                    10.6: 88,
+                    10.7: 89,
+                    11: 90,
+                    11.1: 91,
+                    11.3: 92,
+                    11.4: 93,
+                    11.5: 94,
+                    11.8: 95,
+                    12: 96,
+                    12.2: 97,
+                    12.5: 98,
+                    12.9: 99,
+                    13: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2514,7 +2694,7 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
@@ -2570,12 +2750,53 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
-                   
+                    6.5: 60,
+                    7.1: 61,
+                    7.5: 62,
+                    7.7: 63,
+                    7.9: 64,
+                    8.1: 65,
+                    8.3: 66,
+                    8.4: 67,
+                    8.5: 68,
+                    8.6: 69,
+                    8.8: 70,
+                    8.9: 71,
+                    9: 72,
+                    9.2: 73,
+                    9.3: 75,
+                    9.4: 76,
+                    9.6: 77,
+                    9.7: 78,
+                    9.8: 80,
+                    10: 81,
+                    10.1: 82,
+                    10.2: 83,
+                    10.4: 84,
+                    10.5: 85,
+                    10.6: 86,
+                    10.7: 87,
+                    10.9: 88,
+                    11: 89,
+                    11.1: 90,
+                    11.3: 91,
+                    11.4: 92,
+                    11.6: 93,
+                    11.7: 94,
+                    12: 95,
+                    12.2: 96,
+                    12.4: 97,
+                    12.6: 98,
+                    12.9: 99,
+                    13.1: 100
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2640,12 +2861,56 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    6.5: 60,
+                    7.1: 61,
+                    7.4: 62,
+                    7.6: 63,
+                    7.9: 64,
+                    8.1: 65,
+                    8.2: 66,
+                    8.3: 67,
+                    8.5: 68,
+                    8.6: 69,
+                    8.7: 70,
+                    8.8: 71,
+                    8.9: 72,
+                    9.1: 73,
+                    9.2: 74,
+                    9.3: 75,
+                    9.4: 76,
+                    9.5: 77,
+                    9.6: 78,
+                    9.7: 79,
+                    9.8: 80,
+                    9.9: 81,
+                    10: 82,
+                    10.1: 83,
+                    10.2: 84,
+                    10.3: 85,
+                    10.4: 86,
+                    10.5: 87,
+                    10.7: 88,
+                    10.8: 89,
+                    11: 90,
+                    11.2: 91,
+                    11.3: 92,
+                    11.4: 93,
+                    11.6: 94,
+                    11.8: 95,
+                    12: 96,
+                    12.2: 97,
+                    12.4: 98,
+                    12.6: 99,
+                    12.9: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2711,12 +2976,56 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    6.4: 60,
+                    7: 61,
+                    7.3: 62,
+                    7.5: 63,
+                    7.7: 64,
+                    7.8: 65,
+                    8.1: 66,
+                    8.2: 67,
+                    8.3: 68,
+                    8.5: 69,
+                    8.6: 70,
+                    8.7: 71,
+                    8.8: 72,
+                    8.9: 73,
+                    9: 74,
+                    9.1: 75,
+                    9.2: 76,
+                    9.3: 77,
+                    9.4: 78,
+                    9.5: 79,
+                    9.6: 80,
+                    9.7: 81,
+                    9.8: 82,
+                    9.9: 83,
+                    10.1: 84,
+                    10.2: 85,
+                    10.3: 86,
+                    10.4: 87,
+                    10.5: 88,
+                    10.6: 89,
+                    10.7: 90,
+                    10.9: 91,
+                    11.1: 92,
+                    11.2: 93,
+                    11.4: 94,
+                    11.6: 95,
+                    11.8: 96,
+                    12: 97,
+                    12.2: 98,
+                    12.6: 99,
+                    12.8: 100 
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2782,12 +3091,55 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    6.2: 60,
+                    6.7: 61,
+                    7.1: 62,
+                    7.3: 63,
+                    7.4: 64,
+                    7.6: 65,
+                    7.8: 66,
+                    7.9: 67,
+                    8: 68,
+                    8.1: 69,
+                    8.2: 70,
+                    8.3: 71,
+                    8.4: 72,
+                    8.6: 73,
+                    8.7: 75,
+                    8.8: 76,
+                    8.9: 77,
+                    9: 78,
+                    9.1: 79,
+                    9.2: 80,
+                    9.3: 81,
+                    9.4: 82,
+                    9.5: 83,
+                    9.6: 84,
+                    9.7: 85,
+                    9.8: 86,
+                    9.9: 87,
+                    10.1: 88,
+                    10.3: 89,
+                    10.4: 90,
+                    10.5: 91,
+                    10.6: 92,
+                    10.7: 93,
+                    10.8: 94,
+                    11.1: 95,
+                    11.3: 96,
+                    11.4: 97,
+                    11.7: 98,
+                    12.1: 99,
+                    12.3: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2852,12 +3204,54 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    6: 60,
+                    6.4: 61,
+                    6.7: 62,
+                    6.9: 63,
+                    7.1: 64,
+                    7.2: 65,
+                    7.4: 66,
+                    7.5: 67,
+                    7.6: 68,
+                    7.7: 69,
+                    7.9: 70,
+                    8: 71,
+                    8.1: 72,
+                    8.2: 74,
+                    8.3: 75,
+                    8.4: 76,
+                    8.5: 77,
+                    8.6: 78,
+                    8.7: 80,
+                    8.8: 81,
+                    8.9: 82,
+                    9: 83,
+                    9.1: 84,
+                    9.2: 85,
+                    9.3: 86,
+                    9.4: 87,
+                    9.5: 88,
+                    9.6: 89,
+                    9.7: 90,
+                    9.9: 91,
+                    10: 92,
+                    10.1: 93,
+                    10.2: 94,
+                    10.4: 95,
+                    10.6: 96,
+                    10.7: 97,
+                    11: 98,
+                    11.4: 99,
+                    11.6: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2918,12 +3312,52 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    5.3: 60,
+                    5.7: 61,
+                    6: 62,
+                    6.1: 63,
+                    6.2: 64,
+                    6.3: 65,
+                    6.5: 66,
+                    6.6: 67,
+                    6.7: 68,
+                    6.8: 69,
+                    6.9: 70,
+                    7: 72,
+                    7.1: 73,
+                    7.2: 74,
+                    7.3: 75,
+                    7.4: 76,
+                    7.5: 78,
+                    7.6: 79,
+                    7.7: 80,
+                    7.8: 81,
+                    7.9: 82,
+                    8: 83,
+                    8.1: 85,
+                    8.2: 86,
+                    8.3: 87,
+                    8.4: 88,
+                    8.5: 90,
+                    8.7: 91,
+                    8.8: 92,
+                    8.9: 93,
+                    9: 94,
+                    9.1: 95,
+                    9.3: 96,
+                    9.4: 97,
+                    9.5: 98,
+                    9.7: 99,
+                    9.9: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -2980,12 +3414,52 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    5.3: 60,
+                    5.7: 61,
+                    6: 62,
+                    6.1: 63,
+                    6.2: 64,
+                    6.3: 65,
+                    6.5: 66,
+                    6.6: 67,
+                    6.7: 68,
+                    6.8: 69,
+                    6.9: 70,
+                    7: 72,
+                    7.1: 73,
+                    7.2: 74,
+                    7.3: 75,
+                    7.4: 76,
+                    7.5: 78,
+                    7.6: 79,
+                    7.7: 80,
+                    7.8: 81,
+                    7.9: 82,
+                    8: 83,
+                    8.1: 85,
+                    8.2: 86,
+                    8.3: 87,
+                    8.4: 88,
+                    8.5: 90,
+                    8.7: 91,
+                    8.8: 92,
+                    8.9: 93,
+                    9: 94,
+                    9.1: 95,
+                    9.3: 96,
+                    9.4: 97,
+                    9.5: 98,
+                    9.7: 99,
+                    9.9: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
@@ -3051,12 +3525,45 @@ function updateScore() {
                   }
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
-                    
+                    4.9: 60,
+                    5.1: 61,
+                    5.4: 62,
+                    5.7: 63,
+                    5.9: 64,
+                    6.1: 66,
+                    6.2: 68,
+                    6.4: 69,
+                    6.6: 70,
+                    6.7: 71,
+                    6.8: 72,
+                    7: 73,
+                    7.1: 74,
+                    7.2: 76,
+                    7.3: 77,
+                    7.4: 79,
+                    7.5: 81,
+                    7.6: 83,
+                    7.7: 84,
+                    7.8: 86,
+                    7.9: 88,
+                    8: 90,
+                    8.1: 91,
+                    8.2: 92,
+                    8.3: 93,
+                    8.5: 94,
+                    8.6: 95,
+                    8.7: 97,
+                    8.8: 99,
+                    9: 100
                    
                 };
     
                 
                 const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                while (standingscore === undefined) {
+                    value++;
+                    standingscore = standingPowerThrowScores[value];
+                  }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                 
