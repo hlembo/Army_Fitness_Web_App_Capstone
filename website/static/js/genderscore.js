@@ -3883,6 +3883,7 @@ function updateScore() {
                 const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
                 twomilescore.innerHTML = Math.abs(twomile);
             }else{
+                
 
                     const deadliftScores = {
                         140: 60,
