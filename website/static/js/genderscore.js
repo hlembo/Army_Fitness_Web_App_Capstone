@@ -22,7 +22,6 @@ function updateScore() {
     var plt = document.getElementById("plank-score2");
     var twomilescore = document.getElementById("two-mile-run-score2");
 
-
     var gender = genderMenu.value;
     var ageGroup = ageGroupMenu.value;
 
@@ -47,11 +46,7 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
             deadliftscore2.innerHTML = deadliftscore;
             //Standing Power Throw checking
             const standingPowerThrowScores = {
@@ -105,11 +100,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            value = Number(standingPowerThrowSlider.value);
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -150,11 +142,7 @@ function updateScore() {
                 50: 99,
                 53: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -204,11 +192,7 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
 
@@ -256,64 +240,61 @@ function updateScore() {
                 220: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                  1402:60,
-                  1378:61,
-                  1355:62,
-                  1331:63,
-                  1314:64,
-                  1297:65,
-                  1280:66,
-                  1263:67,
-                  1258:68,
-                  1249:69,
-                  1240:70,
-                  1230:71,
-                  1221:72,
-                  1212:73,
-                  1203:74,
-                  1196:75,
-                  1188:76,
-                  1180:77,
-                  1172:78,
-                  1164:79,
-                  1157:80,
-                  1149:81,
-                  1140:82,
-                  1134:83,
-                  1126:84,
-                  1119:85,
-                  1110:86,
-                  1102:87,
-                  1093:88,
-                  1084:89,
-                  1076:90,
-                  1067:91,
-                  1057:92,
-                  1047:93,
-                  1034:94,
-                  1021:95,
-                  1008:96,
-                  994:97,
-                  976:98,
-                  955:99,
-                  929:100
+                1320: 60,
+                1263: 61,
+                1242: 62,
+                1219: 63,
+                1200: 64,
+                1183: 65,
+                1167: 66,
+                1152: 67,
+                1140: 68,
+                1127: 69,
+                1115: 70,
+                1103: 71,
+                1092: 72,
+                1081: 73,
+                1072: 74,
+                1063: 75,
+                1053: 76,
+                1044: 77,
+                1035: 78,
+                1025: 79,
+                1017: 80,
+                1008: 81,
+                999: 82,
+                990: 83,
+                982: 84,
+                974: 85,
+                965: 86,
+                957: 87,
+                948: 88,
+                939: 89,
+                930: 90,
+                920: 91,
+                911: 92,
+                900: 93,
+                891: 94,
+                880: 95,
+                868: 96,
+                855: 97,
+                840: 98,
+                822: 99,
+                802: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
             twomilescore.innerHTML = Math.abs(twomile);
 
-            
+
         } else if (ageGroup == "22-26") {
             const deadliftScores = {
                 120: 60,
@@ -330,11 +311,8 @@ function updateScore() {
                 230: 100,
             };
 
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -388,11 +366,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+
             spt.innerHTML = standingscore;
 
             const sdcscores = {
@@ -442,11 +417,7 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
             const handReleasePushupScores = {
@@ -483,11 +454,7 @@ function updateScore() {
                 49: 99,
                 50: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
 
@@ -535,60 +502,56 @@ function updateScore() {
                 215: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
             const twomilescores = {
-                    1395:60,
-                    1370:61,
-                    1344:62,
-                    1323:63,
-                    1304:64,
-                    1284:65,
-                    1266:66,
-                    1260:67,
-                    1253:68,
-                    1243:69,
-                    1232:70,
-                    1223:71,
-                    1214:72,
-                    1204:73,
-                    1196:74,
-                    1187:75,
-                    1179:76,
-                    1170:77,
-                    1161:78,
-                    1152:79,
-                    1143:80,
-                    1136:81,
-                    1128:82,
-                    1119:83,
-                    1110:84,
-                    1103:85,
-                    1093:86,
-                    1084:87,
-                    1077:88,
-                    1067:89,
-                    1057:90,
-                    1048:91,
-                    1036:92,
-                    1024:93,
-                    1012:94,
-                    999:95,
-                    986:96,
-                    969:97,
-                    951:98,
-                    930:99,
-                    900	:100
+                1395: 60,
+                1370: 61,
+                1344: 62,
+                1323: 63,
+                1304: 64,
+                1284: 65,
+                1266: 66,
+                1260: 67,
+                1253: 68,
+                1243: 69,
+                1232: 70,
+                1223: 71,
+                1214: 72,
+                1204: 73,
+                1196: 74,
+                1187: 75,
+                1179: 76,
+                1170: 77,
+                1161: 78,
+                1152: 79,
+                1143: 80,
+                1136: 81,
+                1128: 82,
+                1119: 83,
+                1110: 84,
+                1103: 85,
+                1093: 86,
+                1084: 87,
+                1077: 88,
+                1067: 89,
+                1057: 90,
+                1048: 91,
+                1036: 92,
+                1024: 93,
+                1012: 94,
+                999: 95,
+                986: 96,
+                969: 97,
+                951: 98,
+                930: 99,
+                900: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
 
@@ -607,11 +570,8 @@ function updateScore() {
                 220: 99,
                 230: 100
             };
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+            let value = Number(deadliftSlider.value);
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -666,11 +626,9 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            value = Number(standingPowerThrowSlider.value);
+
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -704,11 +662,11 @@ function updateScore() {
                 45: 99,
                 48: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+            while (handreleasescore === undefined) {
                 value++;
                 handreleasescore = handReleasePushupScores[value];
-              };
+            };
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 195: 60,
@@ -757,117 +715,110 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
+ 
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                  80:60,
-                  83:61,
-                  86:62,
-                  90:63,
-                  93:64,
-                  96:65,
-                  99:66,
-                  103:67,
-                  106:68,
-                  109:69,
-                  112:70,
-                  116:71,
-                  119:72,
-                  122:73,
-                  126:74,
-                  129:75,
-                  132:76,
-                  135:77,
-                  138:78,
-                  142:79,
-                  145:80,
-                  148:81,
-                  151:82,
-                  155:83,
-                  158:84,
-                  161:85,
-                  165:86,
-                  168:87,
-                  171:88,
-                  174:89,
-                  178:90,
-                  181:91,
-                  184:92,
-                  187:93,
-                  191:94,
-                  194:95,
-                  197:96,
-                  200:97,
-                  204:98,
-                  207:99,
-                  210:100
+                80: 60,
+                83: 61,
+                86: 62,
+                90: 63,
+                93: 64,
+                96: 65,
+                99: 66,
+                103: 67,
+                106: 68,
+                109: 69,
+                112: 70,
+                116: 71,
+                119: 72,
+                122: 73,
+                126: 74,
+                129: 75,
+                132: 76,
+                135: 77,
+                138: 78,
+                142: 79,
+                145: 80,
+                148: 81,
+                151: 82,
+                155: 83,
+                158: 84,
+                161: 85,
+                165: 86,
+                168: 87,
+                171: 88,
+                174: 89,
+                178: 90,
+                181: 91,
+                184: 92,
+                187: 93,
+                191: 94,
+                194: 95,
+                197: 96,
+                200: 97,
+                204: 98,
+                207: 99,
+                210: 100
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              };
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                    1393:60,
-                    1366:61,
-                    1338:62,
-                    1316:63,
-                    1294:64,
-                    1275:65,
-                    1260:66,
-                    1256:67,
-                    1245:68,
-                    1236:69,
-                    1225:70,
-                    1216:71,
-                    1207:72,
-                    1199:73,
-                    1190:74,
-                    1182:75,
-                    1173:76,
-                    1165:77,
-                    1156:78,
-                    1148:79,
-                    1140:80,
-                    1134:81,
-                    1126:82,
-                    1117:83,
-                    1110:84,
-                    1101:85,
-                    1092:86,
-                    1082:87,
-                    1075:88,
-                    1066:89,
-                    1055:90,
-                    1047:91,
-                    1037:92,
-                    1025:93,
-                    1014:94,
-                    1000:95,
-                    986:96,
-                    970:97,
-                    953:98,
-                    930:99,
-                    900	:100
+                1393: 60,
+                1366: 61,
+                1338: 62,
+                1316: 63,
+                1294: 64,
+                1275: 65,
+                1260: 66,
+                1256: 67,
+                1245: 68,
+                1236: 69,
+                1225: 70,
+                1216: 71,
+                1207: 72,
+                1199: 73,
+                1190: 74,
+                1182: 75,
+                1173: 76,
+                1165: 77,
+                1156: 78,
+                1148: 79,
+                1140: 80,
+                1134: 81,
+                1126: 82,
+                1117: 83,
+                1110: 84,
+                1101: 85,
+                1092: 86,
+                1082: 87,
+                1075: 88,
+                1066: 89,
+                1055: 90,
+                1047: 91,
+                1037: 92,
+                1025: 93,
+                1014: 94,
+                1000: 95,
+                986: 96,
+                970: 97,
+                953: 98,
+                930: 99,
+                900: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)];
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
 
-        }else if (ageGroup == "32-36") {
-           const deadliftScores = {
+        } else if (ageGroup == "32-36") {
+            const deadliftScores = {
                 120: 60,
                 130: 64,
                 140: 71,
@@ -881,11 +832,9 @@ function updateScore() {
                 220: 99,
                 230: 100
             }
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
+            let value = Number(deadliftSlider.value);
+
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 4.1: 60,
@@ -939,11 +888,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            value = Number(standingPowerThrowSlider.value);
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -975,11 +921,7 @@ function updateScore() {
                 46: 99,
                 47: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              };
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -1029,112 +971,104 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                    75:60,
-                    78:61,
-                    82:62,
-                    85:63,
-                    88:64,
-                    91:65,
-                    95:66,
-                    98:67,
-                    101:68,
-                    104:69,
-                    107:70,
-                    111:71,
-                    114:72,
-                    117:73,
-                    120:74,
-                    124:75,
-                    127:76,
-                    130:77,
-                    133:78,
-                    137:79,
-                    140:80,
-                    143:81,
-                    147:82,
-                    150:83,
-                    153:84,
-                    157:85,
-                    160:86,
-                    163:87,
-                    166:88,
-                    169:89,
-                    173:90,
-                    176:91,
-                    179:92,
-                    182:93,
-                    186:94,
-                    189:95,
-                    192:96,
-                    195:97,
-                    199:98,
-                    202:99,
-                    205:100,
+                75: 60,
+                78: 61,
+                82: 62,
+                85: 63,
+                88: 64,
+                91: 65,
+                95: 66,
+                98: 67,
+                101: 68,
+                104: 69,
+                107: 70,
+                111: 71,
+                114: 72,
+                117: 73,
+                120: 74,
+                124: 75,
+                127: 76,
+                130: 77,
+                133: 78,
+                137: 79,
+                140: 80,
+                143: 81,
+                147: 82,
+                150: 83,
+                153: 84,
+                157: 85,
+                160: 86,
+                163: 87,
+                166: 88,
+                169: 89,
+                173: 90,
+                176: 91,
+                179: 92,
+                182: 93,
+                186: 94,
+                189: 95,
+                192: 96,
+                195: 97,
+                199: 98,
+                202: 99,
+                205: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              };
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                    1399:60,
-                    1375:61,
-                    1350:62,
-                    1326:63,
-                    1308:64,
-                    1287:65,
-                    1265:66,
-                    1260:67,
-                    1254:68,
-                    1244:69,
-                    1235:70,
-                    1227:71,
-                    1218:72,
-                    1210:73,
-                    1201:74,
-                    1195:75,
-                    1187:76,
-                    1180:77,
-                    1171:78,
-                    1163:79,
-                    1155:80,
-                    1147:81,
-                    1140:82,
-                    1132:83,
-                    1125:84,
-                    1116:85,
-                    1107:86,
-                    1098:87,
-                    1089:88,
-                    1080:89,
-                    1070:90,
-                    1061:91,
-                    1050:92,
-                    1040:93,
-                    1028:94,
-                    1017:95,
-                    1003:96,
-                    988:97,
-                    967:98,
-                    946:99,
-                    918:100,   
+                1399: 60,
+                1375: 61,
+                1350: 62,
+                1326: 63,
+                1308: 64,
+                1287: 65,
+                1265: 66,
+                1260: 67,
+                1254: 68,
+                1244: 69,
+                1235: 70,
+                1227: 71,
+                1218: 72,
+                1210: 73,
+                1201: 74,
+                1195: 75,
+                1187: 76,
+                1180: 77,
+                1171: 78,
+                1163: 79,
+                1155: 80,
+                1147: 81,
+                1140: 82,
+                1132: 83,
+                1125: 84,
+                1116: 85,
+                1107: 86,
+                1098: 87,
+                1089: 88,
+                1080: 89,
+                1070: 90,
+                1061: 91,
+                1050: 92,
+                1040: 93,
+                1028: 94,
+                1017: 95,
+                1003: 96,
+                988: 97,
+                967: 98,
+                946: 99,
+                918: 100,
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)];
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
 
@@ -1151,11 +1085,7 @@ function updateScore() {
                 200: 99,
                 210: 100
             };
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
 
             const standingPowerThrowScores = {
@@ -1205,11 +1135,7 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1237,11 +1163,7 @@ function updateScore() {
                 39: 99,
                 41: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -1291,112 +1213,104 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                1403:60,
-                1380:61,
-                1354:62,
-                1331:63,
-                1316:64,
-                1296:65,
-                1280:66,
-                1264:67,
-                1260:68,
-                1255:69,
-                1246:70,
-                1238:71,
-                1230:72,
-                1220:73,
-                1212:74,
-                1202:75,
-                1196:76,
-                1188:77,
-                1177:78,
-                1170:79,
-                1162:80,
-                1154:81,
-                1145:82,
-                1140:83,
-                1132:84,
-                1125:85,
-                1116:86,
-                1110:87,
-                1100:88,
-                1090:89,
-                1080:90,
-                1072:91,
-                1061:92,
-                1050:93,
-                1038:94,
-                1024:95,
-                1011:96,
-                996:97,
-                978:98,
-                956:99,
-                930	:100   
+                1403: 60,
+                1380: 61,
+                1354: 62,
+                1331: 63,
+                1316: 64,
+                1296: 65,
+                1280: 66,
+                1264: 67,
+                1260: 68,
+                1255: 69,
+                1246: 70,
+                1238: 71,
+                1230: 72,
+                1220: 73,
+                1212: 74,
+                1202: 75,
+                1196: 76,
+                1188: 77,
+                1177: 78,
+                1170: 79,
+                1162: 80,
+                1154: 81,
+                1145: 82,
+                1140: 83,
+                1132: 84,
+                1125: 85,
+                1116: 86,
+                1110: 87,
+                1100: 88,
+                1090: 89,
+                1080: 90,
+                1072: 91,
+                1061: 92,
+                1050: 93,
+                1038: 94,
+                1024: 95,
+                1011: 96,
+                996: 97,
+                978: 98,
+                956: 99,
+                930: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
 
@@ -1413,11 +1327,7 @@ function updateScore() {
                 200: 99,
                 210: 100
             }
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
             //To be continued
             const standingPowerThrowScores = {
@@ -1468,11 +1378,7 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1498,11 +1404,7 @@ function updateScore() {
                 34: 99,
                 36: 100
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 222: 60,
@@ -1551,130 +1453,118 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                1422:60,
-                1390:61,
-                1373:62,
-                1356:63,
-                1340:64,
-                1325:65,
-                1311:66,
-                1295:67,
-                1280:68,
-                1268:69,
-                1260:70,
-                1257:71,
-                1247:72,
-                1238:73,
-                1232:74,
-                1221:75,
-                1212:76,
-                1202:77,
-                1198:78,
-                1191:79,
-                1185:80,
-                1176:81,
-                1167:82,
-                1159:83,
-                1150:84,
-                1141:85,
-                1133:86,
-                1124:87,
-                1115:88,
-                1106:89,
-                1096:90,
-                1086:91,
-                1076:92,
-                1067:93,
-                1055:94,
-                1044:95,
-                1027:96,
-                1010:97,
-                995:98,
-                972:99,
-                949:100, 
+                1422: 60,
+                1390: 61,
+                1373: 62,
+                1356: 63,
+                1340: 64,
+                1325: 65,
+                1311: 66,
+                1295: 67,
+                1280: 68,
+                1268: 69,
+                1260: 70,
+                1257: 71,
+                1247: 72,
+                1238: 73,
+                1232: 74,
+                1221: 75,
+                1212: 76,
+                1202: 77,
+                1198: 78,
+                1191: 79,
+                1185: 80,
+                1176: 81,
+                1167: 82,
+                1159: 83,
+                1150: 84,
+                1141: 85,
+                1133: 86,
+                1124: 87,
+                1115: 88,
+                1106: 89,
+                1096: 90,
+                1086: 91,
+                1076: 92,
+                1067: 93,
+                1055: 94,
+                1044: 95,
+                1027: 96,
+                1010: 97,
+                995: 98,
+                972: 99,
+                949: 100,
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
         } else if (ageGroup == "47-51") {
             const deadliftScores = {
-                120:60,
-                130:67,
-                140:73,
-                150:79,
-                160:90,
-                170:97,
-                180:99,
-                190:100,
+                120: 60,
+                130: 67,
+                140: 73,
+                150: 79,
+                160: 90,
+                170: 97,
+                180: 99,
+                190: 100,
             };
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.7: 60,
@@ -1723,11 +1613,7 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
             spt.innerHTML = standingscore;
 
             const handReleasePushupScores = {
@@ -1753,11 +1639,7 @@ function updateScore() {
                 34: 99,
                 35: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 231: 60,
@@ -1808,62 +1690,54 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
 
@@ -1880,11 +1754,7 @@ function updateScore() {
                 190: 100
             };
 
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.5: 60,
@@ -1931,11 +1801,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -1957,11 +1824,7 @@ function updateScore() {
                 28: 99,
                 30: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -2011,112 +1874,104 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                1464:60,
-                1424:61,
-                1384:62,
-                1372:63,
-                1363:64,
-                1353:65,
-                1343:66,
-                1329:67,
-                1319:68,
-                1303:69,
-                1300:70,
-                1292:71,
-                1275:72,
-                1263:73,
-                1250:74,
-                1244:75,
-                1244:76,
-                1243:77,
-                1238:78,
-                1231:79,
-                1222:80,
-                1217:81,
-                1207:82,
-                1202:83,
-                1198:84,
-                1185:85,
-                1176:86,
-                1169:87,
-                1154:88,
-                1142:89,
-                1133:90,
-                1120:91,
-                1110:92,
-                1100:93,
-                1093:94,
-                1080:95,
-                1070:96,
-                1058:97,
-                1042:98,
-                1021:99,
-                989	:100               
+                1464: 60,
+                1424: 61,
+                1384: 62,
+                1372: 63,
+                1363: 64,
+                1353: 65,
+                1343: 66,
+                1329: 67,
+                1319: 68,
+                1303: 69,
+                1300: 70,
+                1292: 71,
+                1275: 72,
+                1263: 73,
+                1250: 74,
+                1244: 75,
+                1244: 76,
+                1243: 77,
+                1238: 78,
+                1231: 79,
+                1222: 80,
+                1217: 81,
+                1207: 82,
+                1202: 83,
+                1198: 84,
+                1185: 85,
+                1176: 86,
+                1169: 87,
+                1154: 88,
+                1142: 89,
+                1133: 90,
+                1120: 91,
+                1110: 92,
+                1100: 93,
+                1093: 94,
+                1080: 95,
+                1070: 96,
+                1058: 97,
+                1042: 98,
+                1021: 99,
+                989: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
         } else if (ageGroup == "57-61") {
             const deadliftScores = {
@@ -2127,11 +1982,7 @@ function updateScore() {
                 160: 99,
                 170: 100,
             };
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.4: 60,
@@ -2171,11 +2022,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            value = Number(standingPowerThrowSlider.value);
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -2194,11 +2042,8 @@ function updateScore() {
                 23: 99,
                 24: 100
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+   
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 288: 60,
@@ -2247,112 +2092,105 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                  1488:	60,
-                  1445:61,
-                  1402:62,
-                  1381:63,
-                  1363:64,
-                  1353:65,
-                  1343:66,
-                  1329:67,
-                  1319:68,
-                  1303:69,
-                  1300:70,
-                  1292:71,
-                  1275:72,
-                  1263:73,
-                  1250:74,
-                  1244:75,
-                  1244:76,
-                  1243:77,
-                  1238:78,
-                  1231:79,
-                  1222:80,
-                  1217:81,
-                  1207:82,
-                  1202:83,
-                  1198:84,
-                  1185:85,
-                  1181:86,
-                  1169:87,
-                  1154:88,
-                  1144:89,
-                  1139:90,
-                  1136:91,
-                  1128:92,
-                  1126:93,
-                  1116:94,
-                  1111:95,
-                  1105:96,
-                  1080:97,
-                  1076:98,
-                  1067:99,
-                  103:100                
+                1488: 60,
+                1445: 61,
+                1402: 62,
+                1381: 63,
+                1363: 64,
+                1353: 65,
+                1343: 66,
+                1329: 67,
+                1319: 68,
+                1303: 69,
+                1300: 70,
+                1292: 71,
+                1275: 72,
+                1263: 73,
+                1250: 74,
+                1244: 75,
+                1244: 76,
+                1243: 77,
+                1238: 78,
+                1231: 79,
+                1222: 80,
+                1217: 81,
+                1207: 82,
+                1202: 83,
+                1198: 84,
+                1185: 85,
+                1181: 86,
+                1169: 87,
+                1154: 88,
+                1144: 89,
+                1139: 90,
+                1136: 91,
+                1128: 92,
+                1126: 93,
+                1116: 94,
+                1111: 95,
+                1105: 96,
+                1080: 97,
+                1076: 98,
+                1067: 99,
+                103: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
 
         } else {
@@ -2364,11 +2202,7 @@ function updateScore() {
                 160: 99,
                 170: 100,
             };
-            const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            while (deadliftscore === undefined) {
-                value++;
-                deadliftscore = deadliftScores[value];
-              }
+            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
             deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 3.4: 60,
@@ -2408,11 +2242,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            while (standingscore === undefined) {
-                value++;
-                standingscore = standingPowerThrowScores[value];
-              }
+            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+            value = Number(standingPowerThrowSlider.value);
             spt.innerHTML = standingscore;
             const handReleasePushupScores = {
                 10: 60,
@@ -2431,11 +2262,7 @@ function updateScore() {
                 23: 99,
                 24: 100
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-             while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -2485,125 +2312,109 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            while (sdcscore === undefined) {
-                value++;
-                sdcscore= sdcscores[value];
-            }
+            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
-                70:60,
-                73:61,
-                76:62,
-                80:63,
-                83:64,
-                86:65,
-                90:66,
-                93:67,
-                96:68,
-                99:69,
-                102:70,
-                106:71,
-                109:72,
-                112:73,
-                116:74,
-                119:75,
-                122:76,
-                125:77,
-                128:78,
-                132:79,
-                135:80,
-                138:81,
-                142:82,
-                145:83,
-                148:84,
-                151:85,
-                155:86,
-                158:87,
-                161:88,
-                164:89,
-                168:90,
-                171:91,
-                174:92,
-                177:93,
-                181:94,
-                184:95,
-                187:96,
-                190:97,
-                194:98,
-                197:99,
-                200:100,
+                70: 60,
+                73: 61,
+                76: 62,
+                80: 63,
+                83: 64,
+                86: 65,
+                90: 66,
+                93: 67,
+                96: 68,
+                99: 69,
+                102: 70,
+                106: 71,
+                109: 72,
+                112: 73,
+                116: 74,
+                119: 75,
+                122: 76,
+                125: 77,
+                128: 78,
+                132: 79,
+                135: 80,
+                138: 81,
+                142: 82,
+                145: 83,
+                148: 84,
+                151: 85,
+                155: 86,
+                158: 87,
+                161: 88,
+                164: 89,
+                168: 90,
+                171: 91,
+                174: 92,
+                177: 93,
+                181: 94,
+                184: 95,
+                187: 96,
+                190: 97,
+                194: 98,
+                197: 99,
+                200: 100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)]
-            while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+            var plkscore = plkscores[Number(plankSlider.value)]
             plt.innerHTML = plkscore;
 
             const twomilescores = {
-                  1500:60,
-                  1451:61,
-                  1402:62,
-                  1384:63,
-                  1370:64,
-                  1364:65,
-                  1351:66,
-                  1335:67,
-                  1322:68,
-                  1303:69,
-                  1300:70,
-                  1292:71,
-                  1275:72,
-                  1263:73,
-                  1250:74,
-                  1244:75,
-                  1244:76,
-                  1243:77,
-                  1238:78,
-                  1231:79,
-                  1222:80,
-                  1217:81,
-                  1207:82,
-                  1202:83,
-                  1198:84,
-                  1185:85,
-                  1181:86,
-                  1169:87,
-                  1154:88,
-                  1144:89,
-                  1139:90,
-                  1136:91,
-                  1128:92,
-                  1126:93,
-                  1116:94,
-                  1111:95,
-                  1105:96,
-                  1080:97,
-                  1076:98,
-                  1067:99,
-                  1038:100,              
+                1500: 60,
+                1451: 61,
+                1402: 62,
+                1384: 63,
+                1370: 64,
+                1364: 65,
+                1351: 66,
+                1335: 67,
+                1322: 68,
+                1303: 69,
+                1300: 70,
+                1292: 71,
+                1275: 72,
+                1263: 73,
+                1250: 74,
+                1244: 75,
+                1244: 76,
+                1243: 77,
+                1238: 78,
+                1231: 79,
+                1222: 80,
+                1217: 81,
+                1207: 82,
+                1202: 83,
+                1198: 84,
+                1185: 85,
+                1181: 86,
+                1169: 87,
+                1154: 88,
+                1144: 89,
+                1139: 90,
+                1136: 91,
+                1128: 92,
+                1126: 93,
+                1116: 94,
+                1111: 95,
+                1105: 96,
+                1080: 97,
+                1076: 98,
+                1067: 99,
+                1038: 100,
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
             twomilescore.innerHTML = Math.abs(twomile);
         }
-    }else{
-        /*
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        START OF MALES
-        */
+    } 
+       
         if (gender == "male") {
             if (ageGroup == "17-21") {
                 const deadliftScores = {
@@ -2627,12 +2438,9 @@ function updateScore() {
                     310: 95,
                     330: 97,
                     340: 100
-                  };
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6: 60,
@@ -2675,15 +2483,12 @@ function updateScore() {
                     11.7: 97,
                     12: 98,
                     12.4: 99,
-                    12.6: 100 
+                    12.6: 100
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+  
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -2724,15 +2529,12 @@ function updateScore() {
                     54: 98,
                     56: 99,
                     57: 100
-                
+
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     148: 60,
                     142: 61,
@@ -2779,14 +2581,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     90: 60,
                     93: 61,
@@ -2830,27 +2629,65 @@ function updateScore() {
                     217: 99,
                     220: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1320: 60,
+                    1263: 61,
+                    1242: 62,
+                    1219: 63,
+                    1200: 64,
+                    1183: 65,
+                    1167: 66,
+                    1152: 67,
+                    1140: 68,
+                    1127: 69,
+                    1115: 70,
+                    1103: 71,
+                    1092: 72,
+                    1081: 73,
+                    1072: 74,
+                    1063: 75,
+                    1053: 76,
+                    1044: 77,
+                    1035: 78,
+                    1025: 79,
+                    1017: 80,
+                    1008: 81,
+                    999: 82,
+                    990: 83,
+                    982: 84,
+                    974: 85,
+                    965: 86,
+                    957: 87,
+                    948: 88,
+                    939: 89,
+                    930: 90,
+                    920: 91,
+                    911: 92,
+                    900: 93,
+                    891: 94,
+                    880: 95,
+                    868: 96,
+                    855: 97,
+                    840: 98,
+                    822: 99,
+                    802: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
     
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
                 twomilescore.innerHTML = Math.abs(twomile);
-                
 
 
-            }else if(ageGroup == "22-26") {
+
+            } else if (ageGroup == "22-26") {
                 const deadliftScores = {
                     140: 60,
                     150: 61,
@@ -2872,12 +2709,10 @@ function updateScore() {
                     320: 92,
                     330: 99,
                     340: 100
-                  };
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6.3: 60,
@@ -2921,15 +2756,12 @@ function updateScore() {
                     12.5: 98,
                     12.9: 99,
                     13: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -2970,13 +2802,10 @@ function updateScore() {
                     60: 99,
                     61: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     151: 60,
                     146: 61,
@@ -3023,14 +2852,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     85: 60,
                     88: 61,
@@ -3074,24 +2900,62 @@ function updateScore() {
                     212: 99,
                     215: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1320: 60,
+                    1274: 61,
+                    1252: 62,
+                    1230: 63,
+                    1212: 64,
+                    1196: 65,
+                    1180: 66,
+                    1166: 67,
+                    1153: 68,
+                    1140: 69,
+                    1130: 70,
+                    1118: 71,
+                    1108: 72,
+                    1097: 73,
+                    1087: 74,
+                    1079: 75,
+                    1069: 76,
+                    1060: 77,
+                    1050: 78,
+                    1042: 79,
+                    1033: 80,
+                    1024: 81,
+                    1015: 82,
+                    1006: 83,
+                    997: 84,
+                    989: 85,
+                    980: 86,
+                    970: 87,
+                    961: 88,
+                    953: 89,
+                    943: 90,
+                    932: 91,
+                    923: 92,
+                    913: 93,
+                    901: 94,
+                    890: 95,
+                    878: 96,
+                    865: 97,
+                    848: 98,
+                    830: 99,
+                    807: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+ 
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "27-31") {
+            } else if (ageGroup == "27-31") {
                 const deadliftScores = {
                     140: 60,
                     150: 63,
@@ -3114,12 +2978,10 @@ function updateScore() {
                     320: 91,
                     330: 99,
                     340: 100
-                  };
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6.5: 60,
@@ -3162,13 +3024,11 @@ function updateScore() {
                     12.9: 99,
                     13.1: 100
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                value = Number(standingPowerThrowSlider.value);
+     
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -3209,15 +3069,12 @@ function updateScore() {
                     56: 98,
                     59: 99,
                     62: 100
-                
+
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+      
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     152: 60,
                     148: 61,
@@ -3264,14 +3121,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+     
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     80: 60,
                     83: 61,
@@ -3314,26 +3168,64 @@ function updateScore() {
                     204: 98,
                     207: 99,
                     210: 100
-                  
+
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+     
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1320: 60,
+                    1260: 61,
+                    1246: 62,
+                    1225: 63,
+                    1206: 64,
+                    1191: 65,
+                    1176: 66,
+                    1162: 67,
+                    1149: 68,
+                    1138: 69,
+                    1126: 70,
+                    1115: 71,
+                    1105: 72,
+                    1095: 73,
+                    1085: 74,
+                    1078: 75,
+                    1070: 76,
+                    1061: 77,
+                    1051: 78,
+                    1043: 79,
+                    1034: 80,
+                    1025: 81,
+                    1018: 82,
+                    1009: 83,
+                    1001: 84,
+                    992: 85,
+                    984: 86,
+                    975: 87,
+                    965: 88,
+                    958: 89,
+                    948: 90,
+                    939: 91,
+                    930: 92,
+                    919: 93,
+                    907: 94,
+                    897: 95,
+                    885: 96,
+                    871: 97,
+                    855: 98,
+                    838: 99,
+                    811: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+ 
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "32-36") {
+            } else if (ageGroup == "32-36") {
                 const deadliftScores = {
                     140: 60,
                     150: 66,
@@ -3356,12 +3248,10 @@ function updateScore() {
                     320: 93,
                     330: 99,
                     340: 100
-                  };
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6.5: 60,
@@ -3405,15 +3295,13 @@ function updateScore() {
                     12.4: 98,
                     12.6: 99,
                     12.9: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+           
+      
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -3456,13 +3344,10 @@ function updateScore() {
                     59: 99,
                     60: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+       
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     156: 60,
                     151: 61,
@@ -3509,14 +3394,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+        
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     75: 60,
                     78: 61,
@@ -3560,24 +3442,62 @@ function updateScore() {
                     202: 99,
                     205: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+      
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1320: 60,
+                    1261: 61,
+                    1249: 62,
+                    1229: 63,
+                    1211: 64,
+                    1196: 65,
+                    1181: 66,
+                    1168: 67,
+                    1156: 68,
+                    1143: 69,
+                    1133: 70,
+                    1123: 71,
+                    1113: 72,
+                    1103: 73,
+                    1092: 74,
+                    1083: 75,
+                    1076: 76,
+                    1068: 77,
+                    1060: 78,
+                    1051: 79,
+                    1043: 80,
+                    1035: 81,
+                    1025: 82,
+                    1018: 83,
+                    1009: 84,
+                    1001: 85,
+                    992: 86,
+                    985: 87,
+                    976: 88,
+                    967: 89,
+                    958: 90,
+                    949: 91,
+                    939: 92,
+                    930: 93,
+                    918: 94,
+                    906: 95,
+                    894: 96,
+                    880: 97,
+                    865: 98,
+                    846: 99,
+                    822: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+       
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "37-41") {
+            } else if (ageGroup == "37-41") {
                 const deadliftScores = {
                     140: 60,
                     150: 66,
@@ -3600,13 +3520,11 @@ function updateScore() {
                     320: 93,
                     330: 99,
                     340: 100
-                  };
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6.4: 60,
@@ -3649,16 +3567,13 @@ function updateScore() {
                     12: 97,
                     12.2: 98,
                     12.6: 99,
-                    12.8: 100 
-                   
+                    12.8: 100
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+      
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -3701,13 +3616,10 @@ function updateScore() {
                     57: 99,
                     59: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
-                hrp.innerHTML = handreleasescore;
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
     
+                hrp.innerHTML = handreleasescore;
+
                 const sdcscores = {
                     161: 60,
                     156: 61,
@@ -3754,14 +3666,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+         
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -3805,24 +3714,62 @@ function updateScore() {
                     197: 99,
                     200: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+     
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1331: 60,
+                    1277: 61,
+                    1260: 62,
+                    1241: 63,
+                    1222: 64,
+                    1207: 65,
+                    1195: 66,
+                    1182: 67,
+                    1170: 68,
+                    1159: 69,
+                    1146: 70,
+                    1137: 71,
+                    1127: 72,
+                    1117: 73,
+                    1108: 74,
+                    1098: 75,
+                    1090: 76,
+                    1080: 77,
+                    1074: 78,
+                    1065: 79,
+                    1058: 80,
+                    1050: 81,
+                    1041: 82,
+                    1033: 83,
+                    1023: 84,
+                    1015: 85,
+                    1006: 86,
+                    998: 87,
+                    990: 88,
+                    980: 89,
+                    970: 90,
+                    960: 91,
+                    951: 92,
+                    941: 93,
+                    930: 94,
+                    919: 95,
+                    906: 96,
+                    893: 97,
+                    877: 98,
+                    860: 99,
+                    838: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+  
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "42-46") {
+            } else if (ageGroup == "42-46") {
                 const deadliftScores = {
                     140: 60,
                     150: 69,
@@ -3845,13 +3792,11 @@ function updateScore() {
                     320: 97,
                     330: 99,
                     340: 100
-                  };
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6.2: 60,
@@ -3894,15 +3839,13 @@ function updateScore() {
                     11.7: 98,
                     12.1: 99,
                     12.3: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                value = Number(standingPowerThrowSlider.value);
+     
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -3942,15 +3885,12 @@ function updateScore() {
                     53: 98,
                     55: 99,
                     56: 100
-                
+
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+      
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     165: 60,
                     161: 61,
@@ -3997,14 +3937,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+         
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -4048,24 +3985,62 @@ function updateScore() {
                     197: 99,
                     200: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+     
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1352: 60,
+                    1304: 61,
+                    1260: 62,
+                    1258: 63,
+                    1240: 64,
+                    1225: 65,
+                    1210: 66,
+                    1200: 67,
+                    1190: 68,
+                    1178: 69,
+                    1166: 70,
+                    1156: 71,
+                    1144: 72,
+                    1136: 73,
+                    1126: 74,
+                    1117: 75,
+                    1109: 76,
+                    1100: 77,
+                    1090: 78,
+                    1080: 79,
+                    1075: 80,
+                    1067: 81,
+                    1058: 82,
+                    1050: 83,
+                    1041: 84,
+                    1032: 85,
+                    1024: 86,
+                    1015: 87,
+                    1007: 88,
+                    998: 89,
+                    988: 90,
+                    978: 91,
+                    966: 92,
+                    956: 93,
+                    945: 94,
+                    933: 95,
+                    920: 96,
+                    904: 97,
+                    888: 98,
+                    869: 99,
+                    845: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+        
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "47-51") {
+            } else if (ageGroup == "47-51") {
                 const deadliftScores = {
                     140: 60,
                     150: 70,
@@ -4087,13 +4062,11 @@ function updateScore() {
                     310: 98,
                     320: 99,
                     330: 100
-                  };
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     6: 60,
@@ -4135,15 +4108,13 @@ function updateScore() {
                     11: 98,
                     11.4: 99,
                     11.6: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                value = Number(standingPowerThrowSlider.value);
+     
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -4178,16 +4149,13 @@ function updateScore() {
                     47: 97,
                     50: 98,
                     53: 99,
-                    55: 100 
-                
+                    55: 100
+
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+ 
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     173: 60,
                     168: 61,
@@ -4234,14 +4202,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
     
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -4285,24 +4250,62 @@ function updateScore() {
                     197: 99,
                     200: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+     
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1375: 60,
+                    1337: 61,
+                    1303: 62,
+                    1273: 63,
+                    1260: 64,
+                    1253: 65,
+                    1240: 66,
+                    1228: 67,
+                    1217: 68,
+                    1206: 69,
+                    1197: 70,
+                    1187: 71,
+                    1176: 72,
+                    1167: 73,
+                    1157: 74,
+                    1147: 75,
+                    1140: 76,
+                    1131: 77,
+                    1122: 78,
+                    1113: 79,
+                    1106: 80,
+                    1096: 81,
+                    1086: 82,
+                    1080: 83,
+                    1071: 84,
+                    1063: 85,
+                    1054: 86,
+                    1046: 87,
+                    1036: 88,
+                    1027: 89,
+                    1017: 90,
+                    1006: 91,
+                    996: 92,
+                    987: 93,
+                    975: 94,
+                    962: 95,
+                    948: 96,
+                    932: 97,
+                    914: 98,
+                    894: 99,
+                    870: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
     
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if(ageGroup == "52-56") {
+            } else if (ageGroup == "52-56") {
                 const deadliftScores = {
                     140: 60,
                     150: 70,
@@ -4320,13 +4323,10 @@ function updateScore() {
                     270: 98,
                     280: 99,
                     290: 100
-                  };
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     5.3: 60,
@@ -4366,15 +4366,12 @@ function updateScore() {
                     9.5: 98,
                     9.7: 99,
                     9.9: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+   
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -4409,13 +4406,10 @@ function updateScore() {
                     48: 99,
                     51: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+ 
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     180: 60,
                     177: 61,
@@ -4462,14 +4456,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+   
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -4513,24 +4504,62 @@ function updateScore() {
                     197: 99,
                     200: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+   
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1400: 60,
+                    1373: 61,
+                    1344: 62,
+                    1320: 63,
+                    1299: 64,
+                    1276: 65,
+                    1260: 66,
+                    1259: 67,
+                    1249: 68,
+                    1239: 69,
+                    1227: 70,
+                    1218: 71,
+                    1208: 72,
+                    1200: 73,
+                    1193: 74,
+                    1185: 75,
+                    1176: 76,
+                    1170: 77,
+                    1161: 78,
+                    1153: 79,
+                    1143: 80,
+                    1136: 81,
+                    1129: 82,
+                    1120: 83,
+                    1112: 84,
+                    1104: 85,
+                    1095: 86,
+                    1084: 87,
+                    1077: 88,
+                    1068: 89,
+                    1056: 90,
+                    1046: 91,
+                    1036: 92,
+                    1026: 93,
+                    1015: 94,
+                    1002: 95,
+                    988: 96,
+                    974: 97,
+                    955: 98,
+                    934: 99,
+                    909: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+      
                 twomilescore.innerHTML = Math.abs(twomile);
-            }else if (ageGroup == "57-61"){
+            } else if (ageGroup == "57-61") {
                 const deadliftScores = {
                     140: 60,
                     150: 71,
@@ -4544,13 +4573,11 @@ function updateScore() {
                     230: 98,
                     240: 99,
                     250: 100
-                  };
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                };
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     5.3: 60,
@@ -4590,15 +4617,13 @@ function updateScore() {
                     9.5: 98,
                     9.7: 99,
                     9.9: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                value = Number(standingPowerThrowSlider.value);
+         
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -4630,13 +4655,10 @@ function updateScore() {
                     43: 99,
                     46: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+      
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     192: 60,
                     184: 61,
@@ -4683,14 +4705,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+ 
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -4734,54 +4753,89 @@ function updateScore() {
                     197: 99,
                     200: 100
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+     
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1416: 60,
+                    1392: 61,
+                    1378: 62,
+                    1359: 63,
+                    1341: 64,
+                    1323: 65,
+                    1307: 66,
+                    1295: 67,
+                    1279: 68,
+                    1261: 69,
+                    1260: 70,
+                    1254: 71,
+                    1246: 72,
+                    1241: 73,
+                    1231: 74,
+                    1222: 75,
+                    1214: 76,
+                    1207: 77,
+                    1199: 78,
+                    1191: 79,
+                    1185: 80,
+                    1176: 81,
+                    1167: 82,
+                    1157: 83,
+                    1147: 84,
+                    1140: 85,
+                    1133: 86,
+                    1125: 87,
+                    1116: 88,
+                    1105: 89,
+                    1097: 90,
+                    1087: 91,
+                    1077: 92,
+                    1065: 93,
+                    1047: 94,
+                    1034: 95,
+                    1018: 96,
+                    1004: 97,
+                    982: 98,
+                    955: 99,
+                    928: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-                twomilescore.innerHTML = Math.abs(twomile);
-            }else{
-                
 
-                    const deadliftScores = {
-                        140: 60,
-                        141: 61,
-                        142: 62,
-                        143: 63,
-                        144: 64,
-                        145: 65,
-                        146: 66,
-                        147: 67,
-                        148: 68,
-                        149: 69,
-                        150: 72,
-                        160: 82,
-                        170: 92,
-                        180: 93,
-                        190: 94,
-                        200: 95,
-                        210: 98,
-                        220: 99,
-                        230: 100,
-                  };
-                  
-                  
-                const deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-                while (deadliftscore === undefined) {
-                    value++;
-                    deadliftscore = deadliftScores[value];
-                  }
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+   
+                twomilescore.innerHTML = Math.abs(twomile);
+            } else {
+
+
+                const deadliftScores = {
+                    140: 60,
+                    141: 61,
+                    142: 62,
+                    143: 63,
+                    144: 64,
+                    145: 65,
+                    146: 66,
+                    147: 67,
+                    148: 68,
+                    149: 69,
+                    150: 72,
+                    160: 82,
+                    170: 92,
+                    180: 93,
+                    190: 94,
+                    200: 95,
+                    210: 98,
+                    220: 99,
+                    230: 100,
+                };
+
+
+                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
+
                 deadliftscore2.innerHTML = deadliftscore;
                 const standingPowerThrowScores = {
                     4.9: 60,
@@ -4814,15 +4868,13 @@ function updateScore() {
                     8.7: 97,
                     8.8: 99,
                     9: 100
-                   
+
                 };
-    
-                
-                const standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+
+
+                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                value = Number(standingPowerThrowSlider.value);
+ 
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
@@ -4852,13 +4904,10 @@ function updateScore() {
                     41: 99,
                     43: 100
                 };
-                const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-                 while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-              }
+                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+     
                 hrp.innerHTML = handreleasescore;
-    
+
                 const sdcscores = {
                     196: 60,
                     194: 61,
@@ -4900,14 +4949,11 @@ function updateScore() {
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
-    
-                const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-                while (sdcscore === undefined) {
-                    value++;
-                    sdcscore= sdcscores[value];
-                }
+
+                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+      
                 sdc.innerHTML = Math.abs(sdcscore);
-    
+
                 const plkscores = {
                     70: 60,
                     73: 61,
@@ -4950,29 +4996,67 @@ function updateScore() {
                     194: 98,
                     197: 99,
                     200: 100
-                  
+
                 }
-    
-                const plkscore = plkscores[Number(plankSlider.value)]
-                while (plkscore === undefined) {
-                value++;
-                plkscore = plkscores[value];
-              }
+
+                var plkscore = plkscores[Number(plankSlider.value)]
+   
                 plt.innerHTML = plkscore;
-    
+
                 const twomilescores = {
-                               
+                    1416: 60,
+                    1392: 61,
+                    1378: 62,
+                    1359: 63,
+                    1341: 64,
+                    1323: 65,
+                    1307: 66,
+                    1295: 67,
+                    1279: 68,
+                    1261: 69,
+                    1260: 70,
+                    1254: 71,
+                    1246: 72,
+                    1241: 73,
+                    1231: 74,
+                    1222: 75,
+                    1214: 76,
+                    1207: 77,
+                    1199: 78,
+                    1191: 79,
+                    1185: 80,
+                    1176: 81,
+                    1167: 82,
+                    1157: 83,
+                    1147: 84,
+                    1140: 85,
+                    1133: 86,
+                    1125: 87,
+                    1116: 88,
+                    1105: 89,
+                    1097: 90,
+                    1087: 91,
+                    1077: 92,
+                    1065: 93,
+                    1047: 94,
+                    1034: 95,
+                    1018: 96,
+                    1004: 97,
+                    982: 98,
+                    955: 99,
+                    928: 100
                 }
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-    
-                const twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+
+                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+        
                 twomilescore.innerHTML = Math.abs(twomile);
-    
+
             }
         }
-    }
+    
 
     // Update the score divs with the values of the sliders
     deadliftScoreDiv.innerHTML = deadliftSlider.value;
@@ -4990,10 +5074,10 @@ function updateScore() {
 }
 
 function formatTime(seconds) {
-// Calculate the minutes and seconds from the total number of seconds
-var minutes = Math.floor(seconds / 60);
-seconds = seconds % 60;
+    // Calculate the minutes and seconds from the total number of seconds
+    var minutes = Math.floor(seconds / 60);
+    seconds = seconds % 60;
 
-// Format
-return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-} 
+    // Format
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+}
