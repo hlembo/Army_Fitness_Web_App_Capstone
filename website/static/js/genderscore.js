@@ -257,6 +257,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -532,6 +536,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
             const twomilescores = {
                     1395:60,
@@ -800,7 +808,11 @@ function updateScore() {
                   210:100
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)];
+            const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              };
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -1068,7 +1080,11 @@ function updateScore() {
                     205:100,
             }
 
-            const plkscore = plkscores[Number(plankSlider.value)];
+            const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              };
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -1327,6 +1343,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -1583,6 +1603,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -1836,6 +1860,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
 
@@ -2035,6 +2063,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -2267,6 +2299,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -2501,6 +2537,10 @@ function updateScore() {
             }
 
             const plkscore = plkscores[Number(plankSlider.value)]
+            while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
             plt.innerHTML = plkscore;
 
             const twomilescores = {
@@ -2792,6 +2832,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -3032,6 +3076,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -3270,6 +3318,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -3510,6 +3562,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -3751,6 +3807,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -3990,6 +4050,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -4223,6 +4287,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -4447,6 +4515,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -4664,6 +4736,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
@@ -4878,6 +4954,10 @@ function updateScore() {
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
+                while (plkscore === undefined) {
+                value++;
+                plkscore = plkscores[value];
+              }
                 plt.innerHTML = plkscore;
     
                 const twomilescores = {
