@@ -27,9 +27,7 @@ function updateScore() {
     var ageGroup = ageGroupMenu.value;
 
 
-    if (gender == "male"){
 
-    }
 
     if (gender == "female") {
         if (ageGroup == "17-21") {
@@ -153,6 +151,10 @@ function updateScore() {
                 53: 100,
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -470,6 +472,10 @@ function updateScore() {
                 50: 100,
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
 
 
@@ -682,7 +688,11 @@ function updateScore() {
                 45: 99,
                 48: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)];
+            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              };
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 195: 60,
@@ -941,7 +951,11 @@ function updateScore() {
                 46: 99,
                 47: 100,
             };
-            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)];
+            const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              };
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -1196,6 +1210,10 @@ function updateScore() {
                 41: 100,
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -1445,6 +1463,10 @@ function updateScore() {
                 36: 100
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 222: 60,
@@ -1688,6 +1710,10 @@ function updateScore() {
                 35: 100,
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 231: 60,
@@ -1880,6 +1906,10 @@ function updateScore() {
                 30: 100,
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -2105,6 +2135,10 @@ function updateScore() {
                 24: 100
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
             const sdcscores = {
                 288: 60,
@@ -2330,6 +2364,10 @@ function updateScore() {
                 24: 100
             };
             const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+             while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
             hrp.innerHTML = handreleasescore;
 
             const sdcscores = {
@@ -2572,9 +2610,51 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
+                    10: 60,
+                    13: 61,
+                    16: 62,
+                    17: 63,
+                    20: 64,
+                    22: 65,
+                    23: 66,
+                    24: 67,
+                    25: 68,
+                    27: 69,
+                    28: 70,
+                    29: 71,
+                    30: 72,
+                    31: 73,
+                    32: 75,
+                    33: 76,
+                    34: 77,
+                    35: 78,
+                    36: 79,
+                    37: 80,
+                    38: 82,
+                    39: 83,
+                    40: 84,
+                    41: 86,
+                    42: 87,
+                    43: 88,
+                    44: 89,
+                    45: 90,
+                    46: 91,
+                    47: 92,
+                    48: 93,
+                    49: 94,
+                    50: 95,
+                    51: 96,
+                    53: 97,
+                    54: 98,
+                    56: 99,
+                    57: 100
                 
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -2688,9 +2768,49 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    12: 61,
+                    13: 62,
+                    14: 63,
+                    16: 64,
+                    17: 65,
+                    20: 66,
+                    21: 68,
+                    22: 69,
+                    25: 70,
+                    26: 71,
+                    27: 72,
+                    30: 73,
+                    31: 76,
+                    32: 77,
+                    33: 78,
+                    34: 79,
+                    35: 80,
+                    37: 82,
+                    38: 83,
+                    40: 84,
+                    41: 85,
+                    42: 86,
+                    43: 87,
+                    44: 88,
+                    45: 89,
+                    46: 90,
+                    47: 91,
+                    48: 92,
+                    49: 93,
+                    50: 94,
+                    52: 95,
+                    53: 96,
+                    54: 97,
+                    57: 98,
+                    60: 99,
+                    61: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -2799,9 +2919,51 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
+                    10: 60,
+                    11: 61,
+                    12: 62,
+                    14: 63,
+                    16: 64,
+                    18: 65,
+                    20: 66,
+                    21: 69,
+                    23: 70,
+                    26: 71,
+                    27: 72,
+                    29: 73,
+                    30: 74,
+                    31: 75,
+                    32: 77,
+                    33: 78,
+                    34: 79,
+                    35: 80,
+                    36: 81,
+                    37: 82,
+                    38: 83,
+                    40: 84,
+                    41: 85,
+                    42: 86,
+                    43: 87,
+                    44: 88,
+                    45: 89,
+                    46: 90,
+                    47: 91,
+                    48: 92,
+                    49: 93,
+                    51: 94,
+                    52: 95,
+                    53: 96,
+                    55: 97,
+                    56: 98,
+                    59: 99,
+                    62: 100
                 
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -2913,9 +3075,51 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    11: 61,
+                    12: 62,
+                    13: 63,
+                    14: 64,
+                    16: 65,
+                    17: 66,
+                    19: 67,
+                    20: 68,
+                    21: 69,
+                    22: 70,
+                    23: 71,
+                    24: 72,
+                    26: 73,
+                    28: 74,
+                    29: 75,
+                    30: 76,
+                    31: 77,
+                    32: 79,
+                    33: 81,
+                    34: 82,
+                    36: 83,
+                    38: 84,
+                    39: 85,
+                    40: 86,
+                    41: 87,
+                    42: 88,
+                    43: 89,
+                    44: 90,
+                    45: 91,
+                    47: 92,
+                    48: 93,
+                    50: 94,
+                    52: 95,
+                    53: 96,
+                    54: 97,
+                    56: 98,
+                    59: 99,
+                    60: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3028,9 +3232,51 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    11: 61,
+                    12: 63,
+                    13: 64,
+                    14: 65,
+                    15: 66,
+                    16: 67,
+                    17: 68,
+                    19: 69,
+                    20: 70,
+                    21: 71,
+                    22: 72,
+                    23: 73,
+                    24: 74,
+                    25: 75,
+                    26: 76,
+                    27: 77,
+                    28: 78,
+                    29: 79,
+                    30: 80,
+                    31: 81,
+                    32: 83,
+                    33: 84,
+                    34: 85,
+                    37: 86,
+                    38: 87,
+                    39: 88,
+                    41: 89,
+                    42: 90,
+                    43: 91,
+                    44: 92,
+                    45: 93,
+                    46: 94,
+                    48: 95,
+                    51: 96,
+                    53: 97,
+                    54: 98,
+                    57: 99,
+                    59: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3142,9 +3388,50 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
+                    10: 60,
+                    11: 62,
+                    12: 64,
+                    13: 65,
+                    14: 66,
+                    15: 67,
+                    16: 68,
+                    17: 69,
+                    18: 70,
+                    19: 71,
+                    20: 73,
+                    21: 74,
+                    22: 75,
+                    23: 76,
+                    25: 77,
+                    26: 78,
+                    27: 79,
+                    28: 80,
+                    29: 81,
+                    30: 82,
+                    31: 83,
+                    32: 85,
+                    33: 86,
+                    34: 87,
+                    36: 88,
+                    37: 89,
+                    38: 90,
+                    41: 91,
+                    42: 92,
+                    43: 93,
+                    44: 94,
+                    46: 95,
+                    48: 96,
+                    50: 97,
+                    53: 98,
+                    55: 99,
+                    56: 100
                 
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3254,9 +3541,46 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
+                    10: 60,
+                    11: 63,
+                    12: 66,
+                    13: 68,
+                    14: 69,
+                    15: 70,
+                    16: 71,
+                    17: 72,
+                    18: 73,
+                    19: 74,
+                    20: 75,
+                    21: 77,
+                    22: 79,
+                    23: 80,
+                    25: 81,
+                    27: 82,
+                    28: 83,
+                    29: 84,
+                    30: 85,
+                    31: 86,
+                    32: 87,
+                    33: 89,
+                    34: 90,
+                    36: 91,
+                    38: 92,
+                    39: 93,
+                    41: 94,
+                    42: 95,
+                    44: 96,
+                    47: 97,
+                    50: 98,
+                    53: 99,
+                    55: 100 
                 
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3360,9 +3684,43 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    11: 64,
+                    12: 67,
+                    13: 69,
+                    14: 71,
+                    15: 72,
+                    16: 74,
+                    17: 76,
+                    18: 77,
+                    19: 78,
+                    20: 79,
+                    21: 80,
+                    22: 81,
+                    23: 83,
+                    24: 84,
+                    25: 85,
+                    26: 86,
+                    27: 87,
+                    28: 88,
+                    30: 89,
+                    31: 90,
+                    32: 91,
+                    33: 92,
+                    34: 93,
+                    35: 94,
+                    38: 95,
+                    40: 96,
+                    43: 97,
+                    45: 98,
+                    48: 99,
+                    51: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3462,9 +3820,40 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    11: 65,
+                    12: 68,
+                    13: 71,
+                    14: 73,
+                    15: 75,
+                    16: 76,
+                    17: 78,
+                    18: 80,
+                    19: 81,
+                    20: 82,
+                    21: 83,
+                    22: 84,
+                    23: 86,
+                    24: 87,
+                    25: 88,
+                    26: 89,
+                    29: 90,
+                    30: 91,
+                    31: 92,
+                    33: 93,
+                    34: 94,
+                    35: 95,
+                    37: 96,
+                    38: 97,
+                    40: 98,
+                    43: 99,
+                    46: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
@@ -3566,9 +3955,38 @@ function updateScore() {
                   }
                 spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
-                
+                    10: 60,
+                    11: 68,
+                    12: 71,
+                    13: 74,
+                    14: 76,
+                    15: 77,
+                    16: 79,
+                    17: 80,
+                    18: 81,
+                    19: 82,
+                    20: 83,
+                    21: 84,
+                    22: 85,
+                    23: 87,
+                    24: 89,
+                    26: 90,
+                    29: 91,
+                    30: 92,
+                    31: 93,
+                    33: 94,
+                    34: 95,
+                    35: 96,
+                    37: 97,
+                    39: 98,
+                    41: 99,
+                    43: 100
                 };
                 const handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                 while (handreleasescore === undefined) {
+                value++;
+                handreleasescore = handReleasePushupScores[value];
+              }
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
