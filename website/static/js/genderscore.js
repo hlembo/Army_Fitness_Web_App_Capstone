@@ -205,6 +205,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
 
@@ -435,6 +439,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const handReleasePushupScores = {
@@ -742,6 +750,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1006,10 +1018,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
-            while (standingscore === undefined) {
-                    value++;
-                    standingscore = standingPowerThrowScores[value];
-                  }
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1264,6 +1276,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1516,6 +1532,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1765,6 +1785,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -1960,6 +1984,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -2188,6 +2216,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -2418,6 +2450,10 @@ function updateScore() {
             }
 
             const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+            while (sdcscore === undefined) {
+                value++;
+                sdcscore= sdcscores[value];
+            }
             sdc.innerHTML = Math.abs(sdcscore);
 
             const plkscores = {
@@ -2658,17 +2694,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    148: 60,
+                    142: 61,
+                    137: 62,
+                    135: 63,
+                    133: 64,
+                    131: 65,
+                    128: 66,
+                    127: 67,
+                    126: 68,
+                    124: 69,
+                    123: 70,
+                    122: 71,
+                    121: 72,
+                    120: 73,
+                    119: 74,
+                    118: 75,
+                    117: 76,
+                    116: 77,
+                    115: 78,
+                    114: 79,
+                    113: 80,
+                    112: 81,
+                    111: 82,
+                    110: 83,
+                    109: 84,
+                    108: 85,
+                    107: 86,
+                    106: 87,
+                    105: 88,
+                    104: 89,
+                    103: 90,
+                    102: 91,
+                    101: 92,
+                    100: 93,
+                    99: 94,
+                    97: 95,
+                    96: 96,
+                    95: 97,
+                    94: 98,
+                    91: 99,
+                    89: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    90: 60,
+                    93: 61,
+                    97: 62,
+                    100: 63,
+                    103: 64,
+                    106: 65,
+                    109: 66,
+                    113: 67,
+                    116: 68,
+                    119: 69,
+                    122: 70,
+                    126: 71,
+                    129: 72,
+                    132: 73,
+                    135: 74,
+                    139: 75,
+                    142: 76,
+                    145: 77,
+                    149: 78,
+                    152: 79,
+                    155: 80,
+                    158: 81,
+                    161: 82,
+                    165: 83,
+                    168: 84,
+                    171: 85,
+                    175: 86,
+                    178: 87,
+                    181: 88,
+                    184: 89,
+                    188: 90,
+                    191: 91,
+                    194: 92,
+                    197: 93,
+                    201: 94,
+                    204: 95,
+                    207: 96,
+                    210: 97,
+                    214: 98,
+                    217: 99,
+                    220: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -2814,17 +2934,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                    
+                    151: 60,
+                    146: 61,
+                    141: 62,
+                    138: 63,
+                    136: 64,
+                    134: 65,
+                    131: 66,
+                    130: 67,
+                    128: 68,
+                    127: 69,
+                    125: 70,
+                    123: 71,
+                    122: 72,
+                    121: 73,
+                    120: 74,
+                    119: 75,
+                    118: 76,
+                    116: 77,
+                    115: 78,
+                    114: 79,
+                    113: 80,
+                    112: 81,
+                    111: 82,
+                    110: 83,
+                    109: 84,
+                    108: 85,
+                    107: 86,
+                    106: 87,
+                    105: 88,
+                    104: 89,
+                    103: 90,
+                    102: 91,
+                    101: 92,
+                    100: 93,
+                    99: 94,
+                    97: 95,
+                    96: 96,
+                    94: 97,
+                    93: 98,
+                    92: 99,
+                    90: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    85: 60,
+                    88: 61,
+                    92: 62,
+                    95: 63,
+                    98: 64,
+                    101: 65,
+                    105: 66,
+                    108: 67,
+                    111: 68,
+                    114: 69,
+                    118: 70,
+                    121: 71,
+                    124: 72,
+                    127: 73,
+                    130: 74,
+                    134: 75,
+                    137: 76,
+                    140: 77,
+                    143: 78,
+                    147: 79,
+                    150: 80,
+                    153: 81,
+                    157: 82,
+                    160: 83,
+                    163: 84,
+                    166: 85,
+                    170: 86,
+                    173: 87,
+                    176: 88,
+                    179: 89,
+                    183: 90,
+                    186: 91,
+                    189: 92,
+                    192: 93,
+                    196: 94,
+                    199: 95,
+                    202: 96,
+                    205: 97,
+                    209: 98,
+                    212: 99,
+                    215: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -2967,16 +3171,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    152: 60,
+                    148: 61,
+                    142: 62,
+                    140: 63,
+                    137: 64,
+                    135: 65,
+                    133: 66,
+                    131: 67,
+                    130: 68,
+                    128: 69,
+                    126: 70,
+                    125: 71,
+                    124: 72,
+                    122: 73,
+                    121: 74,
+                    120: 75,
+                    119: 76,
+                    118: 77,
+                    117: 78,
+                    116: 79,
+                    115: 80,
+                    114: 81,
+                    113: 82,
+                    112: 83,
+                    111: 84,
+                    110: 85,
+                    109: 86,
+                    108: 87,
+                    107: 88,
+                    106: 89,
+                    105: 90,
+                    103: 91,
+                    102: 92,
+                    101: 93,
+                    100: 94,
+                    98: 95,
+                    97: 96,
+                    95: 97,
+                    94: 98,
+                    91: 99,
+                    90: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
+                    80: 60,
+                    83: 61,
+                    86: 62,
+                    90: 63,
+                    93: 64,
+                    96: 65,
+                    99: 66,
+                    103: 67,
+                    106: 68,
+                    109: 69,
+                    112: 70,
+                    116: 71,
+                    119: 72,
+                    122: 73,
+                    126: 74,
+                    129: 75,
+                    132: 76,
+                    135: 77,
+                    138: 78,
+                    142: 79,
+                    145: 80,
+                    148: 81,
+                    151: 82,
+                    155: 83,
+                    158: 84,
+                    161: 85,
+                    165: 86,
+                    168: 87,
+                    171: 88,
+                    174: 89,
+                    178: 90,
+                    181: 91,
+                    184: 92,
+                    187: 93,
+                    191: 94,
+                    194: 95,
+                    197: 96,
+                    200: 97,
+                    204: 98,
+                    207: 99,
+                    210: 100
                   
                 }
     
@@ -3123,17 +3412,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    156: 60,
+                    151: 61,
+                    146: 62,
+                    144: 63,
+                    141: 64,
+                    139: 65,
+                    136: 66,
+                    135: 67,
+                    133: 68,
+                    131: 69,
+                    130: 70,
+                    128: 71,
+                    127: 72,
+                    125: 73,
+                    124: 74,
+                    123: 75,
+                    122: 76,
+                    121: 77,
+                    120: 78,
+                    119: 79,
+                    118: 80,
+                    117: 81,
+                    116: 82,
+                    115: 83,
+                    114: 84,
+                    113: 85,
+                    112: 86,
+                    111: 87,
+                    110: 88,
+                    109: 89,
+                    108: 90,
+                    106: 91,
+                    105: 92,
+                    104: 93,
+                    103: 94,
+                    101: 95,
+                    100: 96,
+                    98: 97,
+                    97: 98,
+                    94: 99,
+                    93: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    75: 60,
+                    78: 61,
+                    82: 62,
+                    85: 63,
+                    88: 64,
+                    91: 65,
+                    95: 66,
+                    98: 67,
+                    101: 68,
+                    104: 69,
+                    107: 70,
+                    111: 71,
+                    114: 72,
+                    117: 73,
+                    120: 74,
+                    124: 75,
+                    127: 76,
+                    130: 77,
+                    133: 78,
+                    137: 79,
+                    140: 80,
+                    143: 81,
+                    147: 82,
+                    150: 83,
+                    153: 84,
+                    156: 85,
+                    160: 86,
+                    163: 87,
+                    166: 88,
+                    169: 89,
+                    173: 90,
+                    176: 91,
+                    179: 92,
+                    182: 93,
+                    186: 94,
+                    189: 95,
+                    192: 96,
+                    195: 97,
+                    199: 98,
+                    202: 99,
+                    205: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3280,17 +3653,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    161: 60,
+                    156: 61,
+                    151: 62,
+                    148: 63,
+                    146: 64,
+                    144: 65,
+                    141: 66,
+                    140: 67,
+                    138: 68,
+                    136: 69,
+                    134: 70,
+                    133: 71,
+                    132: 72,
+                    130: 73,
+                    129: 74,
+                    128: 75,
+                    127: 76,
+                    125: 77,
+                    124: 78,
+                    123: 79,
+                    122: 80,
+                    121: 81,
+                    120: 82,
+                    119: 83,
+                    118: 84,
+                    117: 85,
+                    116: 86,
+                    115: 87,
+                    114: 88,
+                    113: 89,
+                    112: 90,
+                    110: 91,
+                    109: 92,
+                    108: 93,
+                    107: 94,
+                    105: 95,
+                    103: 96,
+                    102: 97,
+                    100: 98,
+                    97: 99,
+                    96: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3435,17 +3892,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    165: 60,
+                    161: 61,
+                    156: 62,
+                    153: 63,
+                    151: 64,
+                    149: 65,
+                    146: 66,
+                    145: 67,
+                    143: 68,
+                    142: 69,
+                    140: 70,
+                    138: 71,
+                    137: 72,
+                    135: 73,
+                    134: 74,
+                    133: 75,
+                    132: 76,
+                    130: 77,
+                    129: 78,
+                    128: 79,
+                    127: 80,
+                    126: 81,
+                    125: 82,
+                    124: 83,
+                    122: 84,
+                    121: 85,
+                    120: 86,
+                    119: 87,
+                    118: 88,
+                    117: 89,
+                    116: 90,
+                    114: 91,
+                    113: 92,
+                    112: 93,
+                    111: 94,
+                    109: 95,
+                    108: 96,
+                    106: 97,
+                    104: 98,
+                    102: 99,
+                    100: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3584,17 +4125,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    173: 60,
+                    168: 61,
+                    164: 62,
+                    161: 63,
+                    159: 64,
+                    157: 65,
+                    154: 66,
+                    152: 67,
+                    150: 68,
+                    149: 69,
+                    147: 70,
+                    146: 71,
+                    145: 72,
+                    143: 73,
+                    141: 74,
+                    140: 75,
+                    139: 76,
+                    137: 77,
+                    136: 78,
+                    135: 79,
+                    134: 80,
+                    133: 81,
+                    132: 82,
+                    130: 83,
+                    129: 84,
+                    128: 85,
+                    127: 86,
+                    126: 87,
+                    125: 88,
+                    123: 89,
+                    122: 90,
+                    121: 91,
+                    120: 92,
+                    119: 93,
+                    117: 94,
+                    115: 95,
+                    114: 96,
+                    112: 97,
+                    110: 98,
+                    106: 99,
+                    105: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3724,17 +4349,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    180: 60,
+                    177: 61,
+                    170: 62,
+                    168: 63,
+                    166: 64,
+                    164: 65,
+                    161: 66,
+                    160: 67,
+                    158: 68,
+                    157: 69,
+                    155: 70,
+                    154: 71,
+                    152: 72,
+                    151: 73,
+                    150: 74,
+                    149: 75,
+                    148: 76,
+                    146: 77,
+                    145: 78,
+                    143: 79,
+                    143: 80,
+                    141: 81,
+                    140: 82,
+                    139: 83,
+                    137: 84,
+                    136: 85,
+                    135: 86,
+                    134: 87,
+                    133: 88,
+                    131: 89,
+                    130: 90,
+                    129: 91,
+                    127: 92,
+                    126: 93,
+                    125: 94,
+                    123: 95,
+                    121: 96,
+                    120: 97,
+                    117: 98,
+                    115: 99,
+                    112: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3857,17 +4566,101 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    192: 60,
+                    184: 61,
+                    179: 62,
+                    177: 63,
+                    175: 64,
+                    173: 65,
+                    170: 66,
+                    168: 67,
+                    167: 68,
+                    165: 69,
+                    163: 70,
+                    162: 71,
+                    160: 72,
+                    158: 73,
+                    157: 74,
+                    156: 75,
+                    155: 76,
+                    153: 77,
+                    151: 78,
+                    150: 79,
+                    149: 80,
+                    148: 81,
+                    147: 82,
+                    146: 83,
+                    144: 84,
+                    143: 85,
+                    142: 86,
+                    141: 87,
+                    140: 88,
+                    139: 89,
+                    137: 90,
+                    136: 91,
+                    135: 92,
+                    133: 93,
+                    131: 94,
+                    129: 95,
+                    128: 96,
+                    126: 97,
+                    123: 98,
+                    122: 99,
+                    118: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
-                  
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                 }
     
                 const plkscore = plkscores[Number(plankSlider.value)]
@@ -3990,16 +4783,96 @@ function updateScore() {
                 hrp.innerHTML = handreleasescore;
     
                 const sdcscores = {
-                
+                    196: 60,
+                    194: 61,
+                    192: 62,
+                    191: 63,
+                    189: 64,
+                    183: 65,
+                    180: 66,
+                    177: 67,
+                    176: 68,
+                    172: 69,
+                    169: 70,
+                    167: 71,
+                    166: 72,
+                    164: 73,
+                    163: 74,
+                    161: 75,
+                    158: 76,
+                    156: 77,
+                    155: 78,
+                    153: 79,
+                    152: 80,
+                    147: 81,
+                    144: 82,
+                    143: 83,
+                    142: 84,
+                    141: 85,
+                    140: 86,
+                    139: 87,
+                    138: 88,
+                    137: 89,
+                    136: 95,
+                    135: 96,
+                    134: 97,
+                    133: 98,
+                    132: 99,
+                    129: 100
                 }
                 for (const key in sdcscores) {
                     sdcscores[key] *= -1;
                 }
     
                 const sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
+                while (sdcscore === undefined) {
+                    value++;
+                    sdcscore= sdcscores[value];
+                }
                 sdc.innerHTML = Math.abs(sdcscore);
     
                 const plkscores = {
+                    70: 60,
+                    73: 61,
+                    76: 62,
+                    80: 63,
+                    83: 64,
+                    86: 65,
+                    90: 66,
+                    93: 67,
+                    96: 68,
+                    99: 69,
+                    102: 70,
+                    106: 71,
+                    109: 72,
+                    112: 73,
+                    116: 74,
+                    119: 75,
+                    122: 76,
+                    125: 77,
+                    128: 78,
+                    132: 79,
+                    135: 80,
+                    138: 81,
+                    142: 82,
+                    145: 83,
+                    148: 84,
+                    151: 85,
+                    155: 86,
+                    158: 87,
+                    161: 88,
+                    164: 89,
+                    167: 90,
+                    171: 91,
+                    174: 92,
+                    177: 93,
+                    181: 94,
+                    184: 95,
+                    187: 96,
+                    190: 97,
+                    194: 98,
+                    197: 99,
+                    200: 100
                   
                 }
     
