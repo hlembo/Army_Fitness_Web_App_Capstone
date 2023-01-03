@@ -20,7 +20,7 @@ function updateScore() {
     var hrp = document.getElementById("hand-release-push-up-score2");
     var sdc = document.getElementById("sprint-drag-carry-score2");
     var plt = document.getElementById("plank-score2");
-    var twomilescore = document.getElementById("two-mile-run-score2");
+    var ts= document.getElementById("two-mile-run-score2");
 
     var gender = genderMenu.value;
     var ageGroup = ageGroupMenu.value;
@@ -46,8 +46,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             //Standing Power Throw checking
             const standingPowerThrowScores = {
                 3.9: 60,
@@ -100,9 +100,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            value = Number(standingPowerThrowSlider.value);
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const handReleasePushupScores = {
                 10: 60,
@@ -142,8 +141,9 @@ function updateScore() {
                 50: 99,
                 53: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
             const sdcscores = {
                 195: 60,
@@ -192,8 +192,9 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+
+            sdc.innerHTML = Math.abs(sdcScore);
 
 
             const plkscores = {
@@ -240,59 +241,61 @@ function updateScore() {
                 220: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
-                1320: 60,
-                1263: 61,
-                1242: 62,
-                1219: 63,
-                1200: 64,
-                1183: 65,
-                1167: 66,
-                1152: 67,
-                1140: 68,
-                1127: 69,
-                1115: 70,
-                1103: 71,
-                1092: 72,
-                1081: 73,
-                1072: 74,
-                1063: 75,
-                1053: 76,
-                1044: 77,
-                1035: 78,
-                1025: 79,
-                1017: 80,
-                1008: 81,
-                999: 82,
-                990: 83,
-                982: 84,
-                974: 85,
-                965: 86,
-                957: 87,
-                948: 88,
-                939: 89,
-                930: 90,
-                920: 91,
-                911: 92,
-                900: 93,
-                891: 94,
-                880: 95,
-                868: 96,
-                855: 97,
-                840: 98,
-                822: 99,
-                802: 100
+                1402:60,
+                1378:61,
+                1355:62,
+                1331:63,
+                1314:64,
+                1297:65,
+                1280:66,
+                1263:67,
+                1258:68,
+                1249:69,
+                1240:70,
+                1230:71,
+                1221:72,
+                1212:73,
+                1203:74,
+                1196:75,
+                1188:76,
+                1180:77,
+                1172:78,
+                1164:79,
+                1157:80,
+                1149:81,
+                1140:82,
+                1134:83,
+                1126:84,
+                1119:85,
+                1110:86,
+                1102:87,
+                1093:88,
+                1084:89,
+                1076:90,
+                1067:91,
+                1057:92,
+                1047:93,
+                1034:94,
+                1021:95,
+                1008:96,
+                994:97,
+                976:98,
+                955:99,
+                929:100
+
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
 
-            twomilescore.innerHTML = Math.abs(twomile);
 
 
         } else if (ageGroup == "22-26") {
@@ -311,9 +314,8 @@ function updateScore() {
                 230: 100,
             };
 
-            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
 
             const standingPowerThrowScores = {
                 4.0: 60,
@@ -361,14 +363,13 @@ function updateScore() {
                 8.2: 99,
                 8.3: 99,
                 8.4: 99,
-                8.4: 100,
+                8.5: 100,
                 // ... more ranges and scores
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const sdcscores = {
                 195: 60,
@@ -417,8 +418,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const handReleasePushupScores = {
                 10: 60,
@@ -454,8 +455,9 @@ function updateScore() {
                 49: 99,
                 50: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
 
             const plkscores = {
@@ -502,8 +504,9 @@ function updateScore() {
                 215: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
             const twomilescores = {
                 1395: 60,
                 1370: 61,
@@ -551,8 +554,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
 
         } else if (ageGroup == "27-31") {
@@ -570,9 +574,8 @@ function updateScore() {
                 220: 99,
                 230: 100
             };
-            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            let value = Number(deadliftSlider.value);
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
 
             const standingPowerThrowScores = {
                 4.2: 60,
@@ -626,10 +629,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            value = Number(standingPowerThrowSlider.value);
-
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
             const handReleasePushupScores = {
                 10: 60,
                 11: 63,
@@ -662,12 +663,9 @@ function updateScore() {
                 45: 99,
                 48: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            while (handreleasescore === undefined) {
-                value++;
-                handreleasescore = handReleasePushupScores[value];
-            };
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
             const sdcscores = {
                 195: 60,
                 187: 61,
@@ -715,9 +713,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
- 
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 80: 60,
@@ -763,8 +760,9 @@ function updateScore() {
                 210: 100
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1393: 60,
@@ -813,8 +811,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
 
         } else if (ageGroup == "32-36") {
@@ -832,10 +831,9 @@ function updateScore() {
                 220: 99,
                 230: 100
             }
-            var deadliftscore = deadliftScores[Number(deadliftSlider.value)];
-            let value = Number(deadliftSlider.value);
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
 
-            deadliftscore2.innerHTML = deadliftscore;
             const standingPowerThrowScores = {
                 4.1: 60,
                 4.2: 60,
@@ -888,9 +886,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            value = Number(standingPowerThrowSlider.value);
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const handReleasePushupScores = {
                 10: 60,
@@ -921,8 +918,9 @@ function updateScore() {
                 46: 99,
                 47: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
             const sdcscores = {
                 202: 60,
@@ -971,8 +969,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)];
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 75: 60,
@@ -1018,8 +1016,9 @@ function updateScore() {
                 205: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1399: 60,
@@ -1068,8 +1067,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
 
         } else if (ageGroup == "37-41") {
@@ -1085,8 +1085,8 @@ function updateScore() {
                 200: 99,
                 210: 100
             };
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
 
             const standingPowerThrowScores = {
                 4.1: 60,
@@ -1135,8 +1135,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const handReleasePushupScores = {
                 10: 60,
@@ -1163,8 +1163,9 @@ function updateScore() {
                 39: 99,
                 41: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
             const sdcscores = {
                 207: 60,
@@ -1213,8 +1214,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -1260,8 +1261,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1403: 60,
@@ -1310,8 +1312,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
 
         } else if (ageGroup == "42-46") {
@@ -1327,8 +1330,8 @@ function updateScore() {
                 200: 99,
                 210: 100
             }
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             //To be continued
             const standingPowerThrowScores = {
                 3.9: 60,
@@ -1378,8 +1381,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const handReleasePushupScores = {
                 10: 60,
@@ -1404,8 +1407,9 @@ function updateScore() {
                 34: 99,
                 36: 100
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
             const sdcscores = {
                 222: 60,
                 211: 61,
@@ -1453,8 +1457,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -1500,8 +1504,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1422: 60,
@@ -1550,8 +1555,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
         } else if (ageGroup == "47-51") {
             const deadliftScores = {
@@ -1564,8 +1570,8 @@ function updateScore() {
                 180: 99,
                 190: 100,
             };
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             const standingPowerThrowScores = {
                 3.7: 60,
                 3.8: 60,
@@ -1613,8 +1619,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
 
             const handReleasePushupScores = {
                 10: 60,
@@ -1639,8 +1645,9 @@ function updateScore() {
                 34: 99,
                 35: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
             const sdcscores = {
                 231: 60,
                 222: 61,
@@ -1690,8 +1697,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -1737,8 +1744,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
 
 
@@ -1754,8 +1762,8 @@ function updateScore() {
                 190: 100
             };
 
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             const standingPowerThrowScores = {
                 3.5: 60,
                 3.6: 60,
@@ -1801,9 +1809,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
             const handReleasePushupScores = {
                 10: 60,
                 11: 67,
@@ -1824,8 +1831,9 @@ function updateScore() {
                 28: 99,
                 30: 100,
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
             const sdcscores = {
                 243: 60,
@@ -1874,8 +1882,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -1921,8 +1929,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1464: 60,
@@ -1971,8 +1980,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
         } else if (ageGroup == "57-61") {
             const deadliftScores = {
                 120: 60,
@@ -1982,8 +1992,8 @@ function updateScore() {
                 160: 99,
                 170: 100,
             };
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             const standingPowerThrowScores = {
                 3.4: 60,
                 3.5: 60,
@@ -2022,9 +2032,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            value = Number(standingPowerThrowSlider.value);
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
             const handReleasePushupScores = {
                 10: 60,
                 11: 67,
@@ -2042,9 +2051,10 @@ function updateScore() {
                 23: 99,
                 24: 100
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-   
-            hrp.innerHTML = handreleasescore;
+            
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
             const sdcscores = {
                 288: 60,
                 261: 61,
@@ -2092,9 +2102,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -2140,8 +2149,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1488: 60,
@@ -2184,14 +2194,15 @@ function updateScore() {
                 1080: 97,
                 1076: 98,
                 1067: 99,
-                103: 100
+                1038: 100
             }
             for (const key in twomilescores) {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
 
         } else {
             const deadliftScores = {
@@ -2202,8 +2213,8 @@ function updateScore() {
                 160: 99,
                 170: 100,
             };
-            deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-            deadliftscore2.innerHTML = deadliftscore;
+            var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+            deadliftscore2.innerHTML = deadliftScore;
             const standingPowerThrowScores = {
                 3.4: 60,
                 3.5: 60,
@@ -2242,9 +2253,8 @@ function updateScore() {
             };
 
             // To look up the score for a given value:
-            var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-            value = Number(standingPowerThrowSlider.value);
-            spt.innerHTML = standingscore;
+            var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+            spt.innerHTML = standingPowerThrowScore;
             const handReleasePushupScores = {
                 10: 60,
                 11: 69,
@@ -2262,8 +2272,9 @@ function updateScore() {
                 23: 99,
                 24: 100
             };
-            var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-            hrp.innerHTML = handreleasescore;
+            var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+            hrp.innerHTML = handReleaseScore;
+
 
             const sdcscores = {
                 288: 60,
@@ -2312,9 +2323,8 @@ function updateScore() {
                 sdcscores[key] *= -1;
             }
 
-            var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-
-            sdc.innerHTML = Math.abs(sdcscore);
+            var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            sdc.innerHTML = Math.abs(sdcScore);
 
             const plkscores = {
                 70: 60,
@@ -2360,8 +2370,9 @@ function updateScore() {
                 200: 100,
             }
 
-            var plkscore = plkscores[Number(plankSlider.value)]
-            plt.innerHTML = plkscore;
+            var plankScore = getScore(Number(plankSlider.value), plkscores);
+            plt.innerHTML = plankScore;
+
 
             const twomilescores = {
                 1500: 60,
@@ -2410,8 +2421,9 @@ function updateScore() {
                 twomilescores[key] *= -1;
             }
 
-            var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-            twomilescore.innerHTML = Math.abs(twomile);
+           var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+            ts.innerHTML = Math.abs(twomilescore2);
+
         }
     } 
        
@@ -2439,9 +2451,8 @@ function updateScore() {
                     330: 97,
                     340: 100
                 };
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6: 60,
                     6.6: 61,
@@ -2460,7 +2471,7 @@ function updateScore() {
                     8.6: 74,
                     8.8: 75,
                     8.9: 76,
-                    9: 77,
+                    9.0: 77,
                     9.1: 78,
                     9.2: 79,
                     9.3: 80,
@@ -2470,26 +2481,25 @@ function updateScore() {
                     9.7: 84,
                     9.8: 85,
                     9.9: 86,
-                    10: 87,
+                    10.0: 87,
                     10.3: 88,
                     10.4: 89,
                     10.5: 90,
                     10.6: 91,
                     10.7: 92,
                     10.9: 93,
-                    11: 94,
+                    11.0: 94,
                     11.3: 95,
                     11.5: 96,
                     11.7: 97,
-                    12: 98,
+                    12.0: 98,
                     12.4: 99,
                     12.6: 100
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-  
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     13: 61,
@@ -2531,9 +2541,9 @@ function updateScore() {
                     57: 100
 
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
 
-                hrp.innerHTML = handreleasescore;
 
                 const sdcscores = {
                     148: 60,
@@ -2582,9 +2592,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     90: 60,
@@ -2630,9 +2640,8 @@ function updateScore() {
                     220: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1320: 60,
@@ -2681,9 +2690,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-    
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
 
 
 
@@ -2710,10 +2718,8 @@ function updateScore() {
                     330: 99,
                     340: 100
                 };
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6.3: 60,
                     6.9: 61,
@@ -2760,9 +2766,9 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
 
-                spt.innerHTML = standingscore;
                 const handReleasePushupScores = {
                     10: 60,
                     12: 61,
@@ -2802,9 +2808,9 @@ function updateScore() {
                     60: 99,
                     61: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
 
-                hrp.innerHTML = handreleasescore;
 
                 const sdcscores = {
                     151: 60,
@@ -2853,9 +2859,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     85: 60,
@@ -2901,9 +2907,8 @@ function updateScore() {
                     215: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1320: 60,
@@ -2952,9 +2957,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
- 
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "27-31") {
                 const deadliftScores = {
                     140: 60,
@@ -2979,10 +2983,8 @@ function updateScore() {
                     330: 99,
                     340: 100
                 };
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6.5: 60,
                     7.1: 61,
@@ -3026,10 +3028,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                value = Number(standingPowerThrowSlider.value);
-     
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 61,
@@ -3071,9 +3071,9 @@ function updateScore() {
                     62: 100
 
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-      
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     152: 60,
@@ -3122,10 +3122,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-     
-                sdc.innerHTML = Math.abs(sdcscore);
-
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
                 const plkscores = {
                     80: 60,
                     83: 61,
@@ -3171,9 +3170,8 @@ function updateScore() {
 
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-     
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1320: 60,
@@ -3222,9 +3220,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
- 
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "32-36") {
                 const deadliftScores = {
                     140: 60,
@@ -3249,10 +3246,8 @@ function updateScore() {
                     330: 99,
                     340: 100
                 };
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6.5: 60,
                     7.1: 61,
@@ -3299,10 +3294,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-           
-      
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 61,
@@ -3344,9 +3337,9 @@ function updateScore() {
                     59: 99,
                     60: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-       
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     156: 60,
@@ -3395,9 +3388,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-        
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     75: 60,
@@ -3443,9 +3436,8 @@ function updateScore() {
                     205: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-      
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1320: 60,
@@ -3494,9 +3486,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-       
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "37-41") {
                 const deadliftScores = {
                     140: 60,
@@ -3522,10 +3513,8 @@ function updateScore() {
                     340: 100
                 };
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6.4: 60,
                     7: 61,
@@ -3572,9 +3561,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-      
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 61,
@@ -3616,9 +3604,9 @@ function updateScore() {
                     57: 99,
                     59: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-    
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     161: 60,
@@ -3667,9 +3655,8 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-         
-                sdc.innerHTML = Math.abs(sdcscore);
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
 
                 const plkscores = {
                     70: 60,
@@ -3715,9 +3702,8 @@ function updateScore() {
                     200: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-     
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1331: 60,
@@ -3766,9 +3752,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-  
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "42-46") {
                 const deadliftScores = {
                     140: 60,
@@ -3794,10 +3779,8 @@ function updateScore() {
                     340: 100
                 };
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6.2: 60,
                     6.7: 61,
@@ -3843,10 +3826,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                value = Number(standingPowerThrowSlider.value);
-     
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 62,
@@ -3887,9 +3868,9 @@ function updateScore() {
                     56: 100
 
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-      
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     165: 60,
@@ -3938,9 +3919,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-         
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     70: 60,
@@ -3986,9 +3967,8 @@ function updateScore() {
                     200: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-     
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1352: 60,
@@ -4037,9 +4017,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-        
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "47-51") {
                 const deadliftScores = {
                     140: 60,
@@ -4064,10 +4043,8 @@ function updateScore() {
                     330: 100
                 };
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     6: 60,
                     6.4: 61,
@@ -4112,10 +4089,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                value = Number(standingPowerThrowSlider.value);
-     
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 63,
@@ -4152,9 +4127,9 @@ function updateScore() {
                     55: 100
 
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
- 
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     173: 60,
@@ -4203,9 +4178,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-    
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     70: 60,
@@ -4251,9 +4226,8 @@ function updateScore() {
                     200: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-     
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1375: 60,
@@ -4302,9 +4276,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-    
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "52-56") {
                 const deadliftScores = {
                     140: 60,
@@ -4325,54 +4298,52 @@ function updateScore() {
                     290: 100
                 };
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
-                    5.3: 60,
-                    5.7: 61,
-                    6: 62,
-                    6.1: 63,
-                    6.2: 64,
-                    6.3: 65,
-                    6.5: 66,
-                    6.6: 67,
-                    6.7: 68,
-                    6.8: 69,
-                    6.9: 70,
-                    7: 72,
-                    7.1: 73,
-                    7.2: 74,
-                    7.3: 75,
-                    7.4: 76,
-                    7.5: 78,
-                    7.6: 79,
-                    7.7: 80,
-                    7.8: 81,
-                    7.9: 82,
-                    8: 83,
-                    8.1: 85,
-                    8.2: 86,
-                    8.3: 87,
-                    8.4: 88,
-                    8.5: 90,
-                    8.7: 91,
-                    8.8: 92,
-                    8.9: 93,
-                    9: 94,
-                    9.1: 95,
-                    9.3: 96,
-                    9.4: 97,
-                    9.5: 98,
-                    9.7: 99,
-                    9.9: 100
-
+                    5.7	:60,
+                    6	:61,
+                    6.2	:62,
+                    6.4	:63,
+                    6.6	:64,
+                    6.7	:65,
+                    6.9	:66,
+                    7	:68,
+                    7.1	:69,
+                    7.3	:70,
+                    7.4	:71,
+                    7.5	:72,
+                    7.6	   :73,
+                    7.7	:74,
+                    7.8	:76,
+                    7.9	:77,
+                    8	:78,
+                    8.1	:80,
+                    8.2	:81,
+                    8.3	:82,
+                    8.4	:83,
+                    8.5	:84,
+                    8.6	:86,
+                    8.7	:87,
+                    8.8	:88,
+                    8.9	:89,
+                    9	   :90,
+                    9.1	:91,
+                    9.2	:92,
+                    9.3	:93,
+                    9.5	:94,
+                    9.6	:95,
+                    9.8	:96,
+                    10	:97,
+                    10.2:98,
+                    10.4   :99,
+                    10.6:100
+                    
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-   
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 64,
@@ -4406,9 +4377,10 @@ function updateScore() {
                     48: 99,
                     51: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
- 
-                hrp.innerHTML = handreleasescore;
+                
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+                
 
                 const sdcscores = {
                     180: 60,
@@ -4457,9 +4429,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-   
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     70: 60,
@@ -4505,10 +4477,8 @@ function updateScore() {
                     200: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-   
-                plt.innerHTML = plkscore;
-
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
                 const twomilescores = {
                     1400: 60,
                     1373: 61,
@@ -4556,9 +4526,8 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-      
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
             } else if (ageGroup == "57-61") {
                 const deadliftScores = {
                     140: 60,
@@ -4575,10 +4544,8 @@ function updateScore() {
                     250: 100
                 };
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     5.3: 60,
                     5.7: 61,
@@ -4621,10 +4588,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                value = Number(standingPowerThrowSlider.value);
-         
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 65,
@@ -4655,9 +4620,9 @@ function updateScore() {
                     43: 99,
                     46: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-      
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+                
 
                 const sdcscores = {
                     192: 60,
@@ -4706,9 +4671,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
- 
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     70: 60,
@@ -4754,10 +4719,8 @@ function updateScore() {
                     200: 100
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-     
-                plt.innerHTML = plkscore;
-
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
                 const twomilescores = {
                     1416: 60,
                     1392: 61,
@@ -4805,9 +4768,9 @@ function updateScore() {
                     twomilescores[key] *= -1;
                 }
 
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-   
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
+
             } else {
 
 
@@ -4834,9 +4797,8 @@ function updateScore() {
                 };
 
 
-                deadliftscore = deadliftScores[Number(deadliftSlider.value)]
-
-                deadliftscore2.innerHTML = deadliftscore;
+                var deadliftScore = getScore(Number(deadliftSlider.value), deadliftScores);
+                deadliftscore2.innerHTML = deadliftScore;
                 const standingPowerThrowScores = {
                     4.9: 60,
                     5.1: 61,
@@ -4872,10 +4834,8 @@ function updateScore() {
                 };
 
 
-                var standingscore = standingPowerThrowScores[Number(standingPowerThrowSlider.value)];
-                value = Number(standingPowerThrowSlider.value);
- 
-                spt.innerHTML = standingscore;
+                var standingPowerThrowScore = getScore(Number(standingPowerThrowSlider.value), standingPowerThrowScores);
+                spt.innerHTML = standingPowerThrowScore;
                 const handReleasePushupScores = {
                     10: 60,
                     11: 68,
@@ -4904,9 +4864,9 @@ function updateScore() {
                     41: 99,
                     43: 100
                 };
-                var handreleasescore = handReleasePushupScores[Number(handReleasePushUpSlider.value)]
-     
-                hrp.innerHTML = handreleasescore;
+                var handReleaseScore = getScore(Number(handReleasePushUpSlider.value), handReleasePushupScores);
+                hrp.innerHTML = handReleaseScore;
+
 
                 const sdcscores = {
                     196: 60,
@@ -4950,9 +4910,9 @@ function updateScore() {
                     sdcscores[key] *= -1;
                 }
 
-                var sdcscore = sdcscores[Number(sprintDragCarrySlider.value * -1)]
-      
-                sdc.innerHTML = Math.abs(sdcscore);
+                var sdcScore = getScore(Number(sprintDragCarrySlider.value * -1), sdcscores);
+            
+                sdc.innerHTML = Math.abs(sdcScore);
 
                 const plkscores = {
                     70: 60,
@@ -4999,9 +4959,8 @@ function updateScore() {
 
                 }
 
-                var plkscore = plkscores[Number(plankSlider.value)]
-   
-                plt.innerHTML = plkscore;
+                var plankScore = getScore(Number(plankSlider.value), plkscores);
+                plt.innerHTML = plankScore;
 
                 const twomilescores = {
                     1416: 60,
@@ -5049,29 +5008,37 @@ function updateScore() {
                 for (const key in twomilescores) {
                     twomilescores[key] *= -1;
                 }
-
-                var twomile = twomilescores[Number(twoMileRunSlider.value * -1)]
-        
-                twomilescore.innerHTML = Math.abs(twomile);
+                var twomilescore2 = getScore(Number(twoMileRunSlider.value * -1), twomilescores);
+                ts.innerHTML = Math.abs(twomilescore2);
 
             }
         }
     
 
-    // Update the score divs with the values of the sliders
-    deadliftScoreDiv.innerHTML = deadliftSlider.value;
-    standingPowerThrowScoreDiv.innerHTML = parseFloat(standingPowerThrowSlider.value).toFixed(1);
-    handReleasePushUpScoreDiv.innerHTML = handReleasePushUpSlider.value;
-    sprintDragCarryScoreDiv.innerHTML = formatTime(Math.abs(sprintDragCarrySlider.value));
-    plankScoreDiv.innerHTML = formatTime(Math.abs(plankSlider.value));
-    twoMileRunScoreDiv.innerHTML = formatTime(Math.abs(twoMileRunSlider.value));
 
     // Calculate the total score
-    var totalScore = parseInt(deadliftSlider.value) + parseInt(standingPowerThrowSlider.value) + parseInt(handReleasePushUpSlider.value) + parseInt(sprintDragCarrySlider.value) + parseInt(plankSlider.value) + parseInt(twoMileRunSlider.value);
+    var totalScore = parseInt(deadliftscore2.innerHTML) + parseInt(spt.innerHTML) +parseInt(hrp.innerHTML) +parseInt(sdc.innerHTML) +parseInt(plt.innerHTML) +parseInt(ts.innerHTML);
 
     // Update the total score div
     totalScoreDiv.innerHTML = totalScore;
 }
+
+
+/*
+function getScore(score, lookupTable) {
+    while (lookupTable[score] === undefined) {
+      score++;
+    }
+    return lookupTable[score];
+  }
+*/
+function getScore(score, lookupTable) {
+    while (lookupTable[score] === undefined) {
+      score = Number((score + 0.1).toFixed(1));
+    }
+    return lookupTable[score];
+}
+
 
 function formatTime(seconds) {
     // Calculate the minutes and seconds from the total number of seconds
