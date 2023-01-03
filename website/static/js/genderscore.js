@@ -5014,7 +5014,12 @@ function updateScore() {
             }
         }
     
-
+    deadliftScoreDiv.innerHTML = deadliftSlider.value;
+    standingPowerThrowScoreDiv.innerHTML = parseFloat(standingPowerThrowSlider.value).toFixed(1);
+    handReleasePushUpScoreDiv.innerHTML = handReleasePushUpSlider.value;
+    sprintDragCarryScoreDiv.innerHTML = formatTime(Math.abs(sprintDragCarrySlider.value));
+    plankScoreDiv.innerHTML = formatTime(Math.abs(plankSlider.value));
+    twoMileRunScoreDiv.innerHTML = formatTime(Math.abs(twoMileRunSlider.value));
 
     // Calculate the total score
     var totalScore = parseInt(deadliftscore2.innerHTML) + parseInt(spt.innerHTML) +parseInt(hrp.innerHTML) +parseInt(sdc.innerHTML) +parseInt(plt.innerHTML) +parseInt(ts.innerHTML);
