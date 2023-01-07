@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% for record in acft_records %}
+    <p>Two-Mile Run: {{ "{:.2f}".format(record.twomilerun) }}</p>
+    <p>Standing Power Throw: {{ "{:.2f}".format(record.spt) }}</p>
+    <p>Plank: {{ "{:.2f}".format(record.plk) }}</p>
+    <p>Sprint-Drag-Carry: {{ "{:.2f}".format(record.sdc) }}</p>
+{% endfor %}
+
+
+
+{% block content %}
+{% endblock %}

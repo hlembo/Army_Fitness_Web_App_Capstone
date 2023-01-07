@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, flash, url_for
 from flask_login import  login_required, current_user
-
+from .models import Acft
+from . import db
 views = Blueprint('views', __name__)
 
 @views.route('/',  methods = ["GET","POST"])
@@ -38,4 +39,28 @@ def contact():
 
 @views.route('/acft',  methods = ["GET","POST"])
 def acft():
+    if request.method == 'POST':
+        plk = request.form.get('plank')
+        sdc = request.form.get('sprint-drag-carry')
+        hrp = request.form.get('hand-release-push-up')
+        twomile = request.form.get('two-mile-run')
+        mdl = request.form.get('deadlift')
+        spt = request.form.get('standing-power-throw')
+        new_acft = Acft(twomile = twomile, mdl = mdl, spt = spt, hrp = hrp, sdc = sdc, plk=plk, user_id = current_user.id)
+        db.session.add(new_acft)
+        db.session.commit()
+        
     return render_template("acft.html", user = current_user)
+
+
+@views.route('/profile')
+@login_required
+def profile():
+    # Get all Acft records for the currently logged-in user
+    acft_records = Acft.query.filter_by(user_id=current_user.id).all()
+    for record in acft_records:
+        record.twomilerun = float(record.twomilerun)
+        record.spt = float(record.spt)
+        record.plk = float(record.plk)
+        record.sdc = float(record.sdc)
+    return render_template('profile.html', acft_records=acft_records, user =current_user)

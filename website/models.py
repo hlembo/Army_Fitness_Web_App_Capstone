@@ -4,13 +4,12 @@ from sqlalchemy.sql import func
 
 class Acft(db.Model):
     id = db.Column(db.Integer, primary_key =True )
-    run = db.Column(db.Integer)
-    dl = db.Column(db.Integer)
-    pt = db.Column(db.Integer)
-    pu= db.Column(db.Integer)
-    pl= db.Column(db.Integer)
-    sdc = db.Column(db.Integer)
-    scr = db.Column(db.Integer)
+    twomilerun = db.Column(db.Float)
+    mdl = db.Column(db.Integer)
+    spt = db.Column(db.Float)
+    hrp= db.Column(db.Integer)
+    plk= db.Column(db.Float)
+    sdc = db.Column(db.Float)
     date = db.Column(db.DateTime(timezone = True), default = func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

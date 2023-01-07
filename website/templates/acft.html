@@ -25,60 +25,60 @@
       <option value="52-56">52-56</option>
       <option value="57-61">57-61</option>
       <option value="62-66">62-66</option>
-      <option value="67-71">67-71</option>
-      <option value="72-76">72-76</option>
     </select>
     <br><br>
     <form>
         <div class = "form-group">
             <div class="eventacft">
                 <label for="deadlift">Deadlift:</label><br>
-                <input type="range" id="deadlift" name="deadlift" min="0" min="0" value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="deadlift-score" onchange = "setAcftScore()">0</div>
                 <div id="deadlift-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="standing-power-throw">Standing Power Throw:</label><br>
-                <input type="range" id="standing-power-throw" name="standing-power-throw" step = "0.1" min="0" min="0"value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="standing-power-throw" name="standing-power-throw" step = "0.1" max="0" min="0"value="0" oninput="updateScore()"><br>
                 <div id="standing-power-throw-score">0</div>
                 <div id="standing-power-throw-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="hand-release-push-up">Hand-Release Push-Up:</label><br>
-                <input type="range" id="hand-release-push-up" name="hand-release-push-up" min="0" min="0" value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="hand-release-push-up" name="hand-release-push-up" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="hand-release-push-up-score">0</div>
                 <div id="hand-release-push-up-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="sprint-drag-carry">Sprint-Drag-Carry:</label><br>
-                <input type="range" id="sprint-drag-carry" name="sprint-drag-carry" min="0" min="0" value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="sprint-drag-carry" name="sprint-drag-carry" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="sprint-drag-carry-score">0</div>
                 <div id="sprint-drag-carry-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="plank">Plank:</label><br>
-                <input type="range" id="plank" name="plank" min="0" min="0" value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="plank" name="plank" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="plank-score">0</div>
                 <div id="plank-score2">0</div>
               </div>
               <br>
               <div class="eventacft">
                 <label for="two-mile-run">Two-Mile Run:</label><br>
-                <input type="range" id="two-mile-run" name="two-mile-run" min="0" min="0" value="0" oninput="updateScore()"><br>
+                <input class="bar-input" type="range" id="two-mile-run" name="two-mile-run" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="two-mile-run-score">0</div>
                 <div id="two-mile-run-score2">0</div>
               </div>
               <br>
               <div id="total-score">0</div>
+              <br/>
+              <button type="submit" class="btn btn-primary" align = "right">Submit</button>
     </form>
 
 
 <script src= "{{ url_for('static', filename='js/setvalues.js') }}"></script>
 <script src= "{{ url_for('static', filename='js/genderscore.js') }}"></script>
-
+<script src= "{{ url_for('static', filename='js/slider.js') }}"></script>
  
 {% endblock %}
