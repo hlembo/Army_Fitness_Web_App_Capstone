@@ -46,21 +46,15 @@ def acft():
         twomile = request.form.get('two-mile-run')
         mdl = request.form.get('deadlift')
         spt = request.form.get('standing-power-throw')
-        new_acft = Acft(twomile = twomile, mdl = mdl, spt = spt, hrp = hrp, sdc = sdc, plk=plk, user_id = current_user.id)
+        new_acft = Acft( twomilerun = twomile, mdl = mdl, spt = spt, hrp = hrp, sdc = sdc, plk=plk, user_id = current_user.id)
         db.session.add(new_acft)
         db.session.commit()
-        
+        return render_template("profile.html", user=current_user, data=request)
     return render_template("acft.html", user = current_user)
 
 
-@views.route('/profile')
+@views.route('/profile', methods = ["GET","POST"])
 @login_required
 def profile():
-    # Get all Acft records for the currently logged-in user
-    acft_records = Acft.query.filter_by(user_id=current_user.id).all()
-    for record in acft_records:
-        record.twomilerun = float(record.twomilerun)
-        record.spt = float(record.spt)
-        record.plk = float(record.plk)
-        record.sdc = float(record.sdc)
-    return render_template('profile.html', acft_records=acft_records, user =current_user)
+        form_data = Acft.query.filter_by(user_id=current_user.id).all()
+        return render_template('profile.html', user=current_user, form_data=form_data)

@@ -1,13 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
-{% for record in acft_records %}
-    <p>Two-Mile Run: {{ "{:.2f}".format(record.twomilerun) }}</p>
-    <p>Standing Power Throw: {{ "{:.2f}".format(record.spt) }}</p>
-    <p>Plank: {{ "{:.2f}".format(record.plk) }}</p>
-    <p>Sprint-Drag-Carry: {{ "{:.2f}".format(record.sdc) }}</p>
-{% endfor %}
-
 
 
 {% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>MDL</th>
+        <th>SDC</th>
+        <th>HRP</th>
+        <th>Two-mile-run</th>
+        <th>SPT</th>
+        <th>PLK</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for acftscore in user.acft %}
+        <tr>
+          <td>{{ acftscore.mdl }}</td>
+          <td>{{ acftscore.sdc }}</td>
+          <td>{{ acftscore.hrp }}</td>
+          <td>{{ acftscore.twomilerun }}</td>
+          <td>{{ acftscore.spt }}</td>
+          <td>{{ acftscore.plk }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
 {% endblock %}
