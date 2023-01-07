@@ -2,7 +2,6 @@
 {% block title %}ACFT Calculator{% endblock %}
 {% block content %}
 <h1>ACFT Scorecard</h1>
-  <form>
     <h2>Gender</h2>
     <label for="gender">Select Gender:</label>
     <select id="gender" onchange="setSliderValues()">
@@ -27,13 +26,13 @@
       <option value="62-66">62-66</option>
     </select>
     <br><br>
-    <form>
+    <form method="POST" >
         <div class = "form-group">
             <div class="eventacft">
                 <label for="deadlift">Deadlift:</label><br>
                 <input class="bar-input" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()"><br>
                 <div id="deadlift-score" onchange = "setAcftScore()">0</div>
-                <div id="deadlift-score2">0</div>
+                <div id="deadlift-score2" name = "dl">0</div>
               </div>
               <br>
               <div class="eventacft">
@@ -71,14 +70,13 @@
                 <div id="two-mile-run-score2">0</div>
               </div>
               <br>
-              <div id="total-score">0</div>
-              <br/>
               <button type="submit" class="btn btn-primary" align = "right">Submit</button>
-    </form>
+
+            </form>
 
 
 <script src= "{{ url_for('static', filename='js/setvalues.js') }}"></script>
 <script src= "{{ url_for('static', filename='js/genderscore.js') }}"></script>
 <script src= "{{ url_for('static', filename='js/slider.js') }}"></script>
- 
+
 {% endblock %}
