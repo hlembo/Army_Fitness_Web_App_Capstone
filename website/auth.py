@@ -24,13 +24,13 @@ def login():
         else:
             flash('Email does not exist.', category = 'error')
 
-    return  render_template("login.html", user = current_user)
+    return render_template("login.html", user = current_user)
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return  redirect(url_for('auth.login'))
+    return redirect(url_for('auth.login'))
 
 @auth.route('/sign-up', methods = ["GET","POST"])
 def sign_up():
@@ -59,7 +59,7 @@ def sign_up():
             flash('Account created!', category = "sucessful")
             return redirect(url_for('views.home'))
             #add user to the database here
-    return  render_template("sign-up.html", user = current_user)
+    return render_template("sign-up.html", user = current_user)
 
 
 def is_email_valid(email):
