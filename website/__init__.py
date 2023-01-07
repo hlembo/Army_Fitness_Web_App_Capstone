@@ -11,7 +11,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
     
-        
+    app.static_folder = 'static'
     from .views import views
     from .auth import auth
 
@@ -21,6 +21,7 @@ def create_app():
     from .models import User, Acft
     
     create_database(app)
+
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -33,7 +34,9 @@ def create_app():
     return app
 
 def create_database(app):
+    
     if not path.exists('website/' + DB_NAME):
         with app.app_context():
+            #db.drop_all()
             db.create_all()
         print('Created Database')

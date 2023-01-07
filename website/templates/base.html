@@ -4,8 +4,6 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -17,6 +15,10 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}"/>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='cadre.css') }}"/>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='acft.css') }}"/>
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"/>
     <title>{% block title %}Home{% endblock %}</title>
 </head>
 <body>
@@ -30,11 +32,16 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
+          <!-- Dont forget if you want any webpage to be only used by logged in users you need to specify-->
+          <!-- #@login_required for the @app.route() and need to swap usage here since this python checks if the user is logged into the webpage in order to see these elements -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-            <a class="nav-item nav-link" id="home" href="/">Home</a>
             <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+            <a class="nav-item nav-link" id="acft" href="/acft">ACFT Calculator</a>
+            <a class="nav-item nav-link" id="acft" href="/profile">Profile</a>
+            <a class="nav-item nav-link" id="home" href="/">Home</a>
             {% else %}
+            <a class="nav-item nav-link" id="home" href="/">Home</a>
             <a class="nav-item nav-link" id="login" href="/login">Login</a>
             <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
             {% endif %}

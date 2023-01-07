@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>MDL</th>
+        <th>SDC</th>
+        <th>HRP</th>
+        <th>Two-mile-run</th>
+        <th>SPT</th>
+        <th>PLK</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for acftscore in user.acft %}
+        <tr>
+          <td>{{ acftscore.mdl }}</td>
+          <td>{{ acftscore.sdc }}</td>
+          <td>{{ acftscore.hrp }}</td>
+          <td>{{ acftscore.twomilerun }}</td>
+          <td>{{ acftscore.spt }}</td>
+          <td>{{ acftscore.plk }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
+{% endblock %}
