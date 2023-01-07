@@ -1,5 +1,6 @@
 # Army Fitness Web Application Capstone Project
-
+# Prognostics Model Python Package
+[![CodeFactor](https://www.codefactor.io/repository/github/nasa/prog_models/badge)(https://www.codefactor.io/repository/github/hlembo/army_fitness_web_app_capstone)
 The Capstonet is a full-stack developed website that will serve as an advertising and informational platform for the University of Scranton's ROTC program. The website will showcase the ROTC courses and provide detailed information about them for interested students.
 
 ## Installation 
