@@ -19,6 +19,9 @@ function setSliderValues() {
     //ACFT logic is kinda funky so this is the most straight forward approach
     //to accomplish the task in time 
 
+
+
+
     if(gender == "female"){
         if (ageGroup == "17-21") {
             deadliftSlider.min = "120";
@@ -137,7 +140,7 @@ function setSliderValues() {
             plankSlider.max = "200";
             twoMileRunSlider.max = "-1038";
             twoMileRunSlider.min = "-1488";
-        }else{
+        }else if(ageGroup == "62-66"){
             deadliftSlider.min = "120";
             deadliftSlider.max = "170";
             standingPowerThrowSlider.min = "3.4";
@@ -150,6 +153,19 @@ function setSliderValues() {
             plankSlider.max = "200";
             twoMileRunSlider.max = "-1038";
             twoMileRunSlider.min = "-1500";
+        }else{
+            deadliftSlider.min = "0";
+            deadliftSlider.max = "0";
+            standingPowerThrowSlider.min = "0";
+            standingPowerThrowSlider.max = "0";
+            handReleasePushUpSlider.min = "0";
+            handReleasePushUpSlider.max = "0";
+            sprintDragCarrySlider.max = "0";
+            sprintDragCarrySlider.min = "0";
+            plankSlider.min = "0";
+            plankSlider.max = "0";
+            twoMileRunSlider.max = "0";
+            twoMileRunSlider.min = "0";
         }
     }
 
@@ -274,7 +290,7 @@ function setSliderValues() {
             plankSlider.max = "200";
             twoMileRunSlider.max = "-928";
             twoMileRunSlider.min = "-1416";
-        }else{
+        }else if(ageGroup == "62-66"){
             deadliftSlider.min = "140";
             deadliftSlider.max = "230";
             standingPowerThrowSlider.min = "4.9";
@@ -287,8 +303,23 @@ function setSliderValues() {
             plankSlider.max = "200";
             twoMileRunSlider.max = "-928";
             twoMileRunSlider.min = "-1416";
-       
-        }
+        }else{
+            deadliftSlider.min = "0";
+            deadliftSlider.max = "0";
+            standingPowerThrowSlider.min = "0";
+            standingPowerThrowSlider.max = "0";
+            handReleasePushUpSlider.min = "0";
+            handReleasePushUpSlider.max = "0";
+            sprintDragCarrySlider.max = "0";
+            sprintDragCarrySlider.min = "0";
+            plankSlider.min = "0";
+            plankSlider.max = "0";
+            twoMileRunSlider.max = "0";
+            twoMileRunSlider.min = "0";
+
+       }
+    }
       
-    } 
-}  
+} 
+    
+ 
