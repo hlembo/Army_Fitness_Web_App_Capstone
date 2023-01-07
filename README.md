@@ -1,23 +1,34 @@
-# Average Calculator
-A simple command-line tool that calculates the average of a list of numbers.
+# Army Fitness Web Application Capstone Project
 
-Installation
-To install the Average Calculator, clone the repository and run the following command:
+The Capstonet is a full-stack developed website that will serve as an advertising and informational platform for the University of Scranton's ROTC program. The website will showcase the ROTC courses and provide detailed information about them for interested students.
 
-Copy code
-pip install -r requirements.txt
-Usage
-To use the Average Calculator, run the following command:
+## Installation 
+Clone the Repository below:
+`https://github.com/hlembo/Army_Fitness_Web_App_Capstone.git`
+ 
+## Repository Directory Structure 
+Here is the directory structure for the github repository 
+ 
+`Army_Fitness_Web_App_Capstone` - The Army Fitness Project Capstone Folder and its sub-directories<br />
+`website/static` - For static templates like jS/CSS/SCSS ect.<br />
+`website/templates` - Templates for all .html files and other code<br />
+`README.md` - The readme (this file)<br />
+`website/main.py` - The main file to run the webapplication on localhost
 
-Copy code
-python average.py numbers.txt
-Where numbers.txt is a file containing a list of numbers, one per line. The average will be printed to the console.
+## Citing this repository
+Use the following to cite this repository:
 
-Contributing
-We welcome contributions to the Average Calculator! If you have an idea for a new feature or have found a bug, please open an issue.
+```
+@misc{2022_Army_Fitness_Web_App,
+    author    = {Henry Lembo},
+    title     = {Army Fitness Web Application},
+    month     = December,
+    year      = 2022,
+    version   = {1},
+    url       = {https://github.com/hlembo/Army_Fitness_Web_App_Capstone}
+    }
+```
 
-Credits
-NumPy - A library for working with arrays and matrices.
-argparse - A library for parsing command-line arguments.
-License
-The Average Calculator is released under the MIT License.
+The corresponding reference should look like this:
+
+H. Lembo, Army_Fitness_Web_App, v1, December 2022. URL https://github.com/hlembo/Army_Fitness_Web_App_Capstone.
