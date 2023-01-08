@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, url_for
 from flask_login import login_required, current_user
 from .models import Acft
 from . import db
+import matplotlib.pyplot as plt
 views = Blueprint('views', __name__)
 
 @views.route('/', methods = ["GET","POST"])
@@ -49,7 +50,7 @@ def acft():
         new_acft = Acft( twomilerun = twomile, mdl = mdl, spt = spt, hrp = hrp, sdc = sdc, plk=plk, user_id = current_user.id)
         db.session.add(new_acft)
         db.session.commit()
-        return render_template("profile.html", user=current_user, data=request)
+        return render_template("profile.html", user=current_user)
     return render_template("acft.html", user = current_user)
 
 
