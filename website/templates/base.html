@@ -15,9 +15,8 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}"/>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='cadre.css') }}"/>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='acft.css') }}"/>
+   
+
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"/>
     <title>{% block title %}Home{% endblock %}</title>
 </head>
@@ -85,5 +84,6 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>   
+    <script src= "{{ url_for('static', filename='js/mission.js') }}"></script>
 </body>
 </html>
