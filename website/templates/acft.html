@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}ACFT Calculator{% endblock %}
 {% block content %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='acft.css') }}"/>
 <h1>ACFT Scorecard</h1>
     <h2>Gender</h2>
     <label for="gender">Select Gender:</label>
@@ -27,11 +28,11 @@
     </select>
     <br><br>
     <form method="POST" >
-        <div class = "form-group">
+        <div class = "form-group" class="range-slider">
             <div class="eventacft">
                 <label for="deadlift">Deadlift:</label><br>
-                <input class="bar-input" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div id="deadlift-score" onchange = "setAcftScore()">0</div>
+                <input type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()"><br>
+                <div  id="deadlift-score" onchange = "setAcftScore()">0</div>
                 <div id="deadlift-score2" name = "dl">0</div>
               </div>
               <br>
