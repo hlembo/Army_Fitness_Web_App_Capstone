@@ -5,40 +5,94 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='cadre.css') }}"/>
 <script src= "{{ url_for('static', filename='js/cadre.js') }}"> </script>
 
-<div class="container">
-  <div class="row">
-      <div class="col-md-4 col-sm-6">
-          <div class="our-team">
-              <div class="pic">
-                  <img src="images/img-1.jpg">
+<body style="background-color:#0c0f15;;">
+  <main>
+      <!-- Ui cards -->
+      <section id="cards">
+          <div class="container py-2">
+              <div class="row pb-4">
+                  <div class="col-12 text-center">
+
+                  </div>
               </div>
-              <div class="team-content">
-                  <h3 class="title">Williamson</h3>
-                  <span class="post">Web Developer</span>
-                  <ul class="social">
-                      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                  </ul>
+              <!-- cards -->
+              <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body" align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Jason Wenger</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Battalion Commander</p>
+                                  <a href = "mailto: jason.wenger@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel: 5709417965"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Joshua Moore</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Operations Officer</p>
+                                 
+                                  <a href = "mailto: joshua.moore2@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709415955"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Salvador Solis</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Executive Officer</p>
+                                  <a href = "mailto: salvador.solis@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709414508"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Mr. Bill Ramsey (DA Civilian)</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Scholarship and Enrollment Officer</p>
+                                  <a href = "mailto: herbert.ramsey@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709416324"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                            
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Mr. Robert Dick</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Supply/Logistics Tech</p>
+                                 
+                                  <a href = "mailto:"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel: 5709414785"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  </div>
               </div>
           </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <div class="our-team">
-              <div class="pic">
-                  <img src="images/img-2.jpg">
-              </div>
-              <div class="team-content">
-                  <h3 class="title">Kristiana</h3>
-                  <span class="post">Web Designer</span>
-                  <ul class="social">
-                      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+          <!-- /cards -->
+      </section>
+      <!-- /Ui cards -->
+  </main>
+
+</body>
 {% endblock %}

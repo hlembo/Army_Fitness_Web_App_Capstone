@@ -2,180 +2,339 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}"/>
-  
-<main class="site-wrapper">
-    <div class="pt-table desktop-768">
-      <div class="pt-tablecell page-home relative" style="background-image: url(static/imgs/ftx-bn-pic-fall-2022.jpg);
-      background-position: center;
-      background-size: cover;">
-                      <div class="overlay"></div>
-  
-                      <div class="container">
-                          <div class="row">
-                              <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-                                  <div class="page-title  home text-center">
-                                    <span class="heading-page"> Royal Warrior Batallion 
-                                    </span>
-                                      <p class="mt20">Royal Warrior Battalion Army ROTC provides Cadets with the character-building aspects of a diverse, self-disciplined, Jesuit education with tough, leadership development training. Becoming an Army Officer will also help you in the civilian work force, as employers place a high value on workers who can manage others in stressful situations. 
-                                        The Royal Warrior Battalion is comprised of Cadets from 10 colleges and universities located throughout Northeastern Pennsylvania and they are some of the finest scholars, athletes and student leaders those campuses have to offer. 
-                                        The values of excellence, concern for the individual and a commitment to social justice complement the values of the U.S. Army that guide the program.</p>
-                                  </div>
-  
-                                  <div class="hexagon-menu clear">
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content" id ="mission" href = "/mission">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-universal-access"></i>
-                                                  </span>
-                                                  <span class="title">Mission</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content"  id ="ms" href = "/ms">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-graduation-cap"></i>
-                                                  </span>
-                                                  <span class="title">Military Science Courses</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content" id="cadre" href = "/cadre">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-id-card-o"></i>
-                                                  </span>
-                                                  <span class="title">Cadre</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>    
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content" id ="scholar" href = "/scholar">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-info-circle"></i>
-                                                  </span>
-                                                  <span class="title">Scholarship Information</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content"  id ="bh" href = "/bh">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-history"></i>
-                                                  </span>
-                                                  <span class="title">Battalion History</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content" id ="upcoming" href = "/upcoming">
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-calendar"></i>
-                                                  </span>
-                                                  <span class="title">Upcoming Training Events</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                      <div class="hexagon-item">
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <div class="hex-item">
-                                              <div></div>
-                                              <div></div>
-                                              <div></div>
-                                          </div>
-                                          <a  class="hex-content" id ="contact" href = "/contact" >
-                                              <span class="hex-content-inner">
-                                                  <span class="icon">
-                                                      <i class="fa fa-map-signs"></i>
-                                                  </span>
-                                                  <span class="title">Contact</span>
-                                              </span>
-                                              <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path></svg>
-                                          </a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='home.css') }}"/>
+<div class="site-wrapper">
+   <div class="w-100">
+      <div class="layout row no-gutters layout-builder__layout">
+         <div class="col-12">
+            <div class="_none block block-layout-builder block-inline-blockstandard-text-box">
+               <div>
+                  <div>
+                     <section class="embed-responsive embed-responsive-16by9 header-video">
+                        <video autoplay="autoplay" class="video-fluid z-depth-1" controls="true" id="heroVideo" loop="loop" muted="muted" playsinline="playsinline">
+                           <source src="static/imgs/video.mp4" type="video/mp4">
+                        </video>
+                     </section>
                   </div>
-              </div>
-    </main>
-    
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="site-wrapper" >
+   <div class="w-100">
+      <div class="layout row no-gutters layout-builder__layout">
+         <div class="col-12">
+            <div class="_none block block-layout-builder block-inline-blockstandard-text-box">
+               <div class="content">
+                  <div class = "divscolor">
+                     <div class="container-fluid py-4 text-center" >
+                        <h1 class = "h1">UNIVERSITY OF SCRANTON ROTC</h1>
+                        <p>THE PREEMINENT LEADER DEVELOPMENT PROGRAM</p>
+                        <div class="row d-flex justify-content-center align-items-center pt-1 pb-1">
+                           <div class="col-md-12 d-flex justify-content-center mb-4"><img alt="US Military Academy's Logo" class="home-crest" data-entity-type="" data-entity-uuid="" src="static/imgs/logo.png" height="100" width="100">
+                           </div>
+                        </div>
+                        <p class="text-center headline-text">University of Scranton ROTC's mission is "to educate, train, and inspire the Corps of Cadets so that each graduate is a commissioned leader of character committed to the values of Duty, Honor, Country and prepared for a career of professional excellence and service to the Nation as an officer in the United States Army."
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}"/>
+<main class="site-wrapper">
+   <div class="pt-table desktop-768">
+      <div class="pt-tablecell page-home relative" style="background-image: url(static/imgs/ftx-bn-pic-fall-2022.jpg);
+         background-position: center;
+         background-size: cover;">
+         <div class="overlay"></div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                  <div class="page-title  home text-center">
+                     <span class="heading-page"> Royal Warrior Batallion 
+                     </span>
+                  </div>
+                  <div class="hexagon-menu clear">
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content" id ="mission" href = "/mission">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-universal-access"></i>
+                           </span>
+                           <span class="title">Mission</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content"  id ="ms" href = "/ms">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-graduation-cap"></i>
+                           </span>
+                           <span class="title">Military Science Courses</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content" id="cadre" href = "/cadre">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-id-card-o"></i>
+                           </span>
+                           <span class="title">Cadre</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content" id ="scholar" href = "/scholar">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-info-circle"></i>
+                           </span>
+                           <span class="title">Scholarship Information</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content"  id ="bh" href = "/bh">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-history"></i>
+                           </span>
+                           <span class="title">Battalion History</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content" id ="upcoming" href = "/upcoming">
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-calendar"></i>
+                           </span>
+                           <span class="title">Upcoming Training Events</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                     <div class="hexagon-item">
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <div class="hex-item">
+                           <div></div>
+                           <div></div>
+                           <div></div>
+                        </div>
+                        <a  class="hex-content" id ="contact" href = "/contact" >
+                           <span class="hex-content-inner">
+                           <span class="icon">
+                           <i class="fa fa-map-signs"></i>
+                           </span>
+                           <span class="title">Contact</span>
+                           </span>
+                           <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+                           </svg>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
+<div class ="site-wrapper" class="region region-content-bottom col px-0">
+   <div class="row" id = "followus">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-12">
+         <h2 class="p-lg-3 p-md-2">FOLLOW US ON SOCIAL MEDIA</h2>
+      </div>
+      <div class = "content1">
+         <a aria-label="Facebook"  rel="noopener noreferrer" target="_blank" tabindex="-1"><img class="inbetween" src="https://icons.iconarchive.com/icons/danleech/simple/32/facebook-icon.png" alt="Facebook follow Us"></a>
+         <a aria-label="Twitter"  rel="noopener noreferrer" target="_blank" tabindex="-1"><img class="inbetween" src="https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Twitter-icon.png" alt="Twitter follow Us"></a>
+         <a aria-label="Instagram"  tabindex="-1"><img class="inbetween" src="data:image/png;base64,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" alt="Instagram follow Us"></a>
+      </div>
+   </div>
+</div>
+<footer id="footer" class ="site-wrapper" class="container-fluid dawn-footer">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div  class="region region-footer-one">
+               <div class="row justify-content-center footer-logo-section pb-lg-3">
+                  <div class="crest-footer-logo">
+                     <img class="data-img img-fluid logo-crest" src="static/imgs/ROTC_LOGO.png" height="200px" width=" 200px" align="center" >
+                     <br>
+                     <img class="data-img img-fluid logo-text"  src="https://www.scranton.edu/homeimages/2021/images/university-of-scranton-logo-purple.png"  height="200px" width=" 200px">
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="region region-footer-two">
+               <nav role="navigation" aria-labelledby="block-footerlinkscolumnone-menu" id="block-footerlinkscolumnone">
+                  <h2 id="block-footerlinkscolumnone-menu">Community</h2>
+                  <div>
+                     <div class="footer-menu">
+                        <ul id="footer-ul">
+                           <li>
+                              <a href="/current-cadets" class="footer-link" aria-label="Current Cadets " data-drupal-link-system-path="node/6557">Current Cadets </a>
+                           </li>
+                           <li>
+                              <a href="/current-faculty-and-staff" class="footer-link" aria-label="Current Staff/Faculty " data-drupal-link-system-path="node/6593">Current Staff/Faculty </a>
+                           </li>
+                           <li>
+                              <a href="/west-point-community" class="footer-link" aria-label="Living on West Point" data-drupal-link-system-path="node/6683">Living on West Point</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="region region-footer-three">
+               <nav role="navigation" aria-labelledby="block-footerlinkscolumntwo-menu" id="block-footerlinkscolumntwo">
+                  <h2 id="block-footerlinkscolumntwo-menu">Learn More</h2>
+                  <div>
+                     <div class="footer-menu">
+                        <ul id="footer-ul">
+                           <li>
+                              <a href="/about/public-affairs" class="footer-link" aria-label="Media Inquiries " data-drupal-link-system-path="node/505">Media Inquiries </a>
+                           </li>
+                           <li>
+                              <a href="/work-at-west-point" class="footer-link" aria-label="Jobs at West Point " data-drupal-link-system-path="node/6764">Jobs at West Point </a>
+                           </li>
+                           <li>
+                              <a href="/about/west-point-trademark" class="footer-link" aria-label="Trademark Information " data-drupal-link-system-path="node/4446">Trademark Information </a>
+                           </li>
+                        
+                        </ul>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="region region-footer-four">
+               <nav role="navigation" aria-labelledby="block-footerlinkscolumnthree-menu" id="block-footerlinkscolumnthree">
+                  <h2 id="block-footerlinkscolumnthree-menu">Resources</h2>
+                  <div>
+                     <div class="footer-menu">
+                        <ul id="footer-ul">
+                           <li>
+                              <a href="mailto: usarmy.westpoint.id-training.mbx.foia-pa@mail.mil" title="Go to 'FOIA'" class="footer-link" aria-label="FOIA">FOIA</a>
+                           </li>
+                           <li>
+                              <a href="https://www.westpoint.edu/about/west-point-staff/office-of-diversity/equal-opportunity" title="Equal Opportunity." class="footer-link" aria-label="Equal Opportunity">Equal Opportunity</a>
+                           </li>
+                           <li>
+                              <a href="/about/west-point-staff/SHARP" class="footer-link" aria-label="SHARP" data-drupal-link-system-path="node/5468">SHARP</a>
+                           </li>
+                          
+                        </ul>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <!-- /.row -->
+      <div class ="site-wrapper" class="region region-footer-bottom">
+         <div class="row d-flex footer-bottom-div text-center">
+            <span aria-label="pao address" class="footer-bottom-contact pt-3 col-sm-12 col-md-4"> <u> Want to come visit? </u><br>415 19 Monroe Ave, Scranton, PA 18510</span>
+            <span aria-label="pao contact" class="footer-bottom-contact pt-3 col-sm-12 col-md-4" href="#!"><u> Rock Hall's Number</u><br class="desktop-hidden"> <a class="email-footer-bottom" href="tel:+1-570-941-6324">(570)-941-6324</a></span>
+            <span aria-label="pao email" class="footer-bottom-contact pt-3 col-sm-12 col-md-4" href="#"><a class="email-footer-bottom" href="mailto:herbert.ramsey@scranton.edu" tabindex="-1"><u> Need More Info?</u><br>herbert.ramsey@scranton.edu</a></span>
+            
+         </div>
+      </div>
+   </div>
+</footer>
+
 {% endblock %}

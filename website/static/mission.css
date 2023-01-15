@@ -31,7 +31,7 @@ section + section {
   width: 40%;
   }
 h1 {
-  padding: 1em;
+  padding: 3em;
   transition: opacity .5s;
   font-family: 'Black Ops One', cursive;
   text-align: center;
