@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<div class="chart-container">
+    <canvas id="chart"></canvas>
+  </div>
+  <input type="hidden" id="new-data" value='{{ new_data|tojson|safe }}'>
+  <script>
+    var ctx = document.getElementById('chart').getContext('2d');
+  
+    var initialData = {
+        labels: [
+            {% for acftscore in user.acft %}
+                'Record {{ acftscore.date }}',
+            {% endfor %}
+        ],
+        datasets: [{
+            label: 'Score',
+            data: [
+                {% for acftscore in user.acft %}
+                    {{ acftscore.score }},
+                {% endfor %}
+            ],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    };
+  
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: initialData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        fontSize: 20
+                    }
+                },
+                x: {
+                    ticks: {
+                        fontSize: 20
+                    }
+                }
+            }
+        },
+        backgroundColor: '#FFFFFF' // this is a gray color
+    });
+  
+    // Function to update chart with new data
+    function updateChart(acftscore) {
+        var newData = {
+            labels: chart.data.labels.slice(),
+            datasets: [{
+                label: 'Score',
+                data: chart.data.datasets[0].data.slice(),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+  
+        // Add new record to the newData object
+        newData.labels.push('Record ' + acftscore.id);
+        newData.datasets[0].data.push(acftscore.score);
+  
+        // Update the chart with the new data
+        chart.data = newData;
+        chart.update();
+    }
+  </script>
+{% endblock %}
