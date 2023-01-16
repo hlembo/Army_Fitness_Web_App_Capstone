@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='record.css') }}"/>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 mx-auto">
+      <table class = "table table-striped">
+        <thead class ="thead-dark">
+          <tr>
+            <th scope="col">Record Number</th>
+            <th scope="col" >MDL</th>
+            <th scope="col">SDC</th>
+            <th scope="col">HRP</th>
+            <th scope="col">TMR</th>
+            <th scope="col">SPT</th>
+            <th scope="col">PLK</th>
+            <th scope="col">Score</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for acftscore in user.acft %}
+            <tr>
+              <th scope="row">{{ acftscore.id }}</th>
+              <td>{{ acftscore.mdl }}</td>
+              <td>{{ formatTime(acftscore.sdc *-1 ) }}</td>
+              <td>{{ acftscore.hrp }}</td>
+              <td>{{ formatTime(acftscore.twomilerun * -1 )}}</td>
+              <td>{{ acftscore.spt }}</td>
+              <td>{{ formatTime(acftscore.plk) }}</td>
+              <td>{{ acftscore.score }}</td>
+              <td><a href="{{url_for('views.delete', id = acftscore.id)}}" class = "btn btn-outline-danger btn-sm">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
