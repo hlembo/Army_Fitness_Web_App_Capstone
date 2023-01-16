@@ -3,6 +3,7 @@
 
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src= "{{ url_for('static', filename='dashboard.css') }}"></script>
 <div class="chart-container">
     <canvas id="chart"></canvas>
   </div>
@@ -36,11 +37,6 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    ticks: {
-                        fontSize: 20
-                    }
-                },
-                x: {
                     ticks: {
                         fontSize: 20
                     }

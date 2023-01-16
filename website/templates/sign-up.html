@@ -1,57 +1,78 @@
 {% extends "base.html" %}
 {% block title %}Sign-Up{% endblock %}
 {% block content %}
-<form method="POST" align = "center">
-  <h3 align="center">Sign Up</h3>
-  <div class="form-group" align = "center">
-    <label for="email">Email Address</label>
-    <div class="input-group mb-3 w-25">
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-    />
-  </div>
-  </div>
-  <div class="form-group" align = "center">
-    <label for="username">Username</label>
-    <div class="input-group mb-3 w-25">
-    <input
-      type="text"
-      class="form-control"
-      id="username"
-      name="username"
-      placeholder="Enter Username"
-    />
-  </div>
-  </div>
-  <div class="form-group" align = "center">
-    <label for="password1">Password</label>
-    <div class="input-group mb-3 w-25">
-    <input
-      type="password"
-      class="form-control"
-      id="password1"
-      name="password1"
-      placeholder="Enter password"
-    />
-  </div>
-  </div>
-  <div class="form-group" align = "center">
-    <label for="password2">Password (Confirm)</label>
-    <div class="input-group mb-3 w-25">
-    <input
-      type="password"
-      class="form-control"
-      id="password2"
-      name="password2"
-      placeholder="Confirm password"
-    />
-  </div>
-  <br />
-  <button type="submit" class="btn btn-primary" align = "right">Submit</button>
-  </div>
-</form>
+<style>
+  #divcontainer{
+    background-color: lightgrey;
+    display:flex;
+    justify-content: center;
+    box-shadow: 10px 10px 5px lightblue;
+    border-radius: 10px;
+  }
+  h3{
+    text-decoration: underline;
+  }
+  body{
+    background-color: #0c0f15;
+  }
+</style>
+<div  class = "container" id ="divcontainer">
+  <form method="POST">
+    <h3 align = "center" >Sign Up</h3>
+    <div align = "center" class="form-group">
+      <label for="email">Email Address</label>
+      <div class="input-group mb-3 w-100">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+    </div>
+    <div align = "center" class="form-group">
+      <label for="username">Username</label>
+      <div class="input-group mb-3 w-100">
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        placeholder="Enter Username"
+      />
+    </div>
+    </div>
+    <div align = "center" class="form-group">
+      <label for="password1">Password</label>
+      <div class="input-group mb-3 w-100">
+      <input
+        type="password"
+        class="form-control"
+        id="password1"
+        name="password1"
+        placeholder="Enter password"
+      />
+    </div>
+      <input type="text" id="password-text" class = "form-control" name="password-text" style="display:none;">
+    </div>
+    <div align = "center" class="form-group">
+      <label  for="password2">Password (Confirm)</label>
+      <div class="input-group mb-3 w-100">
+      <input
+        type="password"
+        class="form-control"
+        id="password2"
+        name="password2"
+        placeholder="Confirm password"
+      />
+    </div>
+    <label for="show-password">Show password</label>
+      <input type="checkbox" id="show-password"  onclick=signtogglePassword()>
+    <br />
+    <button type="submit" class="btn btn-primary" >Submit</button>
+    </div>
+  </form>
+</div>
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
   {% endblock %}
