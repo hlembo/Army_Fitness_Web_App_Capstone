@@ -1,32 +1,46 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 
-
 {% block content %}
-  <table>
+<div class ="container">
+<form method="POST" action="{{url_for('views.update', id=user.id)}}" >
+    <input type="hidden" name="user_id" value="{{current_user.id}}">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" value="">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" value="">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class = "form-control" name="password">
+        <input type="text" id="password-text" class = "form-control" name="password-text" style="display:none;">
+        <label for="show-password">Show password</label>
+        <input type="checkbox" id="show-password"  onclick="togglePassword()">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+<div class ="container">
+  <table class="table table-striped w-auto">
     <thead>
       <tr>
-        <th>MDL</th>
-        <th>SDC</th>
-        <th>HRP</th>
-        <th>Two-mile-run</th>
-        <th>SPT</th>
-        <th>PLK</th>
+        <th >Email</th>
+        <th >Username</th>
+        <th >Password</th>
       </tr>
     </thead>
     <tbody>
-      {% for acftscore in user.acft %}
-        <tr>
-          <td>{{ acftscore.mdl }}</td>
-          <td>{{ acftscore.sdc }}</td>
-          <td>{{ acftscore.hrp }}</td>
-          <td>{{ acftscore.twomilerun }}</td>
-          <td>{{ acftscore.spt }}</td>
-          <td>{{ acftscore.plk }}</td>
-        </tr>
-      {% endfor %}
+      <tr>
+        <td>{{current_user.email}}</td>
+        <td>{{current_user.username}}</td>
+        <td>{{current_user.password}}</td>
+      </tr>
     </tbody>
   </table>
-  
-
+</div>
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
 {% endblock %}

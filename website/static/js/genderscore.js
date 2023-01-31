@@ -5019,7 +5019,10 @@ function updateScore() {
     var totalScore = parseInt(deadliftscore2.innerHTML) + parseInt(spt.innerHTML) +parseInt(hrp.innerHTML) +parseInt(sdc.innerHTML) +parseInt(plt.innerHTML) +parseInt(ts.innerHTML);
 
     // Update the total score div
-    totalScoreDiv.innerHTML = totalScore;
+    
+    totalScoreDiv.innerHTML = parseInt(totalScore);
+    // Update the value of the hidden input field
+    document.getElementById("total-score-input").value = parseInt(totalScore);
 }
 
 

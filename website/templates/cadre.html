@@ -2,66 +2,97 @@
 {% block title %}Cadre{% endblock %}
 
 {% block content %}
-<div class="responsive-container-block outer-container">
-    <div class="responsive-container-block inner-container">
-      <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-4 wk-ipadp-4 headings-container">
-        <p class="text-blk heading-text">Meet the Cadre</p>
-      </div>
-      <div class="responsive-cell-block wk-desk-8 wk-ipadp-8 wk-tab-12 wk-mobile-12 team-members-container">
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="{{ url_for('static', filename='imgs/Wenger.png') }}" class="card-img" />
-            <p class="text-blk name">Jason Wenger</p>
-            <p class="text-blk position">Royal Warrior Battalion LTC
-            </p>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='cadre.css') }}"/>
+<script src= "{{ url_for('static', filename='js/cadre.js') }}"> </script>
+
+<body style="background-color:#0c0f15;;">
+  <main>
+      <!-- Ui cards -->
+      <section id="cards">
+          <div class="container py-2">
+              <div class="row pb-4">
+                  <div class="col-12 text-center">
+
+                  </div>
+              </div>
+              <!-- cards -->
+              <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body" align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Jason Wenger</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Battalion Commander</p>
+                                  <a href = "mailto: jason.wenger@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel: 5709417965"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Joshua Moore</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Operations Officer</p>
+                                 
+                                  <a href = "mailto: joshua.moore2@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709415955"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Salvador Solis</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Executive Officer</p>
+                                  <a href = "mailto: salvador.solis@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709414508"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                              
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Mr. Bill Ramsey (DA Civilian)</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Scholarship and Enrollment Officer</p>
+                                  <a href = "mailto: herbert.ramsey@scranton.edu"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel:5709416324"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4 pt-5">
+                      <div class="card shadow-sm border-0">
+                          <div class="card-body"align ="center">
+                            
+                              <div class="user-content">
+                                  <h5 class="text-capitalize user-name" align ="center">Mr. Robert Dick</h5>
+                                  <p class=" text-capitalize text-muted small blockquote-footer">Supply/Logistics Tech</p>
+                                 
+                                  <a href = "mailto:"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                                  <a href="tel: 5709414785"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="{{ url_for('static', filename='imgs/solis.png') }}" class="card-img" />
-            <p class="text-blk name">Salvador Solis
-            </p>
-            <p class="text-blk position">Royal Warrior Battalion Executive Officer
-            </p>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft14.svg" class="card-img" />
-            <p class="text-blk name">Gustavo Workman
-            </p>
-            <p class="text-blk position">CEO
-            </p>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft12.svg" class="card-img" />
-            <p class="text-blk name">Gustavo Workman
-            </p>
-            <p class="text-blk position">CEO
-            </p>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft13.svg" class="card-img" />
-            <p class="text-blk name">Gustavo Workman
-            </p>
-            <p class="text-blk position">CEO
-            </p>
-          </div>
-        </div>
-        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-mobile-12 wk-tab-12 card-container">
-          <div class="card">
-            <img src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ft14.svg" class="card-img" />
-            <p class="text-blk name">Gustavo Workman
-            </p>
-            <p class="text-blk position">CEO
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>   
+          <!-- /cards -->
+      </section>
+      <!-- /Ui cards -->
+  </main>
+
+</body>
 {% endblock %}
