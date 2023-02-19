@@ -45,3 +45,5 @@ def create_database(app):
             #db.drop_all()
             db.create_all()
         print('Created Database')
+        #push
+        
