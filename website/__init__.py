@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 db = SQLAlchemy()
 DB_NAME = "database.db"
 from flask_login import LoginManager
-
+from . import models
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'HSDESDFESDFSEFSDFSDFSDFSD'
@@ -20,6 +22,9 @@ def create_app():
 
     from .models import User, Acft
     
+    admin = Admin(app,name='Admin Panel')
+    admin.add_view(ModelView(User,  db.session))
+    admin.add_view(ModelView(Acft,  db.session))
     create_database(app)
 
 
