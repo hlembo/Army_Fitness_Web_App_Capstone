@@ -19,30 +19,50 @@ class GraphView(BaseView):
 
         for username, result in acft_results:
             for event_name in event_names:
-                score = getattr(result, event_name)
+                score = abs(getattr(result, event_name))
                 if event_name in ['twomilerun', 'sdc', 'plk']:
                     score = format_time(score)
                 data[event_name]['username'].append(username)
                 data[event_name]['score'].append(score)
 
-    # Create a Plotly subplot
+        # Create a Plotly subplot
         fig = make_subplots(rows=1, cols=len(data), subplot_titles=list(data.keys()), 
                             horizontal_spacing=0.05)
-        # adding data to the plot needs to be fixed so that sdc, plk, twomilerun are displayed from 0 to the max score they recieved!!
-        # They are displaying as blank graphs right now because the database numbers are negative and the graph is not displaying them properly.
-        
+
         # Add data to the subplot
         for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
             unique_users = list(set(event_data['username']))
             for i, username in enumerate(unique_users):
                 user_scores = [event_data['score'][j] for j in range(len(event_data['username'])) if event_data['username'][j] == username]
+
+                hovertemplate = None
+                if event_name in ['twomilerun', 'sdc', 'plk']:
+                    hovertemplate = 'Username: %{x}<br>Score: %{y:.2f} minutes (%{customdata})<extra></extra>'
+
+                # Create unique x values by concatenating username with a unique identifier
+                x_values = [f"{username}_{j}" for j in range(len(user_scores))]
+
                 fig.add_trace(
-                    go.Bar(x=[username], y=user_scores, name=username, legendgroup=username, showlegend=(event_index==1)),
-                    row=1, col=event_index
+                    go.Bar(
+                        x=x_values,
+                        y=user_scores,
+                        name=username,
+                        legendgroup=username,
+                        showlegend=(event_index == 1),
+                        customdata=[format_minutes_to_mmss(score) for score in user_scores],
+                        hovertemplate=hovertemplate,
+                    ),
+                    row=1,
+                    col=event_index,
                 )
-        
-        # Set the x-axis title for all subplots
-        fig.update_xaxes(title_text="Username")
+
+
+
+            # Update y-axis tick labels for the events with time values
+            if event_name in ['twomilerun', 'sdc', 'plk']:
+                fig.update_yaxes(tickvals=list(range(0, int(max(event_data['score']))+1)), ticktext=[format_minutes_to_mmss(val) for val in range(0, int(max(event_data['score']))+1)], row=1, col=event_index)
+                # Set the x-axis title for all subplots
+                fig.update_xaxes(title_text="Username")
 
         # Generate the Plotly HTML output
         plot_html = pio.to_html(fig, full_html=False)
@@ -61,6 +81,10 @@ class GraphView(BaseView):
 
 def format_time(seconds):
     seconds = abs(float(seconds))
-    minutes = int(seconds // 60)
-    seconds = int(seconds % 60)
+    return seconds / 60  # Return time in minutes (float)
+
+def format_minutes_to_mmss(minutes):
+    seconds = int(minutes * 60)
+    minutes = seconds // 60
+    seconds %= 60
     return f"{minutes:02d}:{seconds:02d}"

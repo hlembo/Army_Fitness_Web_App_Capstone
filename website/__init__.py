@@ -28,7 +28,7 @@ def create_app():
     admin.add_view(ModelView(Acft,  db.session))
 
     from .custom_views import GraphView
-    admin.add_view(GraphView(name='Graphical Output', endpoint='graph'))
+    admin.add_view(GraphView(name='Un-Official_ACFT_Records', endpoint='graph'))
 
     create_database(app)
 
