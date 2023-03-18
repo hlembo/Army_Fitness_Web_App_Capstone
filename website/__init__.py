@@ -3,10 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_login import current_user
 db = SQLAlchemy()
 DB_NAME = "database.db"
 from flask_login import LoginManager
-from . import models
+
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'HSDESDFESDFSEFSDFSDFSDFSD'
@@ -20,11 +21,15 @@ def create_app():
     app.register_blueprint(views, url_prefix ='/')
     app.register_blueprint(auth, url_prefix ='/')
 
-    from .models import User, Acft
+    from .models import User, Acft 
     
     admin = Admin(app,name='Admin Panel')
     admin.add_view(ModelView(User,  db.session))
     admin.add_view(ModelView(Acft,  db.session))
+
+    from .custom_views import GraphView
+    admin.add_view(GraphView(name='Graphical Output', endpoint='graph'))
+
     create_database(app)
 
 

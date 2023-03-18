@@ -1,6 +1,8 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from flask_admin.contrib.sqla import ModelView
+from flask_login import current_user
 
 class Acft(db.Model):
     id = db.Column(db.Integer, primary_key =True )
@@ -8,7 +10,7 @@ class Acft(db.Model):
     mdl = db.Column(db.Integer)
     spt = db.Column(db.Float)
     hrp= db.Column(db.Integer)
-    plk= db.Column(db.String(80))
+    plk= db.Column(db.Float)
     sdc = db.Column(db.Float)
     score = db.Column(db.Integer)
     
