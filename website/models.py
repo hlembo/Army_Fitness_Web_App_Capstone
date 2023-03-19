@@ -13,7 +13,7 @@ class Acft(db.Model):
     plk= db.Column(db.Float)
     sdc = db.Column(db.Float)
     score = db.Column(db.Integer)
-    
+    gender = db.Column(db.String(6))
     date = db.Column(db.DateTime(timezone = True), default = func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -23,3 +23,18 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     username = db.Column(db.String(150))
     acft = db.relationship('Acft')
+
+class OfficialAcftRecord(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    twomilerun = db.Column(db.Float)
+    mdl = db.Column(db.Integer)
+    spt = db.Column(db.Float)
+    hrp = db.Column(db.Integer)
+    plk = db.Column(db.Float)
+    sdc = db.Column(db.Float)
+    score = db.Column(db.Integer)
+    gender = db.Column(db.String(6))
+    
+    date = db.Column(db.DateTime(timezone=True), default=func.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship('User', backref=db.backref('official_acft_records', lazy=True))

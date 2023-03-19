@@ -1,5 +1,5 @@
 from flask_admin import BaseView, expose
-from flask import render_template_string
+from flask import render_template_string, request
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 import plotly.io as pio
@@ -8,11 +8,22 @@ from .models import User, Acft
 from . import db
 
 class GraphView(BaseView):
-    @expose('/')
+    
+    @expose('/', methods = ['GET', 'POST'])
     def index(self):
+         
         # Fetch data from the database
         acft_results = db.session.query(User.username, Acft).join(Acft, User.id == Acft.user_id).all()
+        
+        # Get the selected gender from the request form
+        selected_gender = request.form.get('gender', 'all')
 
+        # Fetch data from the database with the gender filter applied
+        query = db.session.query(User.username, Acft).join(Acft, User.id == Acft.user_id)
+        if selected_gender != 'all':
+            query = query.filter(Acft.gender == selected_gender)
+        acft_results = query.all()
+    
         # Prepare data for the plot
         event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc']
         data = {event_name: {'username': [], 'score': []} for event_name in event_names}
@@ -55,7 +66,7 @@ class GraphView(BaseView):
                     row=1,
                     col=event_index,
                 )
-
+        
 
 
             # Update y-axis tick labels for the events with time values
@@ -67,17 +78,26 @@ class GraphView(BaseView):
         # Generate the Plotly HTML output
         plot_html = pio.to_html(fig, full_html=False)
 
-        # Render the template with the Plotly output
+         # Render the template with the Plotly output and gender selection form
         return render_template_string("""
             <html>
                 <head>
                     <title>Graphical Output</title>
                 </head>
                 <body>
+                    <form method="post">
+                        <label for="gender">Select Gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="all" {% if selected_gender == 'all' %}selected{% endif %}>All</option>
+                            <option value="male" {% if selected_gender == 'male' %}selected{% endif %}>Male</option>
+                            <option value="female" {% if selected_gender == 'female' %}selected{% endif %}>Female</option>
+                        </select>
+                        <input type="submit" value="Filter">
+                    </form>
                     {{ plot_html|safe }}
                 </body>
             </html>
-            """, plot_html=plot_html)
+            """, plot_html=plot_html, selected_gender=selected_gender)
 
 def format_time(seconds):
     seconds = abs(float(seconds))

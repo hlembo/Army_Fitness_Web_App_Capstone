@@ -1,90 +1,98 @@
 {% extends "base.html" %}
 {% block title %}ACFT Calculator{% endblock %}
 {% block content %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='acft.css') }}"/>
-
-<div class = "container1">
-    <h2>Gender</h2>
-    <label for="gender">Select Gender:</label>
-    <select id="gender" onchange="setSliderValues()">
-      <option value=""></option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-    <br><br>
-    <h2>Age Group</h2>
-    <label for="age-group">Select Age Group:</label>
-    <select id="age-group" onchange="setSliderValues()">
-      <option value=""></option>
-      <option value="17-21">17-21</option>
-      <option value="22-26">22-26</option>
-      <option value="27-31">27-31</option>
-      <option value="32-36">32-36</option>
-      <option value="37-41">37-41</option>
-      <option value="42-46">42-46</option>
-      <option value="47-51">47-51</option>
-      <option value="52-56">52-56</option>
-      <option value="57-61">57-61</option>
-      <option value="62-66">62-66</option>
-    </select>
-    <br><br>
-    <form method="POST" onsubmit=updateScore()>
-        <div class = "form-group">
-          <div class="eventacft">
-            <label for="acft-score">ACFT Score:</label><br>
-            <input type="hidden" id="total-score-input" name="total-score">
-            <div id="total-score" >0</div>
-          </div>
-          </div>
-            <div class="eventacft">
-                <label for="deadlift">Deadlift:</label><br>
-                <input class = "mySliderClass" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div  id="deadlift-score" onchange = "setAcftScore()">0</div>
-                <div id="deadlift-score2" name = "dl">0</div>
-              </div>
-              <br>
-              <div class="eventacft">
-                <label for="standing-power-throw">Standing Power Throw:</label><br>
-                <input class = "mySliderClass" type="range" id="standing-power-throw" name="standing-power-throw" step = "0.1" max="0" min="0"value="0" oninput="updateScore()"><br>
-                <div id="standing-power-throw-score">0</div>
-                <div id="standing-power-throw-score2">0</div>
-              </div>
-              <br>
-              <div class="eventacft">
-                <label for="hand-release-push-up">Hand-Release Push-Up:</label><br>
-                <input class = "mySliderClass" type="range" id="hand-release-push-up" name="hand-release-push-up" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div id="hand-release-push-up-score">0</div>
-                <div id="hand-release-push-up-score2">0</div>
-              </div>
-              <br>
-              <div class="eventacft">
-                <label for="sprint-drag-carry">Sprint-Drag-Carry:</label><br>
-                <input class = "mySliderClass" type="range" id="sprint-drag-carry" name="sprint-drag-carry" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div id="sprint-drag-carry-score">0</div>
-                <div id="sprint-drag-carry-score2">0</div>
-              </div>
-              <br>
-              <div class="eventacft">
-                <label for="plank">Plank:</label><br>
-                <input class = "mySliderClass" type="range" id="plank" name="plank" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div id="plank-score">0</div>
-                <div id="plank-score2">0</div>
-              </div>
-              <br>
-              <div class="eventacft">
-                <label for="two-mile-run">Two-Mile Run:</label><br>
-                <input class = "mySliderClass" type="range" id="two-mile-run" name="two-mile-run" max="0" min="0" value="0" oninput="updateScore()"><br>
-                <div id="two-mile-run-score">0</div>
-                <div id="two-mile-run-score2">0</div>
-              </div>
-              <br>
-              <button type="submit" class="btn btn-primary" align = "right">Submit</button>
-
-            </form>
-          </div>
-
-<script src= "{{ url_for('static', filename='js/setvalues.js') }}"></script>
-<script src= "{{ url_for('static', filename='js/genderscore.js') }}"></script>
-<script src= "{{ url_for('static', filename='js/slider.js') }}"></script>
-
-{% endblock %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='acft.css') }}" />
+  <div class="container1">
+    <form method="POST" id="acft-form" onsubmit="updateScore(event)">
+      <div class="form-group">
+        <h2>Gender</h2>
+        <label for="gender">Select Gender:</label>
+        <select id="gender" name="gender" onchange="setSliderValues()">
+          <option value=""></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br><br>
+        <h2>Age Group</h2>
+        <label for="age-group">Select Age Group:</label>
+        <select id="age-group" onchange="setSliderValues()">
+          <option value=""></option>
+          <option value="17-21">17-21</option>
+          <option value="22-26">22-26</option>
+          <option value="27-31">27-31</option>
+          <option value="32-36">32-36</option>
+          <option value="37-41">37-41</option>
+          <option value="42-46">42-46</option>
+          <option value="47-51">47-51</option>
+          <option value="52-56">52-56</option>
+          <option value="57-61">57-61</option>
+          <option value="62-66">62-66</option>
+        </select>
+        <br><br>
+        <div class="eventacft">
+          <label for="acft-score">ACFT Score:</label>
+          <br>
+          <input type="hidden" id="total-score-input" name="total-score">
+          <div id="total-score">0</div>
+        </div>
+      </div>
+      <div class="eventacft">
+        <label for="deadlift">Deadlift:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="deadlift-score">0</div>
+        <div id="deadlift-score2" name="dl">0</div>
+      </div>
+      <br>
+      <div class="eventacft">
+        <label for="standing-power-throw">Standing Power Throw:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="standing-power-throw" name="standing-power-throw" step="0.1" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="standing-power-throw-score">0</div>
+        <div id="standing-power-throw-score2">0</div>
+      </div>
+      <br>
+      <div class="eventacft">
+        <label for="hand-release-push-up">Hand-Release Push-Up:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="hand-release-push-up" name="hand-release-push-up" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="hand-release-push-up-score">0</div>
+        <div id="hand-release-push-up-score2">0</div>
+      </div>
+      <br>
+      <div class="eventacft">
+        <label for="sprint-drag-carry">Sprint-Drag-Carry:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="sprint-drag-carry" name="sprint-drag-carry" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="sprint-drag-carry-score">0</div>
+        <div id="sprint-drag-carry-score2">0</div>
+      </div>
+      <br>
+      <div class="eventacft">
+        <label for="plank">Plank:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="plank" name="plank" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="plank-score">0</div>
+        <div id="plank-score2">0</div>
+      </div>
+      <br>
+      <div class="eventacft">
+        <label for="two-mile-run">Two-Mile Run:</label>
+        <br>
+        <input class="mySliderClass" type="range" id="two-mile-run" name="two-mile-run" max="0" min="0" value="0" oninput="updateScore()">
+        <br>
+        <div id="two-mile-run-score">0</div>
+        <div id="two-mile-run-score2">0</div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" align="right">Submit</button>
+    </form>
+  </div>
+<script src="{{ url_for('static', filename='js/setvalues.js') }}"></script>
+<script src="{{ url_for('static', filename='js/genderscore.js') }}"></script>
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script> {% endblock %}
