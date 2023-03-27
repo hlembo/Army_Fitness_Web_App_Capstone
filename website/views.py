@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, url_for,redirect
 from flask_login import login_required, current_user
 from .models import Acft, User
 from . import db
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 views = Blueprint('views', __name__)
 
@@ -39,7 +40,9 @@ def upcoming():
 def contact():
     return render_template("contact.html", user = current_user)
 
-@views.route('/acft', methods = ["GET","POST"])
+from datetime import datetime
+
+@views.route('/acft', methods=["GET", "POST"])
 @login_required
 def acft():
     max_records = 10  # set maximum number of records here
@@ -48,6 +51,7 @@ def acft():
         if record_count >= max_records:
             flash("You have reached the maximum number of records.", category='error')
             return redirect(url_for('views.profile'))
+        
         plk = request.form.get('plank')
         sdc = request.form.get('sprint-drag-carry')
         hrp = request.form.get('hand-release-push-up')
@@ -56,10 +60,18 @@ def acft():
         spt = request.form.get('standing-power-throw')
         score1 = request.form.get("total-score")
         gender = request.form.get("gender")
-        new_acft = Acft( score = score1, twomilerun = twomile, mdl = mdl, spt = spt, hrp = hrp, sdc = sdc, plk=plk, gender = gender, user_id = current_user.id)
+        official = request.form.get("official") == 'true'
+        date = request.form.get("date")
+        
+        # Parse the user date string to a datetime object
+        date_obj = datetime.strptime(date, "%Y-%m-%d")
+
+        new_acft = Acft(score=score1, twomilerun=twomile, mdl=mdl, spt=spt, hrp=hrp, sdc=sdc, plk=plk, gender=gender, official=official, date=date_obj, user_id=current_user.id)
         db.session.add(new_acft)
         db.session.commit()
-    return render_template("acft.html", user = current_user)
+    
+    return render_template("acft.html", user=current_user)
+
 
 
 

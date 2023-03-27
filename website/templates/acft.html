@@ -5,6 +5,19 @@
   <div class="container1">
     <form method="POST" id="acft-form" onsubmit="updateScore(event)">
       <div class="form-group">
+        <div class="form-group">
+          <label for="user-date">Select Date:</label>
+          <input type="date" id="date" name="date">
+        </div>
+        <!-- Added official/unofficial dropdown -->
+        <div class="form-group">
+          <label for="official">Official or Unofficial:</label>
+          <select id="official" name="official">
+            <option value=""></option>
+            <option value="true">Official</option>
+            <option value="false">Unofficial</option>
+          </select>
+        </div>
         <h2>Gender</h2>
         <label for="gender">Select Gender:</label>
         <select id="gender" name="gender" onchange="setSliderValues()">
