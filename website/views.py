@@ -4,6 +4,10 @@ from .models import Acft, User
 from . import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import render_template_string, request
+from plotly.subplots import make_subplots
+import plotly.graph_objs as go
+import plotly.io as pio
 views = Blueprint('views', __name__)
 
 @views.route('/', methods = ["GET","POST"])
@@ -80,15 +84,80 @@ def acft():
 def record():
         form_data = Acft.query.filter_by(user_id=current_user.id).all()
         return render_template('record.html', user=current_user, form_data=form_data, formatTime=formatTime)
+def format_minutes_to_seconds(minutes):
+    total_seconds = int(minutes * 60)
+    minutes = total_seconds // 60
+    seconds = total_seconds % 60
+    return f"{minutes:02d}:{seconds:02d}"
 
 @views.route('/dashboard', methods = ["GET","POST"])
 @login_required
 def dashboard():
     form_data = Acft.query.filter_by(user_id=current_user.id).all()
-    labels = [acftscore.id for acftscore in form_data]
-    scores = [acftscore.score for acftscore in form_data]
-    new_data = {"labels": labels, "data": scores}
-    return render_template("dashboard.html", user = current_user,  new_data=new_data, formatTime=formatTime)
+    data = {}
+    for acftscore in form_data:
+        event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc']
+        for event_name in event_names:
+            score = abs(getattr(acftscore, event_name))
+            if event_name in ['twomilerun', 'sdc', 'plk']:
+                score = formatTime(score)
+            if event_name not in data:
+                data[event_name] = []
+            data[event_name].append({'date': acftscore.date, 'score': score})
+
+    # Create a Plotly subplot for each event
+    fig = make_subplots(rows=1, cols=len(data), subplot_titles=list(data.keys()), 
+                        horizontal_spacing=0.05)
+
+    # Add data to the subplot
+    for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
+        scores = [score_dict['score'] for score_dict in event_data]
+        dates = [score_dict['date'] for score_dict in event_data]
+
+        hovertemplate = None
+        if event_name in ['twomilerun', 'sdc', 'plk']:
+            hovertemplate = 'Score: %{text} (%{customdata|%Y-%m-%d})<extra></extra>'
+        else:
+            hovertemplate = 'Score: %{y} (%{customdata|%Y-%m-%d})<extra></extra>'
+
+        fig.add_trace(
+            go.Bar(
+                x=dates,
+                y=scores,
+                name=event_name,
+                hovertemplate=hovertemplate,
+                customdata=dates,
+                text=[format_minutes_to_seconds(val) for val in scores] if event_name in ['twomilerun', 'sdc', 'plk'] else None,
+                hoverlabel=dict(namelength=-1, align='left'),
+            ),
+            row=1,
+            col=event_index,
+        )
+
+        # Update y-axis tick labels for the events with time values
+        if event_name in ['twomilerun', 'sdc', 'plk']:
+            fig.update_yaxes(tickvals=list(range(0, int(max(scores))+1)), ticktext=[format_minutes_to_mmss(val) for val in range(0, int(max(scores))+1)], row=1, col=event_index)
+
+        # Set the x-axis title for all subplots
+        fig.update_xaxes(title_text="Date", row=1, col=event_index)
+
+    # Generate the Plotly HTML output
+    plot_html = pio.to_html(fig, full_html=False)
+
+    return render_template_string("""
+        <html>
+            <head>
+                <title>Dashboard</title>
+            </head>
+            <body>
+                {{ plot_html|safe }}
+            </body>
+        </html>
+        """, plot_html=plot_html)
+
+
+
+
 
 @views.route('/delete/<int:id>')
 def delete(id):
@@ -120,8 +189,13 @@ def update(id):
     return render_template("profile.html", user = entry, entry = entry)
 
 
-def formatTime(seconds):
-    minutes = int(seconds) // 60
-    seconds = int(seconds) % 60
-    return f"{minutes}:{seconds:02d}"
 
+def formatTime(seconds):
+    seconds = abs(float(seconds))
+    return seconds / 60  # Return time in minutes (float)
+
+def format_minutes_to_mmss(minutes):
+    seconds = int(minutes * 60)
+    minutes = seconds // 60
+    seconds %= 60
+    return f"{minutes:02d}:{seconds:02d}"

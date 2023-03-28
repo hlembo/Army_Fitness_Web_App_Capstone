@@ -4,6 +4,7 @@ from os import path
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
 from flask_login import LoginManager
@@ -22,12 +23,12 @@ def create_app():
     app.register_blueprint(auth, url_prefix ='/')
 
     from .models import User, Acft 
-    
+    from .custom_views import GraphView, OfficialACFTView, AcftModelView
     admin = Admin(app,name='Admin Panel')
     admin.add_view(ModelView(User,  db.session))
-    admin.add_view(ModelView(Acft,  db.session))
+    admin.add_view(AcftModelView(Acft, db.session))
 
-    from .custom_views import GraphView, OfficialACFTView
+    
     admin.add_view(GraphView(name='Un-Official_ACFT_Records', endpoint='graph'))
 
     # Adds im the official acft view

@@ -17,10 +17,10 @@ class Acft(db.Model):
     date = db.Column(db.DateTime(timezone=True))  # Removed the default parameter
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     official = db.Column(db.Boolean, default=False)
+    user = db.relationship('User', backref=db.backref('acfts', lazy=True))
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     username = db.Column(db.String(150))
-    acft = db.relationship('Acft')

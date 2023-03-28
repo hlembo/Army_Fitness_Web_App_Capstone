@@ -3,6 +3,8 @@ from flask import render_template_string, request
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 import plotly.io as pio
+from flask_admin.contrib.sqla import ModelView
+
 
 from .models import User, Acft
 from . import db
@@ -182,6 +184,20 @@ class OfficialACFTView(BaseView):
     """, plot_html=plot_html, selected_gender=selected_gender)
 
 
+class AcftModelView(ModelView):
+    column_display_pk = True  # Display primary key columns
+    can_export = True  # Allow data export
+
+    # Customize the displayed columns
+    column_list = ('id', 'user', 'twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc', 'score', 'gender', 'date', 'official')
+
+    # Add a custom formatter to display the user's username instead of the user object
+    def _user_formatter(view, context, model, name):
+        return model.user.username if model.user else ''
+
+    column_formatters = {
+        'user': _user_formatter
+    }
 
 
 
