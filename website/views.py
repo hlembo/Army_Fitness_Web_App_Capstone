@@ -82,8 +82,89 @@ def acft():
 @views.route('/record', methods = ["GET","POST"])
 @login_required
 def record():
-        form_data = Acft.query.filter_by(user_id=current_user.id).all()
-        return render_template('record.html', user=current_user, form_data=form_data, formatTime=formatTime)
+    form_data = Acft.query.filter_by(user_id=current_user.id).all()
+    table_data = {
+        'Record Number': [],
+        'MDL': [],
+        'SDC': [],
+        'HRP': [],
+        'TMR': [],
+        'SPT': [],
+        'PLK': [],
+        'Score': []
+    }
+
+    for acftscore in form_data:
+        table_data['Record Number'].append(acftscore.id)
+        table_data['MDL'].append(acftscore.mdl)
+        table_data['SDC'].append(formatTime(acftscore.sdc * -1))
+        table_data['HRP'].append(acftscore.hrp)
+        table_data['TMR'].append(formatTime(acftscore.twomilerun * -1))
+        table_data['SPT'].append(acftscore.spt)
+        table_data['PLK'].append(formatTime(acftscore.plk))
+        table_data['Score'].append(acftscore.score)
+
+    fig = go.Figure(data=[go.Table(
+    header=dict(
+        values=list(table_data.keys()),
+        fill_color='#0c0f15',
+        align='left',
+        font=dict(size=16, family='United Sans Reg', color='#ababab'),
+        height=30,
+        line=dict(color='white', width=0.25)  # Set the line width for header borders
+    ),
+    cells=dict(
+        values=[table_data[key] for key in table_data.keys()],
+        fill_color='rgba(255, 255, 255)',  # Transparent background
+        align='left',
+        font=dict(size=16, family='United Sans Reg', color='#ababab'),
+        height=30
+    ))
+])
+
+
+
+    plot_html = pio.to_html(fig, full_html=False)
+
+
+
+    return render_template_string("""
+    {% extends "base.html" %}
+        <html>
+            <head>
+                <title>Record</title>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            </head>
+            
+                {% block content %}
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='record.css') }}"/>
+                
+                {{ plot_html|safe }}
+                <script>
+                    window.addEventListener('load', function() {
+                        changePlotlyBackgroundColor('#0c0f15');
+                    });
+
+                    function changePlotlyBackgroundColor(color) {
+                        var plotlySVG = document.querySelector('.main-svg');
+                        if (plotlySVG) {
+                            var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                            rect.setAttribute('width', '100%');
+                            rect.setAttribute('height', '100%');
+                            rect.setAttribute('fill', color);
+                            plotlySVG.insertBefore(rect, plotlySVG.firstChild);
+                        }
+                    }
+                </script>
+
+              
+                {% endblock %}
+                
+            </body>
+        </html>
+        """, plot_html=plot_html, user = current_user)
+
 def format_minutes_to_seconds(minutes):
     total_seconds = int(minutes * 60)
     minutes = total_seconds // 60
