@@ -210,6 +210,8 @@ def format_minutes_to_seconds(minutes):
 @login_required
 def dashboard():
     form_data = Acft.query.filter_by(user_id=current_user.id).all()
+    if not form_data:
+        return "<h3>No data available</h3>"
     data = {}
     for acftscore in form_data:
         event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc']

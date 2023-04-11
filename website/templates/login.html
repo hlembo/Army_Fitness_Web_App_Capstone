@@ -1,36 +1,25 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<form method="POST" align = "center">
-    <h3 align="center">Login</h3>
-    <div class="form-group" align = "center">
-      <label for="email">Email Address</label>
-      <div class="input-group mb-3 w-25">
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
-    </div>
-    </div>
-    </div>
-    <div class="form-group" align = "center">
-      <label for="password1">Password</label>
-      <div class="input-group mb-3 w-25">
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter password"
-      />
-    </div>
-    <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    </div>
-    
-  </form>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}" />
+<form method="POST">
+  <div class="login-box">
+    <h2>Login</h2>
+      <div class="user-box">
+        <input type="text" name="email" id="email" required= "">
+        <label for="email">Email Address</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="password" id="password" required = "">
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+  </div>
+</form>
 {% endblock %}
