@@ -25,7 +25,7 @@ function updateScore() {
     var gender = genderMenu.value;
     var ageGroup = ageGroupMenu.value;
 
-
+    
 
 
     if (gender == "female") {
@@ -5023,6 +5023,7 @@ function updateScore() {
     totalScoreDiv.innerHTML = parseInt(totalScore);
     // Update the value of the hidden input field
     document.getElementById("total-score-input").value = parseInt(totalScore);
+
 }
 
 
@@ -5050,3 +5051,140 @@ function formatTime(seconds) {
     // Format
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 }
+
+// ...
+
+  
+  function updateStandingPowerThrow() {
+    const textBox = document.getElementById("standing-power-throw-text");
+    const slider = document.getElementById("standing-power-throw");
+    const value = textBox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const floatValue = parseFloat(value);
+      if (floatValue >= parseFloat(slider.min) && floatValue <= parseFloat(slider.max)) {
+        slider.value = floatValue;
+      }
+    }
+    updateScore();
+  }
+  
+  function updateDeadlift() {
+    const slider = document.getElementById("deadlift");
+    const textbox = document.getElementById("deadlift-text");
+    const value = textbox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const intValue = parseInt(value);
+      if (intValue >= parseInt(slider.min) && intValue <= parseInt(slider.max)) {
+        slider.value = intValue;
+      }
+    }
+    updateScore();
+  }
+  
+  function updateHandReleasePushUp() {
+    const slider = document.getElementById("hand-release-push-up");
+    const textbox = document.getElementById("hand-release-push-up-text");
+    const value = textbox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const intValue = parseInt(value);
+      if (intValue >= parseInt(slider.min) && intValue <= parseInt(slider.max)) {
+        slider.value = intValue;
+      }
+    }
+    updateScore();
+  }
+  
+  function updateSprintDragCarry() {
+    const slider = document.getElementById("sprint-drag-carry");
+    const textbox = document.getElementById("sprint-drag-carry-text");
+    const value = textbox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const intValue = timeToSeconds(value) * -1;
+      if (intValue >= parseInt(slider.min) && intValue <= parseInt(slider.max)) {
+        slider.value = intValue;
+      }
+    }
+    updateScore();
+  }
+  
+  
+  
+  function updatePlank() {
+    const slider = document.getElementById("plank");
+    const textbox = document.getElementById("plank-text");
+    const value = textbox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const intValue = timeToSeconds(value);
+      if (intValue >= parseInt(slider.min) && intValue <= parseInt(slider.max)) {
+        slider.value = intValue;
+      }
+    }
+    updateScore();
+  }
+  
+  function updateTwoMileRun() {
+    const slider = document.getElementById("two-mile-run");
+    const textbox = document.getElementById("two-mile-run-text");
+    const value = textbox.value;
+  
+    if (value === "") {
+      slider.value = slider.min;
+    } else {
+      const intValue = timeToSeconds(value) * -1;
+      if (intValue >= parseInt(slider.min) && intValue <= parseInt(slider.max)) {
+        slider.value = intValue;
+      }
+    }
+    updateScore();
+  }
+  
+  function timeToSeconds(timeStr) {
+    const timeParts = timeStr.split(':');
+    const minutes = parseInt(timeParts[0]);
+    const seconds = parseInt(timeParts[1]);
+    return (minutes * 60) + seconds;
+  }
+  
+  
+  function secondsToTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  }
+  
+ 
+
+
+
+function timeToSeconds(timeStr) {
+  const timeParts = timeStr.split(':');
+  const minutes = parseInt(timeParts[0]);
+  const seconds = parseInt(timeParts[1]);
+  return (minutes * 60) + seconds;
+}
+
+function secondsToTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
+
+
+
+   
+  

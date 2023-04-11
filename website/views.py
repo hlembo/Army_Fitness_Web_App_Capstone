@@ -8,6 +8,10 @@ from flask import render_template_string, request
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 import plotly.io as pio
+from datetime import datetime
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
 views = Blueprint('views', __name__)
 
 @views.route('/', methods = ["GET","POST"])
@@ -45,6 +49,37 @@ def contact():
     return render_template("contact.html", user = current_user)
 
 from datetime import datetime
+
+@views.route('/acft_data', methods=["GET", "POST"])
+@login_required
+def acft_data():
+    max_records = 10  # set maximum number of records here
+    if request.method == 'POST':
+        record_count = Acft.query.filter_by(user_id=current_user.id).count()
+        if record_count >= max_records:
+            flash("You have reached the maximum number of records.", category='error')
+            return redirect(url_for('views.profile'))
+        
+        plk = request.form.get('plank')
+        sdc = request.form.get('sprint-drag-carry')
+        hrp = request.form.get('hand-release-push-up')
+        twomile = request.form.get('two-mile-run')
+        mdl = request.form.get('deadlift')
+        spt = request.form.get('standing-power-throw')
+        score1 = request.form.get("total-score")
+        gender = request.form.get("gender")
+        official = request.form.get("official") == 'true'
+        date = request.form.get("date")
+        
+        # Parse the user date string to a datetime object
+        date_obj = datetime.strptime(date, "%Y-%m-%d")
+
+        new_acft = Acft(score=score1, twomilerun=twomile, mdl=mdl, spt=spt, hrp=hrp, sdc=sdc, plk=plk, gender=gender, official=official, date=date_obj, user_id=current_user.id)
+        db.session.add(new_acft)
+        db.session.commit()
+    
+    return render_template("acft_data.html", user=current_user)
+
 
 @views.route('/acft', methods=["GET", "POST"])
 @login_required
@@ -185,15 +220,29 @@ def dashboard():
             if event_name not in data:
                 data[event_name] = []
             data[event_name].append({'date': acftscore.date, 'score': score})
+    
+    event_name_map = {
+        'twomilerun': 'Two_Mile_Run',
+        'spt': 'Standing_PT',
+        'hrp': 'Hand_Release_Pushups',
+        'sdc': 'Sprint_Drag_Carry',
+        'mdl': 'Deadlift',
+        'plk': 'Plank'
+    }   
+
+    # Create a list of subplot titles with the new event names
+    subplot_titles = [event_name_map[event_name] for event_name in data.keys()]
 
     # Create a Plotly subplot for each event
-    fig = make_subplots(rows=1, cols=len(data), subplot_titles=list(data.keys()), 
-                        horizontal_spacing=0.05)
+    fig = make_subplots(rows=1, cols=len(data), subplot_titles=subplot_titles, 
+                    horizontal_spacing=0.10)
 
+       
     # Add data to the subplot
     for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
         scores = [score_dict['score'] for score_dict in event_data]
         dates = [score_dict['date'] for score_dict in event_data]
+        event_name_display = event_name_map[event_name]
 
         hovertemplate = None
         if event_name in ['twomilerun', 'sdc', 'plk']:
@@ -201,19 +250,49 @@ def dashboard():
         else:
             hovertemplate = 'Score: %{y} (%{customdata|%Y-%m-%d})<extra></extra>'
 
+       # Prepare the data for linear regression
+        X = np.array(range(len(dates))).reshape(-1, 1)
+        y = np.array(scores)
+
+        # Fit the linear regression model
+        model = LinearRegression()
+        model.fit(X, y)
+
+        # Generate the predicted values for the linear regression line
+        y_pred = model.predict(X)
+
         fig.add_trace(
             go.Bar(
-                x=dates,
+                x=[date for date in dates],
                 y=scores,
-                name=event_name,
+                name=event_name_display,
                 hovertemplate=hovertemplate,
                 customdata=dates,
-                text=[format_minutes_to_seconds(val) for val in scores] if event_name in ['twomilerun', 'sdc', 'plk'] else None,
+                text=[format_minutes_to_seconds(val) if event_name in ['twomilerun', 'sdc', 'plk'] else val for val in scores],
                 hoverlabel=dict(namelength=-1, align='left'),
             ),
             row=1,
             col=event_index,
         )
+
+        # Add the linear regression trace
+        fig.add_trace(
+            go.Scatter(
+                x=dates,
+                y=y_pred,
+                mode="lines",
+                name="Linear Regression",
+                line=dict(color="red"),
+            ),
+            row=1,
+            col=event_index,
+        )
+        # Set the width of each subplot and the total figure width
+        subplot_width = 400
+        fig_width = subplot_width * len(data)
+
+        # Set the figure size
+        fig.update_layout(width=fig_width, height=600)
 
         # Update y-axis tick labels for the events with time values
         if event_name in ['twomilerun', 'sdc', 'plk']:
@@ -222,6 +301,9 @@ def dashboard():
         # Set the x-axis title for all subplots
         fig.update_xaxes(title_text="Date", row=1, col=event_index)
 
+        fig.update_yaxes(title_text=event_name_display, row=1, col=event_index)
+         # Update the anchor properties of the subplot titles to adjust their position
+       
     # Generate the Plotly HTML output
     plot_html = pio.to_html(fig, full_html=False)
 
