@@ -4,6 +4,9 @@ from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 import plotly.io as pio
 from flask_admin.contrib.sqla import ModelView
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
 
 
 from .models import User, Acft
@@ -132,7 +135,7 @@ class OfficialACFTView(BaseView):
         fig = make_subplots(rows=1, cols=len(data), subplot_titles=list(data.keys()), 
                             horizontal_spacing=0.05)
 
-        # Add data to the subplot
+        # Add data and linear regression to the subplot
         for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
             unique_users = list(set(event_data['username']))
             for i, username in enumerate(unique_users):
@@ -157,6 +160,24 @@ class OfficialACFTView(BaseView):
                     ),
                     row=1,
                     col=event_index,
+                )
+
+            # Add linear regression
+            X = np.arange(len(event_data['score'])).reshape(-1, 1)
+            y = np.array(event_data['score']).reshape(-1, 1)
+            model = LinearRegression().fit(X, y)
+            y_pred = model.predict(X)
+            fig.add_trace(
+                go.Scatter(
+                    x=[f"{username}_{j}" for j in range(len(event_data['score']))],
+                    y=y_pred.flatten(),
+                    mode="lines",
+                    line=dict(color='red', width=2),
+                    name="Linear Regression",
+                    showlegend=(event_index == 1),
+                ),
+                row=1,
+                col=event_index,
                 )
         
         # Generate the Plotly HTML output
