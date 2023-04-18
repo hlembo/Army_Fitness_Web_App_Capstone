@@ -2,115 +2,93 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<!-- inspired by http://colorhunt.co/c/8184 and 
-    https://dribbble.com/shots/2407357-Calendar%60 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1F0Lg/P6lPlK6dRSdj313C1+g56Dz6Xh3Dp1k6" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1F0Lg/P6lPlK6dRSdj313C1+g56Dz6Xh3Dp1k6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9l+4Np" crossorigin="anonymous"></script>
 
-    <div class="container">
-        <div class="calendar">
-          <div class="front">
-            <div class="current-date">
-              <h1>Friday 15th</h1>
-              <h1>January 2016</h1> 
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming Events</h5>
+                    <div class="d-flex justify-content-between">
+                        <button id="prevMonth" class="btn btn-primary">Prev</button>
+                        <div id="calendar" class="table-responsive">
+                            <!-- Calendar will be generated here -->
+                        </div>
+                        <button id="nextMonth" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
             </div>
-  
-            <div class="current-month">
-              <ul class="week-days">
-                <li>MON</li>
-                <li>TUE</li>
-                <li>WED</li>
-                <li>THU</li>
-                <li>FRI</li>
-                <li>SAT</li>
-                <li>SUN</li>
-              </ul>
-  
-              <div class="weeks">
-                <div class="first">
-                  <span class="last-month">28</span>
-                  <span class="last-month">29</span>
-                  <span class="last-month">30</span>
-                  <span class="last-month">31</span>
-                  <span>01</span>
-                  <span>02</span>
-                  <span>03</span>
-                </div>
-  
-                <div class="second">
-                  <span>04</span>
-                  <span>05</span>
-                  <span class="event">06</span>
-                  <span>07</span>
-                  <span>08</span>
-                  <span>09</span>
-                  <span>10</span>
-                </div>
-  
-                <div class="third">
-                  <span>11</span>
-                  <span>12</span>
-                  <span>13</span>
-                  <span>14</span>
-                  <span class="active">15</span>
-                  <span>16</span>
-                  <span>17</span>
-                </div>
-  
-                <div class="fourth">
-                  <span>18</span>
-                  <span>19</span>
-                  <span>20</span>
-                  <span>21</span>
-                  <span>22</span>
-                  <span>23</span>
-                  <span>24</span>
-                </div>
-  
-                <div class="fifth">
-                  <span>25</span>
-                  <span>26</span>
-                  <span>27</span>
-                  <span>28</span>
-                  <span>29</span>
-                  <span>30</span>
-                  <span>31</span>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="back">
-            <input placeholder="What's the event?">
-            <div class="info">
-              <div class="date">
-                <p class="info-date">
-                Date: <span>Jan 15th, 2016</span>
-                </p>
-                <p class="info-time">
-                  Time: <span>6:35 PM</span>
-                </p>
-              </div>
-              <div class="address">
-                <p>
-                  Address: <span>129 W 81st St, New York, NY</span>
-                </p>
-              </div>
-              <div class="observations">
-                <p>
-                  Observations: <span>Be there 15 minutes earlier</span>
-                </p>
-              </div>
-            </div>
-  
-            <div class="actions">
-              <button class="save">
-                Save <i class="ion-checkmark"></i>
-              </button>
-              <button class="dismiss">
-                Dismiss <i class="ion-android-close"></i>
-              </button>
-            </div>
-          </div>
-  
         </div>
-      </div>
-{% endblock %}
+    </div>
+</div>
+
+<script>
+  // Generate the calendar with nice CSS
+  document.addEventListener("DOMContentLoaded", function() {
+      var today = new Date();
+      var currentMonth = today.getMonth();
+      var currentYear = today.getFullYear();
+      var calendarDiv = document.getElementById("calendar");
+
+      function generateCalendar(month, year) {
+          var firstDay = (new Date(year, month)).getDay();
+          var daysInMonth = 32 - new Date(year, month, 32).getDate();
+
+          var calendarHtml = '<table class="table table-bordered">';
+          calendarHtml += '<thead>';
+          calendarHtml += '<tr><th colspan="7">' + (new Date(year, month)).toLocaleString('default', { month: 'long' }) + ' ' + year + '</th></tr>';
+          calendarHtml += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+          calendarHtml += '</thead><tbody><tr>';
+
+          for (var i = 0; i < firstDay; i++) {
+              calendarHtml += '<td class="bg-secondary"></td>';
+          }
+
+          for (var day = 1; day <= daysInMonth; day++) {
+              if ((day + firstDay) % 7 === 1) {
+                  calendarHtml += '</tr><tr>';
+              }
+
+              calendarHtml += `<td>${day}</td>`;
+          }
+
+          if (day === daysInMonth && (day + firstDay) % 7 !== 0) {
+              for (var j = (day + firstDay) % 7; j < 7; j++) {
+                  calendarHtml += '<td class="bg-secondary"></td>';
+              }
+          }
+
+          calendarHtml += '</tr></tbody></table>';
+          calendarDiv.innerHTML = calendarHtml;
+      }
+
+      generateCalendar(currentMonth, currentYear);
+
+      document.getElementById('prevMonth').addEventListener('click', function() {
+          if (currentMonth === 0) {
+              currentMonth = 11;
+              currentYear--;
+          } else {
+              currentMonth--;
+          }
+          generateCalendar(currentMonth, currentYear);
+      });
+
+      document.getElementById('nextMonth').addEventListener('click', function() {
+          if (currentMonth === 11) {
+              currentMonth = 0;
+              currentYear++;
+          } else {
+              currentMonth++;
+          }
+          generateCalendar(currentMonth, currentYear);
+      });
+  });
+</script>
+
+
+
+  {% endblock %}

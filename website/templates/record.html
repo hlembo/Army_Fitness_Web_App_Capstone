@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='record.css') }}"/>
+    <script>
+        window.addEventListener('load', function() {
+            changePlotlyBackgroundColor('#0c0f15');
+        });
+
+        function changePlotlyBackgroundColor(color) {
+            var plotlySVG = document.querySelector('.main-svg');
+            if (plotlySVG) {
+                var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute('width', '100%');
+                rect.setAttribute('height', '100%');
+                rect.setAttribute('fill', color);
+                plotlySVG.insertBefore(rect, plotlySVG.firstChild);
+            }
+        }
+    </script>
+
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        {% for key in table_data.keys() %}
+                            <th>{{ key }}</th>
+                        {% endfor %}
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(table_data['Record Number']|length) %}
+                        <tr>
+                            {% for key in table_data.keys() %}
+                                <td>{{ table_data[key][i] }}</td>
+                            {% endfor %}
+                            <td>
+                                <a href="{{ url_for('views.delete', id=table_data['Record Number'][i]) }}" onclick="return confirm('Are you sure you want to delete this record?')" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

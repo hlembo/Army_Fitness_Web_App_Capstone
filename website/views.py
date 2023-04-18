@@ -132,79 +132,19 @@ def record():
     for acftscore in form_data:
         table_data['Record Number'].append(acftscore.id)
         table_data['MDL'].append(acftscore.mdl)
-        table_data['SDC'].append(formatTime(acftscore.sdc * -1))
+        table_data['SDC'].append(format_minutes_to_mmss(acftscore.sdc * -1))
         table_data['HRP'].append(acftscore.hrp)
-        table_data['TMR'].append(formatTime(acftscore.twomilerun * -1))
+        table_data['TMR'].append(format_minutes_to_mmss(acftscore.twomilerun * -1))
         table_data['SPT'].append(acftscore.spt)
-        table_data['PLK'].append(formatTime(acftscore.plk))
+        table_data['PLK'].append(format_minutes_to_mmss(acftscore.plk))
         table_data['Score'].append(acftscore.score)
 
-    fig = go.Figure(data=[go.Table(
-    header=dict(
-        values=list(table_data.keys()),
-        fill_color='#0c0f15',
-        align='left',
-        font=dict(size=16, family='United Sans Reg', color='#ababab'),
-        height=30,
-        line=dict(color='white', width=0.25)  # Set the line width for header borders
-    ),
-    cells=dict(
-        values=[table_data[key] for key in table_data.keys()],
-        fill_color='rgba(255, 255, 255)',  # Transparent background
-        align='left',
-        font=dict(size=16, family='United Sans Reg', color='#ababab'),
-        height=30
-    ))
-])
+
+
+    return render_template("record.html", table_data=table_data, user=current_user)
 
 
 
-    plot_html = pio.to_html(fig, full_html=False)
-
-
-
-    return render_template_string("""
-    {% extends "base.html" %}
-        <html>
-            <head>
-                <title>Record</title>
-                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-            </head>
-            
-                {% block content %}
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-                <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='record.css') }}"/>
-                
-                {{ plot_html|safe }}
-                <script>
-                    window.addEventListener('load', function() {
-                        changePlotlyBackgroundColor('#0c0f15');
-                    });
-
-                    function changePlotlyBackgroundColor(color) {
-                        var plotlySVG = document.querySelector('.main-svg');
-                        if (plotlySVG) {
-                            var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                            rect.setAttribute('width', '100%');
-                            rect.setAttribute('height', '100%');
-                            rect.setAttribute('fill', color);
-                            plotlySVG.insertBefore(rect, plotlySVG.firstChild);
-                        }
-                    }
-                </script>
-
-              
-                {% endblock %}
-                
-            </body>
-        </html>
-        """, plot_html=plot_html, user = current_user)
-
-def format_minutes_to_seconds(minutes):
-    total_seconds = int(minutes * 60)
-    minutes = total_seconds // 60
-    seconds = total_seconds % 60
-    return f"{minutes:02d}:{seconds:02d}"
 
 @views.route('/dashboard', methods = ["GET","POST"])
 @login_required
@@ -214,7 +154,7 @@ def dashboard():
         return "<h3>No data available</h3>"
     data = {}
     for acftscore in form_data:
-        event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc']
+        event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc', 'score']
         for event_name in event_names:
             score = abs(getattr(acftscore, event_name))
             if event_name in ['twomilerun', 'sdc', 'plk']:
@@ -229,15 +169,16 @@ def dashboard():
         'hrp': 'Hand_Release_Pushups',
         'sdc': 'Sprint_Drag_Carry',
         'mdl': 'Deadlift',
-        'plk': 'Plank'
+        'plk': 'Plank',
+        'score': 'Total_Score'
     }   
 
     # Create a list of subplot titles with the new event names
     subplot_titles = [event_name_map[event_name] for event_name in data.keys()]
 
     # Create a Plotly subplot for each event
-    fig = make_subplots(rows=1, cols=len(data), subplot_titles=subplot_titles, 
-                    horizontal_spacing=0.10)
+    fig = make_subplots(rows=2, cols=len(data), subplot_titles=subplot_titles, 
+                    horizontal_spacing=0.05)
 
        
     # Add data to the subplot
@@ -289,12 +230,7 @@ def dashboard():
             row=1,
             col=event_index,
         )
-        # Set the width of each subplot and the total figure width
-        subplot_width = 400
-        fig_width = subplot_width * len(data)
-
-        # Set the figure size
-        fig.update_layout(width=fig_width, height=600)
+        
 
         # Update y-axis tick labels for the events with time values
         if event_name in ['twomilerun', 'sdc', 'plk']:
@@ -359,8 +295,12 @@ def formatTime(seconds):
     seconds = abs(float(seconds))
     return seconds / 60  # Return time in minutes (float)
 
-def format_minutes_to_mmss(minutes):
+def format_minutes_to_seconds(minutes):
     seconds = int(minutes * 60)
     minutes = seconds // 60
     seconds %= 60
+    return f"{minutes:02d}:{seconds:02d}"
+
+def format_minutes_to_mmss(seconds):
+    minutes, seconds = divmod(abs(int(seconds)), 60)
     return f"{minutes:02d}:{seconds:02d}"
