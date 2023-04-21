@@ -7,6 +7,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
 
+
+
 @auth.route('/login', methods = ["GET","POST"])
 def login():
     if request.method == "POST":
@@ -31,6 +33,49 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
+from functools import wraps
+from flask import abort, redirect, url_for
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_authenticated:
+            return redirect(url_for('auth.login'))
+        elif not current_user.is_admin:
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
+@auth.route('/admin-signup', methods=["GET", "POST"])
+@admin_required
+def admin_signup():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        username = request.form.get('username')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash('Email already exists.', category="error")
+        elif not is_email_valid(email):
+            flash('Invalid Email', category="error")
+        elif len(username) < 2:
+            flash('Username must be Longer', category="error")
+        elif password1 != password2:
+            flash('Passwords do not match', category="error")
+        elif not is_password_strong(password1):
+            flash('Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character, and be longer than 8 characters!', category="error")
+        else:
+            new_user = User(email=email, username=username, password=generate_password_hash(password1, method='sha256'), is_admin=True)  # Set is_admin=True for admin user
+            db.session.add(new_user)
+            db.session.commit()
+            login_user(new_user, remember=True)
+            flash('Admin account created!', category="successful")
+            return redirect(url_for('views.home'))
+    return render_template("admin-signup.html", user=current_user)
+
 
 @auth.route('/sign-up', methods = ["GET","POST"])
 def sign_up():
@@ -61,6 +106,7 @@ def sign_up():
             return redirect(url_for('views.home'))
             #add user to the database here
     return render_template("sign-up.html", user = current_user)
+
 
 
 def is_email_valid(email):

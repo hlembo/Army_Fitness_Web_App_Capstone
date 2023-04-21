@@ -11,27 +11,27 @@
            Dont forget if you want any webpage to be only used by logged in users you need to specify
           <!-- #@login_required for the @app.route() and need to swap usage here since this python checks if the user is logged into the webpage in order to see these elements 
     -->
-    <div class = "container-fluid">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-          <div class="navbar-nav">
-            {% if user.is_authenticated %}
-            <ul class = "nav justify-content-center">
-                <li class="nav-item"><a class="nav-item nav-link" id="logout" href="/logout">Logout</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/acft">ACFT Calculator</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/record">Records</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/dashboard">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/profile">User Profile</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="home" href="/">Home</a></li>
-                {% else %}
-                <li class="nav-item"><a class="nav-item nav-link" id="home" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="login" href="/login">Login</a></li>
-                <li class="nav-item"><a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a></li>
-            </ul>
+    <div class="container-fluid">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-nav">
+          {% if user.is_authenticated %}
+          <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-item nav-link" id="logout" href="/logout">Logout</a></li>
+            <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/acft">ACFT Calculator</a></li>
+            <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/record">Records</a></li>
+            <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/profile">User Profile</a></li>
+            <li class="nav-item"><a class="nav-item nav-link" id="home" href="/">Home</a></li>
+            {% if current_user.is_authenticated and current_user.is_admin %}
+            <li class="nav-item"><a class="nav-item nav-link" id="adminPanel" href="{{ url_for('admin.index') }}">Admin Panel</a></li>
             {% endif %}
-          </div>
-        </nav>
-          <!--
+          {% else %}
+          <li class="nav-item"><a class="nav-item nav-link" id="home" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-item nav-link" id="login" href="/login">Login</a></li>
+          <li class="nav-item"><a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a></li>
+          {% endif %}
+          </ul>
         </div>
-         -->
       </nav>
     </div>
+    

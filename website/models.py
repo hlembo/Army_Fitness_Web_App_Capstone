@@ -18,9 +18,11 @@ class Acft(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     official = db.Column(db.Boolean, default=False)
     user = db.relationship('User', backref=db.backref('acfts', lazy=True))
+    mslevel = db.Column(db.String(6))
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     username = db.Column(db.String(150))
+    is_admin = db.Column(db.Boolean, default=False)  # Add this line

@@ -8,17 +8,8 @@ var sprintDragCarrySlider = document.getElementById("sprint-drag-carry");
 var plankSlider = document.getElementById("plank");
 var twoMileRunSlider = document.getElementById("two-mile-run");
 function setSliderValues() {
-    // Get the selected gender and age group options
     var gender = genderMenu.value;
     var ageGroup = ageGroupMenu.value;
-    //Women still need work not all scoring for the ACFT is implemented
-    //TODO:
-    //Implement Scores Divs for each event and add if-statments for each event
-    //Optimize code right now this could be turned into an array or an object 
-    //This is kinda shitty coding but it works as intended for what is needed
-    //ACFT logic is kinda funky so this is the most straight forward approach
-    //to accomplish the task in time 
-
 
 
 
