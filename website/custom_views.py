@@ -37,24 +37,21 @@ class GraphView(BaseView):
         for username, result in acft_results:
             for event_name in event_names:
                 score = abs(getattr(result, event_name))
-                if event_name in ['twomilerun', 'sdc', 'plk']:
-                    score = format_time(score)
                 data[event_name]['username'].append(username)
                 data[event_name]['score'].append(score)
 
         # Create a Plotly subplot
         fig = make_subplots(rows=1, cols=len(data), subplot_titles=list(data.keys()), 
                             horizontal_spacing=0.05)
-
-        # Add data to the subplot
+        
+        # Add a bar trace for each event
+        # Add data and linear regression to the subplot
         for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
             unique_users = list(set(event_data['username']))
             for i, username in enumerate(unique_users):
                 user_scores = [event_data['score'][j] for j in range(len(event_data['username'])) if event_data['username'][j] == username]
 
-                hovertemplate = None
-                if event_name in ['twomilerun', 'sdc', 'plk']:
-                    hovertemplate = 'Username: %{x}<br>Score: %{y:.2f} minutes (%{customdata})<extra></extra>'
+                hovertemplate = 'Username: %{x}<br>Score: %{y}'
 
                 # Create unique x values by concatenating username with a unique identifier
                 x_values = [f"{username}_{j}" for j in range(len(user_scores))]
@@ -66,25 +63,44 @@ class GraphView(BaseView):
                         name=username,
                         legendgroup=username,
                         showlegend=(event_index == 1),
-                        customdata=[format_minutes_to_mmss(score) for score in user_scores],
                         hovertemplate=hovertemplate,
                     ),
                     row=1,
                     col=event_index,
+                )
+
+            # Add linear regression
+            X = np.arange(len(event_data['score'])).reshape(-1, 1)
+            y = np.array(event_data['score']).reshape(-1, 1)
+            model = LinearRegression().fit(X, y)
+            y_pred = model.predict(X)
+            fig.add_trace(
+                go.Scatter(
+                    x=[f"{username}_{j}" for j in range(len(event_data['score']))],
+                    y=y_pred.flatten(),
+                    mode="lines",
+                    line=dict(color='red', width=2),
+                    name="Linear Regression",
+                    showlegend=(event_index == 1),
+                ),
+                row=1,
+                col=event_index,
                 )
         
 
 
             # Update y-axis tick labels for the events with time values
             if event_name in ['twomilerun', 'sdc', 'plk']:
-                fig.update_yaxes(tickvals=list(range(0, int(max(event_data['score']))+1)), ticktext=[format_minutes_to_mmss(val) for val in range(0, int(max(event_data['score']))+1)], row=1, col=event_index)
-                # Set the x-axis title for all subplots
-                fig.update_xaxes(title_text="Username")
+                fig.update_yaxes(tickvals=list(range(0, int(max(event_data['score']))+1)), row=1, col=event_index)
+
+            # Set the x-axis title for all subplots
+            fig.update_xaxes(title_text="Username", row=1, col=event_index)
 
         # Generate the Plotly HTML output
         plot_html = pio.to_html(fig, full_html=False)
 
          # Render the template with the Plotly output and gender selection form
+ 
         return render_template_string("""
             <html>
                 <head>
@@ -126,8 +142,6 @@ class OfficialACFTView(BaseView):
         for username, result in acft_results:
             for event_name in event_names:
                 score = abs(getattr(result, event_name))
-                if event_name in ['twomilerun', 'sdc', 'plk']:
-                    score = format_time(score)
                 data[event_name]['username'].append(username)
                 data[event_name]['score'].append(score)
 
@@ -141,9 +155,7 @@ class OfficialACFTView(BaseView):
             for i, username in enumerate(unique_users):
                 user_scores = [event_data['score'][j] for j in range(len(event_data['username'])) if event_data['username'][j] == username]
 
-                hovertemplate = None
-                if event_name in ['twomilerun', 'sdc', 'plk']:
-                    hovertemplate = 'Username: %{x}<br>Score: %{y:.2f} minutes (%{customdata})<extra></extra>'
+                hovertemplate = 'Username: %{x}<br>Score: %{y}'
 
                 # Create unique x values by concatenating username with a unique identifier
                 x_values = [f"{username}_{j}" for j in range(len(user_scores))]
@@ -155,7 +167,6 @@ class OfficialACFTView(BaseView):
                         name=username,
                         legendgroup=username,
                         showlegend=(event_index == 1),
-                        customdata=[format_minutes_to_mmss(score) for score in user_scores],
                         hovertemplate=hovertemplate,
                     ),
                     row=1,

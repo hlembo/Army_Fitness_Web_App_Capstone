@@ -48,55 +48,24 @@ def upcoming():
 def contact():
     return render_template("contact.html", user = current_user)
 
-from datetime import datetime
-
-@views.route('/acft_data', methods=["GET", "POST"])
-@login_required
-def acft_data():
-    max_records = 10  # set maximum number of records here
-    if request.method == 'POST':
-        record_count = Acft.query.filter_by(user_id=current_user.id).count()
-        if record_count >= max_records:
-            flash("You have reached the maximum number of records.", category='error')
-            return redirect(url_for('views.profile'))
-        
-        plk = request.form.get('plank')
-        sdc = request.form.get('sprint-drag-carry')
-        hrp = request.form.get('hand-release-push-up')
-        twomile = request.form.get('two-mile-run')
-        mdl = request.form.get('deadlift')
-        spt = request.form.get('standing-power-throw')
-        score1 = request.form.get("total-score")
-        gender = request.form.get("gender")
-        official = request.form.get("official") == 'true'
-        date = request.form.get("date")
-        
-        # Parse the user date string to a datetime object
-        date_obj = datetime.strptime(date, "%Y-%m-%d")
-
-        new_acft = Acft(score=score1, twomilerun=twomile, mdl=mdl, spt=spt, hrp=hrp, sdc=sdc, plk=plk, gender=gender, official=official, date=date_obj, user_id=current_user.id)
-        db.session.add(new_acft)
-        db.session.commit()
-    
-    return render_template("acft_data.html", user=current_user)
-
 
 @views.route('/acft', methods=["GET", "POST"])
 @login_required
 def acft():
     max_records = 10  # set maximum number of records here
     if request.method == 'POST':
+        print(request.form)
         record_count = Acft.query.filter_by(user_id=current_user.id).count()
         if record_count >= max_records:
             flash("You have reached the maximum number of records.", category='error')
             return redirect(url_for('views.profile'))
-        
-        plk = request.form.get('plank')
-        sdc = request.form.get('sprint-drag-carry')
-        hrp = request.form.get('hand-release-push-up')
-        twomile = request.form.get('two-mile-run')
-        mdl = request.form.get('deadlift')
-        spt = request.form.get('standing-power-throw')
+        print(request.form.get('plank-score2'))
+        plk = request.form.get('plank-score2')
+        sdc = request.form.get('sprint-drag-carry-score2')
+        hrp = request.form.get('hand-release-push-up-score2')
+        twomile = request.form.get('two-mile-run-score2')
+        mdl = request.form.get('deadlift-score2')
+        spt = request.form.get('standing-power-throw-score2')
         score1 = request.form.get("total-score")
         gender = request.form.get("gender")
         official = request.form.get("official") == 'true'
@@ -132,11 +101,11 @@ def record():
     for acftscore in form_data:
         table_data['Record Number'].append(acftscore.id)
         table_data['MDL'].append(acftscore.mdl)
-        table_data['SDC'].append(format_minutes_to_mmss(acftscore.sdc * -1))
+        table_data['SDC'].append(acftscore.sdc)
         table_data['HRP'].append(acftscore.hrp)
-        table_data['TMR'].append(format_minutes_to_mmss(acftscore.twomilerun * -1))
+        table_data['TMR'].append(acftscore.twomilerun)
         table_data['SPT'].append(acftscore.spt)
-        table_data['PLK'].append(format_minutes_to_mmss(acftscore.plk))
+        table_data['PLK'].append(acftscore.plk)
         table_data['Score'].append(acftscore.score)
 
 
@@ -146,115 +115,47 @@ def record():
 
 
 
-@views.route('/dashboard', methods = ["GET","POST"])
+
+@views.route('/dashboard', methods=["GET", "POST"])
 @login_required
 def dashboard():
-    form_data = Acft.query.filter_by(user_id=current_user.id).all()
-    if not form_data:
-        return "<h3>No data available</h3>"
-    data = {}
-    for acftscore in form_data:
-        event_names = ['twomilerun', 'mdl', 'spt', 'hrp', 'plk', 'sdc', 'score']
-        for event_name in event_names:
-            score = abs(getattr(acftscore, event_name))
-            if event_name in ['twomilerun', 'sdc', 'plk']:
-                score = formatTime(score)
-            if event_name not in data:
-                data[event_name] = []
-            data[event_name].append({'date': acftscore.date, 'score': score})
-    
-    event_name_map = {
-        'twomilerun': 'Two_Mile_Run',
-        'spt': 'Standing_PT',
-        'hrp': 'Hand_Release_Pushups',
-        'sdc': 'Sprint_Drag_Carry',
-        'mdl': 'Deadlift',
-        'plk': 'Plank',
-        'score': 'Total_Score'
-    }   
+    # Query the database to get the scores for the current logged-in user
+    acfts = Acft.query.filter_by(user_id=current_user.id).all()
 
-    # Create a list of subplot titles with the new event names
-    subplot_titles = [event_name_map[event_name] for event_name in data.keys()]
+    # Create a bar graph using Plotly for each category
+    categories = ['TwoMileRun', 'MDL', 'SPT', 'HRP', 'PLK', 'SDC']
+    bar_graphs = []
 
-    # Create a Plotly subplot for each event
-    fig = make_subplots(rows=2, cols=len(data), subplot_titles=subplot_titles, 
-                    horizontal_spacing=0.05)
+    for category in categories:
+        scores = []
+        record_dates = []
+        for acft in acfts:
+            score = getattr(acft, category.lower())
+            if score is not None:
+                scores.append(score)
+                record_dates.append(acft.date.strftime("%Y-%m-%d"))
 
-       
-    # Add data to the subplot
-    for event_index, (event_name, event_data) in enumerate(data.items(), start=1):
-        scores = [score_dict['score'] for score_dict in event_data]
-        dates = [score_dict['date'] for score_dict in event_data]
-        event_name_display = event_name_map[event_name]
+        fig = go.Figure(go.Bar(x=record_dates,
+                               y=scores,
+                               name=category))
 
-        hovertemplate = None
-        if event_name in ['twomilerun', 'sdc', 'plk']:
-            hovertemplate = 'Score: %{text} (%{customdata|%Y-%m-%d})<extra></extra>'
-        else:
-            hovertemplate = 'Score: %{y} (%{customdata|%Y-%m-%d})<extra></extra>'
-
-       # Prepare the data for linear regression
-        X = np.array(range(len(dates))).reshape(-1, 1)
+        # Add linear regression line
+        x = np.array(list(range(len(scores)))).reshape((-1, 1))
         y = np.array(scores)
+        model = LinearRegression().fit(x, y)
+        y_pred = model.predict(x)
+        fig.add_trace(go.Scatter(x=record_dates, y=y_pred,
+                                 mode='lines',
+                                 name='Linear Regression'))
 
-        # Fit the linear regression model
-        model = LinearRegression()
-        model.fit(X, y)
+        fig.update_layout(title=f'{category} Scores per Record',
+                          xaxis=dict(title='Date'),
+                          yaxis=dict(title='Scores'))
+        bar_graphs.append(fig.to_html(full_html=False))
 
-        # Generate the predicted values for the linear regression line
-        y_pred = model.predict(X)
+    # Render the list of bar graphs as HTML divs
+    return render_template('dashboard.html', bar_graphs=bar_graphs)
 
-        fig.add_trace(
-            go.Bar(
-                x=[date for date in dates],
-                y=scores,
-                name=event_name_display,
-                hovertemplate=hovertemplate,
-                customdata=dates,
-                text=[format_minutes_to_seconds(val) if event_name in ['twomilerun', 'sdc', 'plk'] else val for val in scores],
-                hoverlabel=dict(namelength=-1, align='left'),
-            ),
-            row=1,
-            col=event_index,
-        )
-
-        # Add the linear regression trace
-        fig.add_trace(
-            go.Scatter(
-                x=dates,
-                y=y_pred,
-                mode="lines",
-                name="Linear Regression",
-                line=dict(color="red"),
-            ),
-            row=1,
-            col=event_index,
-        )
-        
-
-        # Update y-axis tick labels for the events with time values
-        if event_name in ['twomilerun', 'sdc', 'plk']:
-            fig.update_yaxes(tickvals=list(range(0, int(max(scores))+1)), ticktext=[format_minutes_to_mmss(val) for val in range(0, int(max(scores))+1)], row=1, col=event_index)
-
-        # Set the x-axis title for all subplots
-        fig.update_xaxes(title_text="Date", row=1, col=event_index)
-
-        fig.update_yaxes(title_text=event_name_display, row=1, col=event_index)
-         # Update the anchor properties of the subplot titles to adjust their position
-       
-    # Generate the Plotly HTML output
-    plot_html = pio.to_html(fig, full_html=False)
-
-    return render_template_string("""
-        <html>
-            <head>
-                <title>Dashboard</title>
-            </head>
-            <body>
-                {{ plot_html|safe }}
-            </body>
-        </html>
-        """, plot_html=plot_html)
 
 
 

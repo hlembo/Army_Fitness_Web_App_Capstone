@@ -8,10 +8,10 @@ class Acft(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     twomilerun = db.Column(db.Float)
     mdl = db.Column(db.Integer)
-    spt = db.Column(db.Float)
+    spt = db.Column(db.Integer)
     hrp = db.Column(db.Integer)
-    plk = db.Column(db.Float)
-    sdc = db.Column(db.Float)
+    plk = db.Column(db.Integer)
+    sdc = db.Column(db.Integer)
     score = db.Column(db.Integer)
     gender = db.Column(db.String(6))
     date = db.Column(db.DateTime(timezone=True))  # Removed the default parameter

@@ -1,26 +1,26 @@
 function updateScore() {
-    // Get the sliders and score divs
-    var deadliftSlider = document.getElementById("deadlift");
-    var standingPowerThrowSlider = document.getElementById("standing-power-throw");
-    var handReleasePushUpSlider = document.getElementById("hand-release-push-up");
-    var sprintDragCarrySlider = document.getElementById("sprint-drag-carry");
-    var plankSlider = document.getElementById("plank");
-    var twoMileRunSlider = document.getElementById("two-mile-run");
-    var deadliftScoreDiv = document.getElementById("deadlift-score");
-    var standingPowerThrowScoreDiv = document.getElementById("standing-power-throw-score");
-    var handReleasePushUpScoreDiv = document.getElementById("hand-release-push-up-score");
-    var sprintDragCarryScoreDiv = document.getElementById("sprint-drag-carry-score");
-    var plankScoreDiv = document.getElementById("plank-score");
-    var twoMileRunScoreDiv = document.getElementById("two-mile-run-score");
-    var totalScoreDiv = document.getElementById("total-score");
-    var genderMenu = document.getElementById("gender");
-    var ageGroupMenu = document.getElementById("age-group");
-    var deadliftscore2 = document.getElementById("deadlift-score2");
-    var spt = document.getElementById("standing-power-throw-score2");
-    var hrp = document.getElementById("hand-release-push-up-score2");
-    var sdc = document.getElementById("sprint-drag-carry-score2");
-    var plt = document.getElementById("plank-score2");
-    var ts= document.getElementById("two-mile-run-score2");
+  // Get the sliders and score divs
+  var deadliftSlider = document.getElementById("deadlift");
+  var standingPowerThrowSlider = document.getElementById("standing-power-throw");
+  var handReleasePushUpSlider = document.getElementById("hand-release-push-up");
+  var sprintDragCarrySlider = document.getElementById("sprint-drag-carry");
+  var plankSlider = document.getElementById("plank");
+  var twoMileRunSlider = document.getElementById("two-mile-run");
+  var deadliftScoreDiv = document.getElementById("deadlift-score");
+  var standingPowerThrowScoreDiv = document.getElementById("standing-power-throw-score");
+  var handReleasePushUpScoreDiv = document.getElementById("hand-release-push-up-score");
+  var sprintDragCarryScoreDiv = document.getElementById("sprint-drag-carry-score");
+  var plankScoreDiv = document.getElementById("plank-score");
+  var twoMileRunScoreDiv = document.getElementById("two-mile-run-score");
+  var totalScoreDiv = document.getElementById("total-score");
+  var genderMenu = document.getElementById("gender");
+  var ageGroupMenu = document.getElementById("age-group");
+  var deadliftscore2 = document.getElementById("deadlift-score12");
+  var spt = document.getElementById("standing-power-throw-score12");
+  var hrp = document.getElementById("hand-release-push-up-score12");
+  var sdc = document.getElementById("sprint-drag-carry-score12");
+  var plt = document.getElementById("plank-score12");
+  var ts = document.getElementById("two-mile-run-score12");
 
     var gender = genderMenu.value;
     var ageGroup = ageGroupMenu.value;
@@ -5017,13 +5017,32 @@ function updateScore() {
 
     // Calculate the total score
     var totalScore = parseInt(deadliftscore2.innerHTML) + parseInt(spt.innerHTML) +parseInt(hrp.innerHTML) +parseInt(sdc.innerHTML) +parseInt(plt.innerHTML) +parseInt(ts.innerHTML);
-
+    var dls2 = parseInt(deadliftscore2.innerHTML);
+    var spt = parseInt(spt.innerHTML);
+    var hrp = parseInt(hrp.innerHTML);
+    var sdc = parseInt(sdc.innerHTML);
+    var plt = parseInt(plt.innerHTML);
+    var ts = parseInt(ts.innerHTML);
     // Update the total score div
+    console.log(totalScore);
+    console.log(dls2);
+    console.log(spt);
+    console.log(hrp);
+    console.log(sdc);
+    console.log(plt);
+    console.log(ts);
+    document.getElementById("deadlift-score2-input").value = parseInt(dls2)
+    document.getElementById("standing-power-throw-score2-input").value = parseInt(spt)
+    document.getElementById("hand-release-push-up-score2-input").value = parseInt(hrp)
+    document.getElementById("sprint-drag-carry-score2-input").value = parseInt(sdc)
+    document.getElementById("plank-score2-input").value = parseInt(plt)
+    document.getElementById(id="two-mile-run-score2-input").value = parseInt(ts)
+        
     
-    totalScoreDiv.innerHTML = parseInt(totalScore);
-    // Update the value of the hidden input field
-    document.getElementById("total-score-input").value = parseInt(totalScore);
-
+    
+  
+    
+        
 }
 
 
@@ -5084,6 +5103,7 @@ function formatTime(seconds) {
         slider.value = intValue;
       }
     }
+    document.getElementById("deadlift-score-input").value = parseInt(dls2);
     updateScore();
   }
   
@@ -5134,6 +5154,7 @@ function formatTime(seconds) {
         slider.value = intValue;
       }
     }
+    document.getElementById("plank-score-input").value = parseInt(plt);
     updateScore();
   }
   

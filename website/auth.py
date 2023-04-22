@@ -40,12 +40,16 @@ from flask import abort, redirect, url_for
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
+        print("Is authenticated:", current_user.is_authenticated)  # Debugging print statement
+        print("Is admin:", current_user.is_admin)  # Debugging print statement
+
         if not current_user.is_authenticated:
             return redirect(url_for('auth.login'))
         elif not current_user.is_admin:
             abort(403)  # Forbidden
         return f(*args, **kwargs)
     return decorated_function
+
 
 @auth.route('/admin-signup', methods=["GET", "POST"])
 @admin_required
@@ -77,6 +81,9 @@ def admin_signup():
     return render_template("admin-signup.html", user=current_user)
 
 
+ 
+
+
 @auth.route('/sign-up', methods = ["GET","POST"])
 def sign_up():
     if request.method == 'POST':
@@ -98,7 +105,7 @@ def sign_up():
         elif not is_password_strong(password1):
             flash('Password must contains at least one lowercase letter, one uppercase letter, one digit, and one special character, and be longer than 8 characters!', category = "error")
         else:
-            new_user = User(email =email, username = username, password = generate_password_hash(password1, method='sha256'))
+            new_user = User(email =email, username = username, password = generate_password_hash(password1, method='sha256'), is_admin=False)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember= True)
@@ -106,6 +113,7 @@ def sign_up():
             return redirect(url_for('views.home'))
             #add user to the database here
     return render_template("sign-up.html", user = current_user)
+
 
 
 

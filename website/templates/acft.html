@@ -58,7 +58,8 @@
         <input type="number" id="deadlift-text" oninput="updateDeadlift()" >
         <br>
         <div id="deadlift-score">0</div>
-        <div id="deadlift-score2" name="dl">0</div>
+        <input type="hidden" id="deadlift-score2-input" name="deadlift-score2">
+        <div id="deadlift-score12">0</div>
       </div>
       <br>
       <div class="eventacft">
@@ -68,7 +69,8 @@
         <input type="number" id="standing-power-throw-text" step="0.1" value="0.0" min="0" oninput="updateStandingPowerThrow()" >
         <br>
         <div id="standing-power-throw-score">0</div>
-        <div id="standing-power-throw-score2">0</div>
+        <input type="hidden" id="standing-power-throw-score2-input" name="standing-power-throw-score2">
+        <div id="standing-power-throw-score12">0</div>
       </div>
       <br>
       <div class="eventacft">
@@ -78,7 +80,8 @@
         <input type="number" id="hand-release-push-up-text" oninput="updateHandReleasePushUp()">
         <br>
         <div id="hand-release-push-up-score">0</div>
-        <div id="hand-release-push-up-score2">0</div>
+        <input type="hidden" id="hand-release-push-up-score2-input" name="hand-release-push-up-score2">
+        <div id="hand-release-push-up-score12">0</div>
       </div>
       <br>
       <div class="eventacft">
@@ -89,7 +92,8 @@
 
         <br>
         <div id="sprint-drag-carry-score">0</div>
-        <div id="sprint-drag-carry-score2">0</div>
+        <input type="hidden" id="sprint-drag-carry-score2-input" name="sprint-drag-carry-score2">
+        <div id="sprint-drag-carry-score12">0</div>
       </div>
       <br>
       <div class="eventacft">
@@ -99,7 +103,8 @@
         <input type="text" id="plank-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updatePlank()">
         <br>
         <div id="plank-score">0</div>
-        <div id="plank-score2">0</div>
+        <input type="hidden" id="plank-score2-input" name="plank-score2">
+        <div id="plank-score12">0</div>
       </div>
       <br>
       <div class="eventacft">
@@ -109,7 +114,8 @@
         <input type="text" id="two-mile-run-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updateTwoMileRun()">
         <br>
         <div id="two-mile-run-score">0</div>
-        <div id="two-mile-run-score2">0</div>
+        <input type="hidden" id="two-mile-run-score2-input" name="two-mile-run-score2">
+        <div id="two-mile-run-score12">0</div>
       </div>
       <br>
       <button type="submit" class="btn btn-primary" align="right">Submit</button>
@@ -118,3 +124,8 @@
 <script src="{{ url_for('static', filename='js/setvalues.js') }}"></script>
 <script src="{{ url_for('static', filename='js/genderscore.js') }}"></script>
 <script src="{{ url_for('static', filename='js/slider.js') }}"></script> {% endblock %}
+
+
+
+
+

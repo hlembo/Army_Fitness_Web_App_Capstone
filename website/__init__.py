@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template, flash, redirect, url_for, abort
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_admin import Admin
@@ -22,16 +22,15 @@ def create_app():
     app.register_blueprint(views, url_prefix ='/')
     app.register_blueprint(auth, url_prefix ='/')
 
+    create_database(app)
+
     from .models import User, Acft 
     from .custom_views import GraphView, OfficialACFTView, AcftModelView
-    admin = Admin(app,name='Admin Panel')
+    admin = Admin(app,name='Admin Panel', template_mode="bootstrap3")
+
     admin.add_view(ModelView(User,  db.session))
     admin.add_view(AcftModelView(Acft, db.session))
-
-    
     admin.add_view(GraphView(name='Un-Official_ACFT_Records', endpoint='graph'))
-
-    # Adds im the official acft view
     admin.add_view(OfficialACFTView(name='Official_ACFT_View', endpoint='official_acft'))
 
     create_database(app)

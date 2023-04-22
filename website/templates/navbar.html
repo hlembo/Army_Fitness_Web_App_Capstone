@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar-nav">
-          {% if user.is_authenticated %}
+          {% if current_user.is_authenticated %}
           <ul class="nav justify-content-center">
             <li class="nav-item"><a class="nav-item nav-link" id="logout" href="/logout">Logout</a></li>
             <li class="nav-item"><a class="nav-item nav-link" id="acft" href="/acft">ACFT Calculator</a></li>
