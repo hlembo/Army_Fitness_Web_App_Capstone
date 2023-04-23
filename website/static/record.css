@@ -1,12 +1,20 @@
+@font-face {
+  font-family: 'major';
+  src: url('fonts/major.ttf') format('opentype');
+}
 body {
-  font-family: "United Sans Reg";
+  font-family: 'major', sans-serif;
   font-weight: 10;
   font-size: 16px;
   line-height: 30px;
   background-color: #0c0f15;
   overflow-x:hidden;
-  color: #ababab; }
+  color: grey; }
 tbody{
   background-color: white;
 
+}
+th, table{
+  font-family: 'major', sans-serif;
+  color: grey;
 }

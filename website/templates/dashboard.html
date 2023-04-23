@@ -3,7 +3,8 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}" />
 <div class="dashboard-container">
- 
+ <br>
+ <br>
     {% for bar_graph in bar_graphs %}
     <div class="bar-graph">
         {{ bar_graph|safe }}

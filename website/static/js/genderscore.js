@@ -5031,6 +5031,7 @@ function updateScore() {
     console.log(sdc);
     console.log(plt);
     console.log(ts);
+    document.getElementById("total-score-input").value = parseInt(totalScore);
     document.getElementById("deadlift-score2-input").value = parseInt(dls2)
     document.getElementById("standing-power-throw-score2-input").value = parseInt(spt)
     document.getElementById("hand-release-push-up-score2-input").value = parseInt(hrp)

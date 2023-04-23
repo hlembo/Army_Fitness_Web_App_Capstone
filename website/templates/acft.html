@@ -2,124 +2,126 @@
 {% block title %}ACFT Calculator{% endblock %}
 {% block content %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='acft.css') }}" />
-  <div class="container1">
-    <form method="POST" id="acft-form" onsubmit="updateScore(event)">
-      <div class="form-group">
+  <div class="content-wrapper">
+    <div class="container1">
+      <form method="POST" id="acft-form" onsubmit="updateScore(event)">
         <div class="form-group">
-          <label for="user-date">Select Date:</label>
+          <div class="form-group">
+            <label for="user-date">Select Date:</label>
+            <br>
+            <input type="date" id="date" name="date">
+          </div>
+          <!-- Added official/unofficial dropdown -->
+          <div class="form-group">
+            <label for="official">Official or Unofficial:</label>
+            <br>
+            <select id="official" name="official">
+              <option value=""></option>
+              <option value="true">Official</option>
+              <option value="false">Unofficial</option>
+            </select>
+          </div>
+          <label for="gender">Select Gender:</label>
           <br>
-          <input type="date" id="date" name="date">
-        </div>
-        <!-- Added official/unofficial dropdown -->
-        <div class="form-group">
-          <label for="official">Official or Unofficial:</label>
-          <br>
-          <select id="official" name="official">
+          <select id="gender" name="gender" onchange="setSliderValues()">
             <option value=""></option>
-            <option value="true">Official</option>
-            <option value="false">Unofficial</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </select>
-        </div>
-        <label for="gender">Select Gender:</label>
-        <br>
-        <select id="gender" name="gender" onchange="setSliderValues()">
-          <option value=""></option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-        <br><br>
-        <label for="age-group">Select Age Group:</label>
-        <br>
-        <select id="age-group" onchange="setSliderValues()">
-          <option value=""></option>
-          <option value="17-21">17-21</option>
-          <option value="22-26">22-26</option>
-          <option value="27-31">27-31</option>
-          <option value="32-36">32-36</option>
-          <option value="37-41">37-41</option>
-          <option value="42-46">42-46</option>
-          <option value="47-51">47-51</option>
-          <option value="52-56">52-56</option>
-          <option value="57-61">57-61</option>
-          <option value="62-66">62-66</option>
-        </select>
-        <br><br>
-        <div class="eventacft">
-          <label for="acft-score">ACFT Score:</label>
+          <br><br>
+          <label for="age-group">Select Age Group:</label>
           <br>
-          <input type="hidden" id="total-score-input" name="total-score">
-          <div id="total-score">0</div>
+          <select id="age-group" onchange="setSliderValues()">
+            <option value=""></option>
+            <option value="17-21">17-21</option>
+            <option value="22-26">22-26</option>
+            <option value="27-31">27-31</option>
+            <option value="32-36">32-36</option>
+            <option value="37-41">37-41</option>
+            <option value="42-46">42-46</option>
+            <option value="47-51">47-51</option>
+            <option value="52-56">52-56</option>
+            <option value="57-61">57-61</option>
+            <option value="62-66">62-66</option>
+          </select>
+          <br><br>
+          <div class="eventacft">
+            <label for="acft-score">ACFT Score:</label>
+            <br>
+            <input type="hidden" id="total-score-input" name="total-score">
+            <div id="total-score">0</div>
+          </div>
         </div>
-      </div>
-      <div class="eventacft">
-        <label for="deadlift">Deadlift:</label>
+        <div class="eventacft">
+          <label for="deadlift">Deadlift:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="number" id="deadlift-text" oninput="updateDeadlift()" >
+          <br>
+          <div id="deadlift-score">0</div>
+          <input type="hidden" id="deadlift-score2-input" name="deadlift-score2">
+          <div id="deadlift-score12">0</div>
+        </div>
         <br>
-        <input class="mySliderClass" type="range" id="deadlift" name="deadlift" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="number" id="deadlift-text" oninput="updateDeadlift()" >
+        <div class="eventacft">
+          <label for="standing-power-throw">Standing Power Throw:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="standing-power-throw" name="standing-power-throw" step="0.1" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="number" id="standing-power-throw-text" step="0.1" value="0.0" min="0" oninput="updateStandingPowerThrow()" >
+          <br>
+          <div id="standing-power-throw-score">0</div>
+          <input type="hidden" id="standing-power-throw-score2-input" name="standing-power-throw-score2">
+          <div id="standing-power-throw-score12">0</div>
+        </div>
         <br>
-        <div id="deadlift-score">0</div>
-        <input type="hidden" id="deadlift-score2-input" name="deadlift-score2">
-        <div id="deadlift-score12">0</div>
-      </div>
-      <br>
-      <div class="eventacft">
-        <label for="standing-power-throw">Standing Power Throw:</label>
+        <div class="eventacft">
+          <label for="hand-release-push-up">Hand-Release Push-Up:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="hand-release-push-up" name="hand-release-push-up" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="number" id="hand-release-push-up-text" oninput="updateHandReleasePushUp()">
+          <br>
+          <div id="hand-release-push-up-score">0</div>
+          <input type="hidden" id="hand-release-push-up-score2-input" name="hand-release-push-up-score2">
+          <div id="hand-release-push-up-score12">0</div>
+        </div>
         <br>
-        <input class="mySliderClass" type="range" id="standing-power-throw" name="standing-power-throw" step="0.1" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="number" id="standing-power-throw-text" step="0.1" value="0.0" min="0" oninput="updateStandingPowerThrow()" >
-        <br>
-        <div id="standing-power-throw-score">0</div>
-        <input type="hidden" id="standing-power-throw-score2-input" name="standing-power-throw-score2">
-        <div id="standing-power-throw-score12">0</div>
-      </div>
-      <br>
-      <div class="eventacft">
-        <label for="hand-release-push-up">Hand-Release Push-Up:</label>
-        <br>
-        <input class="mySliderClass" type="range" id="hand-release-push-up" name="hand-release-push-up" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="number" id="hand-release-push-up-text" oninput="updateHandReleasePushUp()">
-        <br>
-        <div id="hand-release-push-up-score">0</div>
-        <input type="hidden" id="hand-release-push-up-score2-input" name="hand-release-push-up-score2">
-        <div id="hand-release-push-up-score12">0</div>
-      </div>
-      <br>
-      <div class="eventacft">
-        <label for="sprint-drag-carry">Sprint-Drag-Carry:</label>
-        <br>
-        <input class="mySliderClass" type="range" id="sprint-drag-carry" name="sprint-drag-carry" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="text" id="sprint-drag-carry-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updateSprintDragCarry(event)">
+        <div class="eventacft">
+          <label for="sprint-drag-carry">Sprint-Drag-Carry:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="sprint-drag-carry" name="sprint-drag-carry" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="text" id="sprint-drag-carry-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updateSprintDragCarry(event)">
 
+          <br>
+          <div id="sprint-drag-carry-score">0</div>
+          <input type="hidden" id="sprint-drag-carry-score2-input" name="sprint-drag-carry-score2">
+          <div id="sprint-drag-carry-score12">0</div>
+        </div>
         <br>
-        <div id="sprint-drag-carry-score">0</div>
-        <input type="hidden" id="sprint-drag-carry-score2-input" name="sprint-drag-carry-score2">
-        <div id="sprint-drag-carry-score12">0</div>
-      </div>
-      <br>
-      <div class="eventacft">
-        <label for="plank">Plank:</label>
+        <div class="eventacft">
+          <label for="plank">Plank:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="plank" name="plank" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="text" id="plank-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updatePlank()">
+          <br>
+          <div id="plank-score">0</div>
+          <input type="hidden" id="plank-score2-input" name="plank-score2">
+          <div id="plank-score12">0</div>
+        </div>
         <br>
-        <input class="mySliderClass" type="range" id="plank" name="plank" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="text" id="plank-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updatePlank()">
+        <div class="eventacft">
+          <label for="two-mile-run">Two-Mile Run:</label>
+          <br>
+          <input class="mySliderClass" type="range" id="two-mile-run" name="two-mile-run" max="0" min="0" value="0" oninput="updateScore()">
+          <input type="text" id="two-mile-run-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updateTwoMileRun()">
+          <br>
+          <div id="two-mile-run-score">0</div>
+          <input type="hidden" id="two-mile-run-score2-input" name="two-mile-run-score2">
+          <div id="two-mile-run-score12">0</div>
+        </div>
         <br>
-        <div id="plank-score">0</div>
-        <input type="hidden" id="plank-score2-input" name="plank-score2">
-        <div id="plank-score12">0</div>
-      </div>
-      <br>
-      <div class="eventacft">
-        <label for="two-mile-run">Two-Mile Run:</label>
-        <br>
-        <input class="mySliderClass" type="range" id="two-mile-run" name="two-mile-run" max="0" min="0" value="0" oninput="updateScore()">
-        <input type="text" id="two-mile-run-text" pattern="([0-9]{2}:)?[0-9]{2}" oninput="updateTwoMileRun()">
-        <br>
-        <div id="two-mile-run-score">0</div>
-        <input type="hidden" id="two-mile-run-score2-input" name="two-mile-run-score2">
-        <div id="two-mile-run-score12">0</div>
-      </div>
-      <br>
-      <button type="submit" class="btn btn-primary" align="right">Submit</button>
-    </form>
+        <button type="submit" class="btn btn-primary" align="right">Submit</button>
+      </form>
+    </div>
   </div>
 <script src="{{ url_for('static', filename='js/setvalues.js') }}"></script>
 <script src="{{ url_for('static', filename='js/genderscore.js') }}"></script>

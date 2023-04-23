@@ -1,5 +1,16 @@
+
+@font-face {
+  font-family: 'major';
+  src: url('fonts/major.ttf') format('opentype');
+}
+.content-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 body {
-  font-family: "United Sans Reg";
+  font-family: 'major', sans-serif;
   font-weight: 10;
   font-size: 16px;
   line-height: 30px;
@@ -13,7 +24,7 @@ body {
     flex-direction: column;
     justify-content: left;
     align-items: left;
-    background-color: white;
+    background-color: #0c0f15;
     padding: 20px;
     margin-top: 20px;
     border: 1px solid #edaa13;
@@ -73,7 +84,7 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 input[type="text"]::placeholder, input[type="number"]::placeholder {
-  color: #999;
+  color: #edaa13;
 }
 
 select {
@@ -84,7 +95,7 @@ select {
   border-radius: 5px;
   padding: 10px 20px;
   background-color: #f3f3f3;
-  color: #555;
+  color: #edaa13;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -101,7 +112,7 @@ select option {
   font-size: 16px;
   line-height: 30px;
   background-color: #f3f3f3;
-  color: #555;
+  color: #edaa13;
   border: none;
   border-radius: 5px;
 }
@@ -121,4 +132,21 @@ input[type="date"] {
   width: 80%;
   height: 40px;
   box-sizing: border-box;
+}
+label{
+  font-family: 'major', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  color: #edaa13;
+  margin-bottom: 10px;
+  display: block;
+}
+
+div{
+  font-family: 'major', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  color: #edaa13;
+  margin-bottom: 10px;
+  display: block;
 }

@@ -1,0 +1,18 @@
+{% extends 'admin/master.html' %}
+
+{% block top_navigation_bar %}
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="{{ url_for('views.home') }}">Home</a>
+                <ul class="nav">
+                    {% for view in admin_views %}
+                        <li class="{% if view.is_active %}active{% endif %}">
+                            <a href="{{ view.url }}">{{ view.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -2,6 +2,9 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<br>
+<br>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profile.css') }}" />
 <div class ="container">
 <form method="POST" action="{{url_for('views.update', id=user.id)}}" >
     <input type="hidden" name="user_id" value="{{current_user.id}}">

@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template, flash, redirect, url_for, abort
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-from flask_admin import Admin
+from flask_admin import Admin,  AdminIndexView
+from flask_admin.base import expose
 from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 
@@ -19,6 +20,19 @@ def create_app():
     from .views import views
     from .auth import auth
 
+    class CustomAdminIndexView(AdminIndexView):
+    
+        @expose('/admin')
+        def admin_panel(self):
+            return redirect(url_for('/admin'))
+
+        @property
+        def extra_args(self):
+            return {'base_template': 'admin/my_master.html'}
+
+
+        
+
     app.register_blueprint(views, url_prefix ='/')
     app.register_blueprint(auth, url_prefix ='/')
 
@@ -26,7 +40,8 @@ def create_app():
 
     from .models import User, Acft 
     from .custom_views import GraphView, OfficialACFTView, AcftModelView
-    admin = Admin(app,name='Admin Panel', template_mode="bootstrap3")
+    admin = Admin(app, index_view=CustomAdminIndexView(), name='Admin Panel', template_mode="bootstrap3")
+
 
     admin.add_view(ModelView(User,  db.session))
     admin.add_view(AcftModelView(Acft, db.session))

@@ -3,38 +3,77 @@
 
 {% block content %}
 
-
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='mission.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mission.css') }}"/>
 
 <section class="video">
   <h1>Department Mission</h1>
   <div class="vid-wrap">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/u9QP6dFj0a4?clip=UgkxkDVcjM3fRI-nG8-dTZ98LCHftOSilrfz&amp;clipt=EMOeIxi81CY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/u9QP6dFj0a4?clip=UgkxkDVcjM3fRI-nG8-dTZ98LCHftOSilrfz&amp;clipt=EMOeIxi81CY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </section>
 
-<section class="post">
-  <h1>U.S. Army Cadet Command Cadet Creed</h1>
-  <p>I am an Army Cadet.</p>
-  <p>Soon I will take an oath and become an Army officer committed to DEFENDING the values which make this Nation great.</p>
-  <p>HONOR is my touchstone. </p>
-  <p> I understand MISSION first and PEOPLE always.</p>
-  <p>I am the PAST - the spirit of those WARRIORS who made the final sacrifice.</p>
-  <p>I am the PRESENT - the scholar and apprentice soldier enhancing my skills in the science of war and art of leadership.</p>
-  <p>But above all, I am the FUTURE – the future WARRIOR LEADER of the United States Army.  May God give me the compassion and judgment to lead and the gallantry in battle to WIN.</p>
-  <p>I WILL do my DUTY.</p>
-  <h1>U.S. Army Cadet Command Vision</h1>
-  <p>U.S. Army Cadet Command is America's preeminent leadership program, academically unrivaled, sought out by students, staffed by master level leader development professionals and achieving the requirements and expectations of the U.S. Army.</p>
-  
-  <h1>Department of Military Science Leadership Philosophy</h1>
-  <p>Lead like you want to be led, follow like you want to be followed and be a team player</p>
-  <p>Do what is right – embrace the Army Values</p>
-  <p>Take care of and each other; treat everyone with dignity and respect</p>
-  <p>Train, Teach & Mentor</p>
-  <p>Account for and maintain equipment & property</p>
-  <p>Be positive – optimism & enthusiasm</p>
-  <h1>Department of Military Science Endstate</h1>
-  <p>Cadets commission from the Royal Warrior Battalion and enter the Army as Second Lieutenants who are competent, fit, professional, and caring leaders who possess the skills to go forward and successfully serve the Army.</p>
-</section>
-
-{% endblock %}
+<!-- Sections with content -->
+<div class="section-wrap">
+  <section class="post">
+    <h1>U.S. Army Cadet Command Cadet Creed</h1>
+    <ul class = "ul1">
+      <li class="card">I am an Army Cadet.</li>
+      <li class="card">Soon I will take an oath and become an Army officer committed to DEFENDING the values which make this Nation great.</li>
+      <li class="card">HONOR is my touchstone.</li>
+      <li class="card">I understand MISSION first and PEOPLE always.</li>
+      <li class="card">I am the PAST - the spirit of those WARRIORS who made the final sacrifice.</li>
+      <li class="card">I am the PRESENT - the scholar and apprentice soldier enhancing my skills in the science of war and art of leadership.</li>
+      <li class="card">But above all, I am the FUTURE – the future WARRIOR LEADER of the United States Army. May God give me the compassion and judgment to lead and the gallantry in battle to WIN.</li>
+      <li class="card">I WILL do myDUTY.</li>
+    </ul>
+    
+      </section>
+    </div>
+    <div class="section-wrap">
+      <section class="post">
+        <h1>U.S. Army Cadet Command Vision</h1>
+        <ul class = "ul1">
+          <li class="card">U.S. Army Cadet Command is America's preeminent leadership program, academically unrivaled, sought out by students, staffed by master level leader development professionals and achieving.</li>
+        </ul>
+      </section>
+    </div>
+    <div class="section-wrap">
+      <section class="post">
+        <h1>Department of Military Science Leadership Philosophy</h1>
+        <ul class = "ul1">
+          <li class="card">Lead like you want to be led, follow like you want to be followed and be a team player.</li>
+          <li class="card">Do what is right – embrace the Army Values.</li>
+          <li class="card">Take care of and each other; treat everyone with dignity and respect.</li>
+          <li class="card">Train, Teach & Mentor.</li>
+          <li class="card">Account for and maintain equipment & property.</li>
+          <li class="card">Be positive – optimism & enthusiasm.</li>
+        </ul>
+      </section>
+    </div>
+    <div class="section-wrap">
+      <section class="post">
+        <h1>Department of Military Science Endstate</h1>
+        <ul class = "ul1">
+          <li class="card">Cadets commission from the Royal Warrior Battalion and enter the Army as Second Lieutenants who are competent, fit, professional, and caring leaders who possess the skills to go forward and successfully serve the Army.</li>
+        </ul>
+      </section>
+    </div>
+    <script>
+      const sections = document.querySelectorAll('.section-wrap');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+    
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    </script>
+    {% endblock %}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'major';
+    src: url('fonts/major.ttf') format('opentype');
+  }
+body {
+    font-family: 'major', sans-serif;
+    background-color: #0c0f15;
+    color: white;
+  }
+
+  table,td,th{
+    font-family: 'major', sans-serif;
+    color: white;
+  }
