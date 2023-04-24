@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'major';
+    src: url('fonts/major.ttf') format('truetype');
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background: linear-gradient(#141e30, #243b55);
+    padding: 1rem;
+    overflow-y: auto;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 1rem;
+    font-family: 'major', sans-serif;
+    
+    
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-family: 'major', sans-serif;
+    color: #edaa13;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'Arial', sans-serif;
+    color: lightgray;
+    text-align: left;
+    
+  }
+  body{
+    background: linear-gradient(#141e30, #243b55);
+  }

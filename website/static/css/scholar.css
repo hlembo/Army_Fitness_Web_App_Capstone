@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'major';
+    src: url('fonts/major.ttf') format('truetype');
+  }
+
+
+  .content {
+    margin-left: 250px;
+    padding: 1rem;
+    
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-family: 'major', sans-serif;
+    color: #edaa13;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-family: 'Arial', sans-serif;
+    color: lightgray;
+    text-align: left;
+    text-indent: 2em;
+    
+  }
+  body{
+    background: linear-gradient(#141e30, #243b55);
+    text-align: center;
+  }
+

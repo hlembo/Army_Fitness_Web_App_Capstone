@@ -1,5 +1,60 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-
-{% block content %}
-{% endblock %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<br>
+<br>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bh.css') }}" />
+<div class="d-flex">
+  <nav class="sidebar">
+    <a class="navbar-brand" href="#">Royal Warrior Battalion History</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#section1">Royal Warriors 1951-1995</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#section2">Royal Warriors 1996 - Present</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#section3">History of the Battalion Crest</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#section4">Royal Warrior Battalion Pride</a>
+      </li>
+      <!-- Add more navigation items similarly -->
+    </ul>
+  </nav>
+  <div class="content">
+    <!-- Add IDs to your section headings -->
+    <h2 class="section-title mb-4" id="section1">Royal Warriors 1951-1995</h2>
+    <p class="mb-3">The program we now know as the Reserve Officer Training Corps (ROTC) was instituted in 1916 during World War I to prepare leaders for military service in Europe. In 1951, during the Korean War, Army ROTC was established at the University of Scranton with the first individuals earning their commissions from the program in 1955. During the 1950s and 1960s, the university was all male, thus every student was required to take ROTC for the first two years. During this time the Cadet regiment was over a thousand strong and Army ROTC offered a host of activities to include a Cadet Band, Cadet Rifle Team, and Pershing Rifles, a Cadet led Drill and Ceremony Team. From the late-1950s through the mid-1960s the Battalion regularly commissioned thirty or more Second Lieutenants. It should be noted that during the 1950s and early 1960s the program also commissioned several officers who went on to serve in the United States Marine Corps. </p>
+    <p>In 1969 ROTC became voluntary and the university became co-educational. Cadet enrollment declined significantly during the Vietnam Conflict and in the early 1970s the program almost closed. Reverend Joseph A. Rock, who was very passionate about keeping the program, wrote to congress in 1975 and the closure was averted. The Reverend Rock was also instrumental in the creation of the ROTC unit crest which is still worn by cadets to this day. In 1996 the NEPA (North East Pennsylvania) ROTC moved its headquarters to “Rock Hall” named for the Reverend who devoted so much time and support to the program. The program steadily grew in strength again until the early 1990's when the cadet population numbered around 100. In 1994, the battalion was officially renamed the "North East Pennsylvania Battalion". In 1995 Father Panuska, the University President, once again placed emphasis on ROTC and the “Royal Warrior Battalion” has been expanding since that time. Several incentives, such as free room and board were approved for students who won high school ROTC Scholarships and the University became an Army Partner in Nursing Education.</p>
+    <!-- ... -->
+    <h2 class="section-title mb-4" id="section2">Royal Warriors 1996 - Present</h2>
+    <p class="mb-3">In 1997, the Royal Warrior Battalion won the Best ROTC Unit Award competing against 130 other ROTC battalions in the First ROTC Region. In 1998, the program became one of the first in the nation to approve a minor in Leadership centered mainly around the ROTC program of instruction. </p>
+    <p class="mb-3">The Royal Warrior’s Ranger Challenge team won the Darby Division in 2009. The Ranger Challenge event tests the Cadet’s ability to navigate rope bridge crossings in a timed event, weapons assembly and disassembly, timed road march on a 10K course, the army physical fitness test, day and night land navigation, evacuation of a casualty, and orienteering and patrolling techniques. This competition is an annual event the Royal Warriors compete in against 41 other colleges and Universities. All ROTC cadets learn the skills used during the Ranger Challenge competition and the best of the best get to challenge the other schools. In 2010 and 2011 the Battalion was recognized by U.S. Army Cadet Command and the 2nd ROTC Brigade during the annual Commander's Conference for exceeding both the unit's Line and Nurse Commission Missions. </p>
+    <p class="mb-3">Through the years training opportunities for Cadets have become more advanced and grown in number. Royal Warrior Cadets now routinely spend their summers engaged in exciting training, such as Airborne School, Air Assault School, the Mountain Warfare or Northern Warfare courses, as well as the Leaders Development and Assessment Course at Fort Knox, Kentucky.</p>
+    <p class="mb-3">Cadets also take part in Cadet Professional Development programs, such as Cadet Troop Leader Training, Project "GO" Language Training and the Cultural Understanding and Language Program (CULP). These Professional Development and Training programs afford Cadets the opportunity to train across the United States and around the globe. The training is challenging, rewarding, and provides a glimpse into the exciting career before them. Since 2010 Cadets from the Royal Warrior Battalion have participated in CULP deployments to Costa Rica, Romania, Estonia, Spain, Indonesia, Togo and Tanzania. </p>
+    <p class="mb-3">The Royal Warrior Battalion Cadets have always been active in the community. Cadets are often speakers at Veteran Day ceremonies, provide Color Guards for special events or participate in the annual Susan G. Komen “Race for the Cure.” In 2012 Cadets and Cadre from the Battalion participated in the New York City Saint Patrick's Day parade, as well as the city’s Veterans Day parade in both 2012 and 2013.</p>
+    <p class="mb-3"> Since its inception in 1951, six decades ago, the Royal Warrior Battalion has enjoyed a storied and rich history. The program's alumni have gone to the far corners of the globe and back to serve the Army and the Nation. Officers from the Royal Warrior Battalion have served in operations ranging from counter-insurgency to humanitarian assistance. The Royal Warrior Battalion has commissioned 1,130 Second Lieutenants in the Active Army, Army National Guard and U.S. Army Reserve.</p>
+    <!-- ... -->
+    <h2 class="section-title mb-4" id="section3">History of the Battalion Crest</h2>
+    <p class="mb-3" ><u>COLORS OF THE SHIELD:</u> Royal purple and white, the original and traditional colors of the University of Scranton and its predecessor, are employed as the principle tinctures of the shield. The black border is representative of the border of the Coats of Arms of the Diocese of Scranton, the Ecclesiastical Jurisdiction in which the University of Scranton is located. </p>
+    <p class="mb-3"><u>LION:</u> The Lion, symbolic of strength and intelligence, is used in the unit patch to designate the strength of the University’s ROTC Detachment, as well as the Armed Forces in general. </p>
+    <p class="mb-3"><u>CROSS:</u> The Cross represented in the patch is a “Cross Patonce” and symbolizes Christ. As such, it is used in the patch to identify the University of Scranton as a Catholic Institution. </p>
+    <p class="mb-3"><u>LIGHTING BOLT</u>: The Lighting Bolt, striking through the center of the patch, is symbolic of the strength of the Church and the Military as represented by the University of Scranton and the ROTC Detachment. Since this ROTC Detachment is under the jurisdiction of the Training and Doctrine Command, the color of the lightning bolt is representative of the red found in the TRADOC patch.</p>
+    <p class="mb-3"><u>KEYSTONE:</u>  The Keystone found in the corner of the patch, is representative of the State of Pennsylvania: The Keystone State. It is therefore intended to signify the University of Scranton as being located in the State of Pennsylvania. It is also representative in the university was chartered by the Commonwealth of Pennsylvania.</p>
+    <!-- ... -->
+    <h2 class="section-title mb-4" id="section4">Royal Warrior Battalion Pride</h2>
+    <p class="mb-3">2013 2nd ROTC Brigade Legion of Valor Bronze Cross For Achievement: Cadet Christian Burne Philadelphia Chapter of the Military Order of World Wars - 2013 Colonel and Mrs Michael Strayer Award Winner: Cadet Michael Shannon Tobyhanna Army Depot Warfighter of the Quarter - 3rd Quarter FY 2013: Senior Military Instructor Master Sergeant Roland Cuellar.</p>
+    <!-- ... -->
+    <!-- Add more content here -->
+  </div>
+</div>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script> {% endblock %}
